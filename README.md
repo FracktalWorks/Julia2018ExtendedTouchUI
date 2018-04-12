@@ -34,3 +34,7 @@ The MainGUI.py file is generated from the Test2.ui file using
 ..* Change into the OctoPrint folder: cd Julia2018Octoprint
 ..* Create a user-owned virtual environment therein: virtualenv venv
 ..* Install OctoPrint into that virtual environment: ./venv/bin/python setup.py install
+..* Follow other instructions for automatic startup
+
+2. Install TouchUI into Octoprint:
+..*
