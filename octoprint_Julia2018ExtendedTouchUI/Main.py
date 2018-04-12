@@ -311,7 +311,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.step7NextButton.clicked.connect(self.step8)
         self.moveZMCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=-0.05))
         self.moveZPCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=0.05))
-        self.step8NextButton.clicked.connect(self.doneStep)
+        self.step8DoneButton.clicked.connect(self.doneStep)
         self.step1CancelButton.pressed.connect(self.cancelStep)
         self.step2CancelButton.pressed.connect(self.cancelStep)
         self.step3CancelButton.pressed.connect(self.cancelStep)
