@@ -100,11 +100,15 @@ server:
     systemShutdownCommand: sudo shutdown now
   firstRun: true
   host: 127.0.0.1
-  secretKey: WT1JA4JrYuRnA4Fpr1XFNYXReyDGEeFH
+  onlineCheck:
+    enabled: true
+  pluginBlacklist:
+    enabled: false
   seenWizards:
     corewizard: null
     cura: null
     softwareupdate: null
+
 system:
   actions:
   - action: streamon
