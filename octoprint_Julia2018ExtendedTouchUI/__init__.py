@@ -32,7 +32,7 @@ import octoprint.plugin
 # 			self.is_running = False
 
 
-class JuliaMiniTouchUI(octoprint.plugin.StartupPlugin):
+class Julia2018ExtendedTouchUI(octoprint.plugin.StartupPlugin):
 	def on_after_startup(self):
 		# self.resetInetrval = int(self._settings.get(["resetInetrval"]))
 		self._logger.info("TouchUI Plugin Started")
@@ -74,7 +74,7 @@ class JuliaMiniTouchUI(octoprint.plugin.StartupPlugin):
 
 
 __plugin_name__ = "Julia2018ExtendedTouchUI"
-__plugin_version__ = "1.0.3"
+__plugin_version__ = "1.0.4"
 
 
 def __plugin_load__():
