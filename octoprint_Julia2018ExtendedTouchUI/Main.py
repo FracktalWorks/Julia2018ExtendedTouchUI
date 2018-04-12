@@ -1224,6 +1224,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
     def control(self):
         self.stackedWidget.setCurrentWidget(self.controlPage)
         self.toolTempSpinBox.setProperty("value", float(self.tool0TargetTemperature.text()))
+        self.bedTempSpinBox.setProperty("value", float(self.bedTargetTemperature.text()))
+
 
     def setStep(self, stepRate):
         '''
