@@ -1450,7 +1450,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         '''
         self.stackedWidget.setCurrentWidget(self.step6Page)
         octopiclient.jog(z=10, absolute=True)
-        octopiclient.jog(x=142, y=0, absolute=True)
+        octopiclient.jog(x=142, y=40, absolute=True)
         octopiclient.jog(z=2, absolute=True)
 
 
@@ -1736,10 +1736,14 @@ class QtWebsocket(QtCore.QThread):
             if data["current"]["temps"]:
                 try:
                     temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
-                                    'tool0Target': data["current"]["temps"][0]["tool0"]["target"]}
+                                    'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
+                                    'bedActual': data["current"]["temps"][0]["bed"]["actual"],
+                                    'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
                 except KeyError:
                     temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
-                                    'tool0Target': data["current"]["temps"][0]["tool0"]["target"]}
+                                    'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
+                                    'bedActual': data["current"]["temps"][0]["bed"]["actual"],
+                                    'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
                 self.emit(QtCore.SIGNAL('TEMPERATURES'), temperatures)
 
     def on_open(self, ws):
