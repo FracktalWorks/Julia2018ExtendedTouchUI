@@ -380,7 +380,7 @@ class Ui_MainWindow(object):
         self.timeLeft.setWordWrap(False)
         self.timeLeft.setObjectName(_fromUtf8("timeLeft"))
         self.printerStatus = QtGui.QLabel(self.homePage)
-        self.printerStatus.setGeometry(QtCore.QRect(40, 0, 381, 51))
+        self.printerStatus.setGeometry(QtCore.QRect(40, 0, 441, 51))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(12)
@@ -392,6 +392,7 @@ class Ui_MainWindow(object):
         self.printerStatus.setStyleSheet(_fromUtf8("\n"
 "background-color: rgba(255, 255, 255, 0);"))
         self.printerStatus.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.printerStatus.setWordWrap(True)
         self.printerStatus.setObjectName(_fromUtf8("printerStatus"))
         self.controlButton = QtGui.QPushButton(self.homePage)
         self.controlButton.setGeometry(QtCore.QRect(110, 240, 111, 61))
@@ -838,7 +839,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 398, 700))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 478, 700))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.verticalLayout = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setContentsMargins(0, 0, 3, 0)
@@ -5815,7 +5816,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.controlTabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

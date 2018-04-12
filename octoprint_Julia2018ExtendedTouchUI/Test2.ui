@@ -173,7 +173,7 @@ QStatusBar::item {
 background-color: rgb(40, 40, 40);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="loadingPage">
      <widget class="QLabel" name="LoadingLabel">
@@ -791,7 +791,7 @@ background-color: rgba(255, 255, 255, 0);</string>
        <rect>
         <x>40</x>
         <y>0</y>
-        <width>381</width>
+        <width>441</width>
         <height>51</height>
        </rect>
       </property>
@@ -814,6 +814,9 @@ background-color: rgba(255, 255, 255, 0);</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="controlButton">
@@ -1607,7 +1610,7 @@ QScrollBar::down-arrow:vertical {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>398</width>
+         <width>478</width>
          <height>700</height>
         </rect>
        </property>
