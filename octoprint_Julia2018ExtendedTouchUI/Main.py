@@ -32,7 +32,6 @@ import os
 import serial
 import io
 
-if
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)  # Use the board numbering scheme
