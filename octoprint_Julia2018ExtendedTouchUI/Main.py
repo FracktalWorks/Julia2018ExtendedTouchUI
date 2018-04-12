@@ -98,9 +98,9 @@ filaments = {"ABS": 220,
              "WoodFill": 200,
              "CopperFill": 180
              }
-caliberationPosition = { 'X1': 236, 'Y1': 52,
-                         'X2': 50, 'Y2': 52,
-                         'X3': 145, 'Y3': 215
+caliberationPosition = { 'X1': 222, 'Y1': 40,
+                         'X2': 38, 'Y2': 40,
+                         'X3': 130, 'Y3': 248
                          }
 
 try:
@@ -1779,7 +1779,7 @@ class sanityCheckThread(QtCore.QThread):
                 result = result.split('\n')  # each ssid and pass from an item in a list ([ssid pass,ssid paas])
                 result = [s.strip() for s in result]
                 for line in result:
-                    if 'ch341-uart' in line:
+                    if 'FTDI' in line:
                         self.MKSPort = line[line.index('ttyUSB'):line.index('ttyUSB') + 7]
                         print self.MKSPort
 

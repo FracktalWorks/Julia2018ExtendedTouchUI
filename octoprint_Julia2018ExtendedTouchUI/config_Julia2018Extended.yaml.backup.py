@@ -46,20 +46,25 @@ plugins:
   _disabled:
   - cura
   announcements:
-    channels:
-    _blog:
-    read_until: 1522320900
-    _important:
-    read_until: 1521111600
-    _octopi:
-    read_until: 1521023400
-    _plugins:
-    read_until: 1523232000
-    _releases:
+    _blog: null
+    _important: null
+    _octopi: null
+    _plugins: null
+    _releases: null
+    channels: null
     read_until: 1523285400
   firmwareupdater:
+    avrdude_avrmcu: m2560
+    avrdude_baudrate: '115200'
     avrdude_path: /usr/bin/avrdude
+    avrdude_programmer: wiring
     check_after_connect: false
+    flash_method: avrdude
+  softwareupdate:
+    _config_version: 6
+    check_providers:
+      Julia2018ExtendedTouchUI: Julia2018ExtendedTouchUI
+      firmwareupdater: firmwareupdater
 printerProfiles:
   defaultProfile:
     axes:
@@ -91,6 +96,7 @@ printerProfiles:
       origin: lowerleft
       width: 300.0
 serial:
+  autoconnect: true
   baudrate: 115200
   port: /dev/ttyUSB0
 server:
@@ -100,15 +106,13 @@ server:
     systemShutdownCommand: sudo shutdown now
   firstRun: true
   host: 127.0.0.1
-  onlineCheck:
-    enabled: true
   pluginBlacklist:
     enabled: false
+  secretKey: 1QM9QG2FnNY6AvLbTZWZ8k6N5L1qKzqk
   seenWizards:
-    corewizard: null
+    corewizard: 3
     cura: null
     softwareupdate: null
-
 system:
   actions:
   - action: streamon
@@ -121,5 +125,5 @@ system:
     name: Stop video stream
 webcam:
   ffmpeg: /usr/bin/avconv
-  snapshot: http://127.0.0.1:8080/?action=snapshot
-  stream: /webcam/?action=stream
+  snapshot: ''
+  stream: ''
