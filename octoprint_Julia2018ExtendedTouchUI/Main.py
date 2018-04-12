@@ -98,9 +98,9 @@ filaments = {"ABS": 220,
              "WoodFill": 200,
              "CopperFill": 180
              }
-caliberationPosition = { 'X1': 222, 'Y1': 40,
-                         'X2': 38, 'Y2': 40,
-                         'X3': 130, 'Y3': 248
+caliberationPosition = { 'X1': 222, 'Y1': 41,
+                         'X2': 38, 'Y2': 41,
+                         'X3': 130, 'Y3': 249
                          }
 
 try:
@@ -1255,8 +1255,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         octopiclient.gcode(command='M107')
         octopiclient.setToolTemperature({"tool0": 0})
         # octopiclient.setToolTemperature({"tool0": 0})
-
+        octopiclient.setBedTemperature(0)
         self.toolTempSpinBox.setProperty("value", 0)
+        self.bedTempSpinBox.setProperty("value", 0)
 
 
     ''' +++++++++++++++++++++++++++++++++++Caliberation++++++++++++++++++++++++++++++++ '''
