@@ -977,7 +977,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             if exists:
                 self.printPreviewSelectedUSB.setPixmap(QtGui.QPixmap(_fromUtf8(file)))
             else:
-                self.printPreviewSelectedUSB.setPixmap(QtGui.QPixmap(_fromUtf8("templates/img/printer2.png")))
+                self.printPreviewSelectedUSB.setPixmap(QtGui.QPixmap(_fromUtf8("templates/img/thumbnail.png")))
         except:
             print "Log: Nothing Selected"
 
@@ -1158,7 +1158,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
                     pixmap.loadFromData(img)
                     self.printPreviewMain.setPixmap(pixmap)
                 else:
-                    self.printPreviewMain.setPixmap(QtGui.QPixmap(_fromUtf8("templates/img/printer2.png")))
+                    self.printPreviewMain.setPixmap(QtGui.QPixmap(_fromUtf8("templates/img/thumbnail.png")))
 
     def updateStatus(self, status):
         '''
