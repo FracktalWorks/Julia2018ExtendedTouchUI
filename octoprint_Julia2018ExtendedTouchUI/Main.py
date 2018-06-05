@@ -98,8 +98,8 @@ filaments = {"ABS": 220,
              "WoodFill": 200,
              "CopperFill": 180
              }
-caliberationPosition = { 'X1': 222, 'Y1': 41,
-                         'X2': 38, 'Y2': 41,
+caliberationPosition = { 'X1': 203, 'Y1': 31,
+                         'X2': 58, 'Y2': 31,
                          'X3': 130, 'Y3': 249
                          }
 
@@ -1478,7 +1478,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         :return:
         '''
         self.stackedWidget.setCurrentWidget(self.caliberatePage)
-        self.setHomeOffsetBool = True
+        self.setHomeOffsetBool = True #When this is true, M114 value gets stored as Z offset
         octopiclient.gcode(command='M114')
         # set current Z value as -home offset
 
