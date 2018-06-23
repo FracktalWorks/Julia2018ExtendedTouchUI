@@ -173,7 +173,7 @@ QStatusBar::item {
 background-color: rgb(40, 40, 40);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>16</number>
     </property>
     <widget class="QWidget" name="loadingPage">
      <widget class="QLabel" name="LoadingLabel">
@@ -1610,7 +1610,7 @@ QScrollBar::down-arrow:vertical {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>478</width>
+         <width>398</width>
          <height>700</height>
         </rect>
        </property>
@@ -3401,7 +3401,237 @@ QToolButton:focus {
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="step1Page">
+    <widget class="QWidget" name="caliberationWizardPage">
+     <widget class="QPushButton" name="quickCaliberationButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>110</y>
+        <width>481</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+      </property>
+      <property name="text">
+       <string>Quick Caliberation</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>templates/img/add.png</normaloff>templates/img/add.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="caliberationWizardLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>321</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>18</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Caliberation Wizard:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="fullCaliberationButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>180</y>
+        <width>481</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+      </property>
+      <property name="text">
+       <string>Full Caliberation</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>templates/img/reload.png</normaloff>templates/img/reload.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="caliberationWizardBackButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>250</y>
+        <width>481</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>templates/img/arrows-4.png</normaloff>templates/img/arrows-4.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="quickStep1Page">
      <widget class="QLabel" name="caliberateLabel_6">
       <property name="geometry">
        <rect>
@@ -3429,7 +3659,7 @@ QToolButton:focus {
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="step1NextButton">
+     <widget class="QPushButton" name="quickStep1NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -3479,7 +3709,7 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="step1CancelButton">
+     <widget class="QPushButton" name="quickStep1CancelButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -3548,66 +3778,8 @@ QPushButton:focus {
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateLabel_16">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_5">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>60</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <zorder>caliberateLabel_16</zorder>
-     <zorder>caliberateLabel_6</zorder>
-     <zorder>step1NextButton</zorder>
-     <zorder>step1CancelButton</zorder>
-     <zorder>printPreviewSelected_3</zorder>
-     <zorder>caliberateLabel_5</zorder>
     </widget>
-    <widget class="QWidget" name="step2Page">
+    <widget class="QWidget" name="quickStep2Page">
      <widget class="QLabel" name="caliberateLabel_7">
       <property name="geometry">
        <rect>
@@ -3635,7 +3807,7 @@ border: 1px solid green;</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="step2NextButton">
+     <widget class="QPushButton" name="quickStep2NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -3685,7 +3857,7 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="step2CancelButton">
+     <widget class="QPushButton" name="quickStep2CancelButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -3735,66 +3907,9 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateLabel_21">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_8">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>120</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <zorder>caliberateLabel_21</zorder>
-     <zorder>caliberateLabel_7</zorder>
-     <zorder>step2NextButton</zorder>
-     <zorder>step2CancelButton</zorder>
-     <zorder>caliberateLabel_8</zorder>
     </widget>
-    <widget class="QWidget" name="step3Page">
-     <widget class="QPushButton" name="step3CancelButton">
+    <widget class="QWidget" name="quickStep3Page">
+     <widget class="QPushButton" name="quickStep3CancelButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -3844,7 +3959,7 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="step3NextButton">
+     <widget class="QPushButton" name="quickStep3NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -3921,66 +4036,9 @@ QPushButton:focus {
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateLabel_22">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_15">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>180</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <zorder>caliberateLabel_22</zorder>
-     <zorder>step3CancelButton</zorder>
-     <zorder>step3NextButton</zorder>
-     <zorder>caliberateLabel_10</zorder>
-     <zorder>caliberateLabel_15</zorder>
     </widget>
-    <widget class="QWidget" name="step4Page">
-     <widget class="QPushButton" name="step4CancelButton">
+    <widget class="QWidget" name="quickStep4Page">
+     <widget class="QPushButton" name="quickStep4CancelButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -4030,7 +4088,7 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="step4NextButton">
+     <widget class="QPushButton" name="quickStep4NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -4107,65 +4165,8 @@ QPushButton:focus {
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateLabel_23">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_11">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>240</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <zorder>caliberateLabel_23</zorder>
-     <zorder>step4CancelButton</zorder>
-     <zorder>step4NextButton</zorder>
-     <zorder>caliberateLabel_12</zorder>
-     <zorder>caliberateLabel_11</zorder>
     </widget>
-    <widget class="QWidget" name="step5Page">
+    <widget class="QWidget" name="quickStep5Page">
      <widget class="QLabel" name="caliberateLabel_25">
       <property name="geometry">
        <rect>
@@ -4193,59 +4194,7 @@ border: 1px solid green;</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateLabel_92">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>300</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_93">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="step5NextButton">
+     <widget class="QPushButton" name="quickStep5NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -4295,7 +4244,7 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="step5CancelButton">
+     <widget class="QPushButton" name="quickStep5CancelButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -4345,39 +4294,9 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <zorder>caliberateLabel_93</zorder>
-     <zorder>caliberateLabel_25</zorder>
-     <zorder>caliberateLabel_92</zorder>
-     <zorder>step5NextButton</zorder>
-     <zorder>step5CancelButton</zorder>
     </widget>
-    <widget class="QWidget" name="step6Page">
-     <widget class="QLabel" name="caliberateLabel_17">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>360</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="step6NextButton">
+    <widget class="QWidget" name="fullStep1Page">
+     <widget class="QPushButton" name="fullStep1NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -4427,12 +4346,62 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateNozzleHeightLabel_2">
+     <widget class="QPushButton" name="fullStep1CancelButton">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>260</y>
+        <width>241</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="caliberateLabel_26">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>20</y>
-        <width>471</width>
+        <y>10</y>
+        <width>481</width>
         <height>81</height>
        </rect>
       </property>
@@ -4448,97 +4417,15 @@ QPushButton:focus {
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>We shall now set the height of the nozzle from the bed. Wait for the movements to finish, and then click Next.</string>
+       <string>We shall now fine tune the bed caliberation. Wait for moves to finish then click Next. </string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="step6CancelButton">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>260</y>
-        <width>241</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-
-
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-      </property>
-      <property name="text">
-       <string>Cancel</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_42">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <zorder>caliberateLabel_42</zorder>
-     <zorder>caliberateLabel_17</zorder>
-     <zorder>step6NextButton</zorder>
-     <zorder>caliberateNozzleHeightLabel_2</zorder>
-     <zorder>step6CancelButton</zorder>
     </widget>
-    <widget class="QWidget" name="step7Page">
-     <widget class="QPushButton" name="step7NextButton">
+    <widget class="QWidget" name="fullStep2Page">
+     <widget class="QPushButton" name="fullStep2NextButton">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -4588,86 +4475,7 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <widget class="QLabel" name="caliberateLabel_87">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>420</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_88">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">    border: 1px solid rgb(87, 87, 87);
- /*  border-bottom-left-radius: 10px;
- border-bottom-right-radius: 10px;*/
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_89">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>20</y>
-        <width>471</width>
-        <height>101</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string>Use a sheet of paper, and slide it under the nozzle while moving the bed upwards, untill the paper is just unable to slide. Click Next to start this process</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="step7CancelButton">
+     <widget class="QPushButton" name="fullStep2CancelButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -4717,145 +4525,11 @@ QPushButton:focus {
        </size>
       </property>
      </widget>
-     <zorder>caliberateLabel_88</zorder>
-     <zorder>step7NextButton</zorder>
-     <zorder>caliberateLabel_87</zorder>
-     <zorder>caliberateLabel_89</zorder>
-     <zorder>step7CancelButton</zorder>
-    </widget>
-    <widget class="QWidget" name="step8Page">
-     <widget class="QPushButton" name="step8CancelButton">
+     <widget class="QPushButton" name="moveZMFullCaliberateButton">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>261</y>
-        <width>241</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-
-
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-      </property>
-      <property name="text">
-       <string>Cancel</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="step8DoneButton">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>261</y>
-        <width>241</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-
-
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-      </property>
-      <property name="text">
-       <string>Done</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_90">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>21</y>
-        <width>471</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string>Move the bed towards the Nozzle untill the paper stops sliding</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="moveZPCaliberateButton">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>161</y>
+        <x>300</x>
+        <y>150</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -4877,105 +4551,7 @@ QPushButton:focus {
      border: 1px solid rgb(87, 87, 87);
 
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>templates/img/arrows-5.png</normaloff>templates/img/arrows-5.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="caliberateLabel_91">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>1</y>
-        <width>481</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));
-border: 1px solid green;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="moveZMCaliberateButton">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>70</y>
-        <width>161</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Gotham</family>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
 
@@ -5002,6 +4578,133 @@ QPushButton:focus {
       <property name="icon">
        <iconset>
         <normaloff>templates/img/arrows.png</normaloff>templates/img/arrows.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="caliberateLabel_8">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>471</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Move the bed up or down using the buttons below while sliding paper underneath the Nozzle until you can just feel the Nozzle scraping against the paper.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pointLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>160</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Point 1 of 9</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="moveZPFullCaliberateButton">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>150</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>templates/img/arrows-5.png</normaloff>templates/img/arrows-5.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -7189,7 +6892,7 @@ QTabBar:focus {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -7215,11 +6918,11 @@ QTabBar:focus {
        <attribute name="title">
         <string/>
        </attribute>
-       <widget class="QLabel" name="flowRateLabelControlPage_2">
+       <widget class="QLabel" name="feedRateLabelControlPage">
         <property name="geometry">
          <rect>
-          <x>65</x>
-          <y>40</y>
+          <x>0</x>
+          <y>10</y>
           <width>181</width>
           <height>31</height>
          </rect>
@@ -7227,7 +6930,7 @@ QTabBar:focus {
         <property name="font">
          <font>
           <family>Gotham Light</family>
-          <pointsize>20</pointsize>
+          <pointsize>15</pointsize>
           <weight>50</weight>
           <bold>false</bold>
          </font>
@@ -7240,113 +6943,86 @@ background-color: rgba(255, 255, 255, 0);</string>
          <string>Feed Rate :</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="feedRateSpinBox">
+       <widget class="QPushButton" name="moveZMBabyStep">
         <property name="geometry">
          <rect>
-          <x>62</x>
-          <y>28</y>
-          <width>241</width>
-          <height>136</height>
+          <x>310</x>
+          <y>170</y>
+          <width>161</width>
+          <height>91</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
         </property>
         <property name="font">
          <font>
           <family>Gotham</family>
-          <pointsize>24</pointsize>
+          <pointsize>15</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QSpinBox {
-    padding-right: 5px; /* make room for the arrows */
-	color: rgb(255, 255, 255);
-	background-color: rgba(255, 255, 255, 0);
-   
-}
-QSpinBox ::text:selected {
-	background-color: rgb(255, 146, 57);
-   
-}
-QSpinBox::up-button {
+         <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 
-border-top-left-radius: 15px;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    width: 60px;
-     height: 61px;
-    padding: 2px;
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
 }
 
-QSpinBox::up-arrow { image: url(./templates/img/arrows.png);
-    width: 40px;
-     height: 40px;
-padding: 5px; }
-
-
-
-QSpinBox::up-button:pressed {
+QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 #dadbde, stop: 1 #f6f7fa);
 }
 
-
-QSpinBox::down-button {
-     border: 1px solid rgb(87, 87, 87);
-border-bottom-left-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    width: 60px;
-     height: 61px;
-    padding: 2px;
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
 }
 
-QSpinBox::down-arrow {image: url(./templates/img/arrows-5.png);
-    width: 40px;
-     height: 40px;
-padding: 5px;
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
 }
 
-QSpinBox::down-button:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-
-}
-
-</string>
+QPushButton:focus {
+	outline: none;
+}</string>
         </property>
-        <property name="frame">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>templates/img/arrows.png</normaloff>templates/img/arrows.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="checkable">
          <bool>false</bool>
         </property>
-        <property name="readOnly">
+        <property name="autoDefault">
          <bool>false</bool>
         </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::UpDownArrows</enum>
+        <property name="default">
+         <bool>false</bool>
         </property>
-        <property name="accelerated">
-         <bool>true</bool>
-        </property>
-        <property name="suffix">
-         <string>%</string>
-        </property>
-        <property name="minimum">
-         <number>50</number>
-        </property>
-        <property name="maximum">
-         <number>200</number>
-        </property>
-        <property name="singleStep">
-         <number>1</number>
-        </property>
-        <property name="value">
-         <number>100</number>
+        <property name="flat">
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QPushButton" name="setFeedRateButton">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>30</y>
+          <x>388</x>
+          <y>11</y>
           <width>91</width>
-          <height>132</height>
+          <height>119</height>
          </rect>
         </property>
         <property name="font">
@@ -7395,9 +7071,205 @@ QPushButton:focus {
          </size>
         </property>
        </widget>
-       <zorder>feedRateSpinBox</zorder>
-       <zorder>flowRateLabelControlPage_2</zorder>
-       <zorder>setFeedRateButton</zorder>
+       <widget class="QLabel" name="flowRateLabelControlPage_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>130</y>
+          <width>421</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gotham Light</family>
+          <pointsize>15</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
+        </property>
+        <property name="text">
+         <string>Tune Bed Height during Print :</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="moveZPBabyStep">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>170</y>
+          <width>161</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gotham</family>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>templates/img/arrows-5.png</normaloff>templates/img/arrows-5.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="feedRateSpinBox">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>10</y>
+          <width>241</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gotham</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QSpinBox {
+    padding-right: 5px; /* make room for the arrows */
+	color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0);
+   
+}
+QSpinBox ::text:selected {
+	background-color: rgb(255, 146, 57);
+   
+}
+QSpinBox::up-button {
+     border: 1px solid rgb(87, 87, 87);
+
+
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    width: 60px;
+     height: 54px;
+    padding: 2px;
+border-top-left-radius: 15px;
+}
+
+QSpinBox::up-arrow { image: url(./templates/img/arrows.png);
+    width: 40px;
+     height: 40px;
+padding: 5px; }
+
+
+
+QSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+
+QSpinBox::down-button {
+     border: 1px solid rgb(87, 87, 87);
+border-bottom-left-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    width: 60px;
+     height: 54px;
+    padding: 2px;
+}
+
+QSpinBox::down-arrow {image: url(./templates/img/arrows-5.png);
+    width: 40px;
+     height: 40px;
+padding: 5px;
+}
+
+QSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+
+}
+
+</string>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::UpDownArrows</enum>
+        </property>
+        <property name="accelerated">
+         <bool>true</bool>
+        </property>
+        <property name="suffix">
+         <string>%</string>
+        </property>
+        <property name="minimum">
+         <number>50</number>
+        </property>
+        <property name="maximum">
+         <number>200</number>
+        </property>
+        <property name="singleStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>100</number>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="temperatureTab">
        <attribute name="icon">

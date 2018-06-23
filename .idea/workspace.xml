@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f3bfca3-6a62-46bf-a4a3-5a39cfeecc16" name="Default" comment="" />
+    <list default="true" id="5f3bfca3-6a62-46bf-a4a3-5a39cfeecc16" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/Test2.ui" afterPath="$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/Test2.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/__init__.py" afterPath="$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/mainGUI.py" afterPath="$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/mainGUI.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+    </list>
     <ignored path="Julia3GTouchUI.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +38,8 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="1400" column="42" selection-start-line="1400" selection-start-column="42" selection-end-line="1400" selection-end-column="42" />
+            <state relative-caret-position="4708">
+              <caret line="382" column="76" selection-start-line="382" selection-start-column="76" selection-end-line="382" selection-end-column="76" />
               <folding>
                 <element signature="e#19#285#1" expanded="false" />
                 <element signature="e#818#2189#1" expanded="false" />
@@ -282,7 +287,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1529673146032" expanded="true" signature="715:37683" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -300,8 +307,8 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+            <state relative-caret-position="439">
+              <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -609,7 +616,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="1" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.090625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -821,7 +828,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1529673146032" expanded="true" signature="715:37683" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -835,8 +844,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="1400" column="42" selection-start-line="1400" selection-start-column="42" selection-end-line="1400" selection-end-column="42" />
+        <state relative-caret-position="4708">
+          <caret line="382" column="76" selection-start-line="382" selection-start-column="76" selection-end-line="382" selection-end-column="76" />
           <folding>
             <element signature="e#19#285#1" expanded="false" />
             <element signature="e#818#2189#1" expanded="false" />
@@ -1078,8 +1087,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ExtendedTouchUI/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+        <state relative-caret-position="439">
+          <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
           <folding />
         </state>
       </provider>

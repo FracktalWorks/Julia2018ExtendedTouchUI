@@ -839,7 +839,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 478, 700))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 398, 700))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.verticalLayout = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setContentsMargins(0, 0, 3, 0)
@@ -1923,9 +1923,124 @@ class Ui_MainWindow(object):
         self.caliberationWizardButton.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
         self.caliberationWizardButton.setObjectName(_fromUtf8("caliberationWizardButton"))
         self.stackedWidget.addWidget(self.caliberatePage)
-        self.step1Page = QtGui.QWidget()
-        self.step1Page.setObjectName(_fromUtf8("step1Page"))
-        self.caliberateLabel_6 = QtGui.QLabel(self.step1Page)
+        self.caliberationWizardPage = QtGui.QWidget()
+        self.caliberationWizardPage.setObjectName(_fromUtf8("caliberationWizardPage"))
+        self.quickCaliberationButton = QtGui.QPushButton(self.caliberationWizardPage)
+        self.quickCaliberationButton.setGeometry(QtCore.QRect(0, 110, 481, 71))
+        self.quickCaliberationButton.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham Light"))
+        font.setPointSize(12)
+        self.quickCaliberationButton.setFont(font)
+        self.quickCaliberationButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}"))
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/add.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.quickCaliberationButton.setIcon(icon12)
+        self.quickCaliberationButton.setIconSize(QtCore.QSize(15, 15))
+        self.quickCaliberationButton.setCheckable(False)
+        self.quickCaliberationButton.setAutoDefault(False)
+        self.quickCaliberationButton.setDefault(False)
+        self.quickCaliberationButton.setFlat(False)
+        self.quickCaliberationButton.setObjectName(_fromUtf8("quickCaliberationButton"))
+        self.caliberationWizardLabel = QtGui.QLabel(self.caliberationWizardPage)
+        self.caliberationWizardLabel.setGeometry(QtCore.QRect(10, 10, 321, 31))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setWeight(50)
+        self.caliberationWizardLabel.setFont(font)
+        self.caliberationWizardLabel.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
+        self.caliberationWizardLabel.setObjectName(_fromUtf8("caliberationWizardLabel"))
+        self.fullCaliberationButton = QtGui.QPushButton(self.caliberationWizardPage)
+        self.fullCaliberationButton.setGeometry(QtCore.QRect(0, 180, 481, 71))
+        self.fullCaliberationButton.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham Light"))
+        font.setPointSize(12)
+        self.fullCaliberationButton.setFont(font)
+        self.fullCaliberationButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}"))
+        self.fullCaliberationButton.setIcon(icon8)
+        self.fullCaliberationButton.setIconSize(QtCore.QSize(50, 50))
+        self.fullCaliberationButton.setCheckable(False)
+        self.fullCaliberationButton.setAutoDefault(False)
+        self.fullCaliberationButton.setDefault(False)
+        self.fullCaliberationButton.setFlat(False)
+        self.fullCaliberationButton.setObjectName(_fromUtf8("fullCaliberationButton"))
+        self.caliberationWizardBackButton = QtGui.QPushButton(self.caliberationWizardPage)
+        self.caliberationWizardBackButton.setGeometry(QtCore.QRect(0, 250, 481, 71))
+        self.caliberationWizardBackButton.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham Light"))
+        font.setPointSize(9)
+        self.caliberationWizardBackButton.setFont(font)
+        self.caliberationWizardBackButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}"))
+        self.caliberationWizardBackButton.setText(_fromUtf8(""))
+        self.caliberationWizardBackButton.setIcon(icon4)
+        self.caliberationWizardBackButton.setIconSize(QtCore.QSize(50, 50))
+        self.caliberationWizardBackButton.setCheckable(False)
+        self.caliberationWizardBackButton.setAutoDefault(False)
+        self.caliberationWizardBackButton.setDefault(False)
+        self.caliberationWizardBackButton.setFlat(False)
+        self.caliberationWizardBackButton.setObjectName(_fromUtf8("caliberationWizardBackButton"))
+        self.stackedWidget.addWidget(self.caliberationWizardPage)
+        self.quickStep1Page = QtGui.QWidget()
+        self.quickStep1Page.setObjectName(_fromUtf8("quickStep1Page"))
+        self.caliberateLabel_6 = QtGui.QLabel(self.quickStep1Page)
         self.caliberateLabel_6.setGeometry(QtCore.QRect(10, 20, 461, 181))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
@@ -1936,13 +2051,13 @@ class Ui_MainWindow(object):
         self.caliberateLabel_6.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.caliberateLabel_6.setWordWrap(True)
         self.caliberateLabel_6.setObjectName(_fromUtf8("caliberateLabel_6"))
-        self.step1NextButton = QtGui.QPushButton(self.step1Page)
-        self.step1NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.quickStep1NextButton = QtGui.QPushButton(self.quickStep1Page)
+        self.quickStep1NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step1NextButton.setFont(font)
-        self.step1NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep1NextButton.setFont(font)
+        self.quickStep1NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -1965,15 +2080,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step1NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step1NextButton.setObjectName(_fromUtf8("step1NextButton"))
-        self.step1CancelButton = QtGui.QPushButton(self.step1Page)
-        self.step1CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.quickStep1NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep1NextButton.setObjectName(_fromUtf8("quickStep1NextButton"))
+        self.quickStep1CancelButton = QtGui.QPushButton(self.quickStep1Page)
+        self.quickStep1CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step1CancelButton.setFont(font)
-        self.step1CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep1CancelButton.setFont(font)
+        self.quickStep1CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -1996,50 +2111,18 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step1CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step1CancelButton.setObjectName(_fromUtf8("step1CancelButton"))
-        self.printPreviewSelected_3 = QtGui.QLabel(self.step1Page)
+        self.quickStep1CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep1CancelButton.setObjectName(_fromUtf8("quickStep1CancelButton"))
+        self.printPreviewSelected_3 = QtGui.QLabel(self.quickStep1Page)
         self.printPreviewSelected_3.setGeometry(QtCore.QRect(160, 110, 150, 150))
         self.printPreviewSelected_3.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 0);"))
         self.printPreviewSelected_3.setText(_fromUtf8(""))
         self.printPreviewSelected_3.setScaledContents(True)
         self.printPreviewSelected_3.setObjectName(_fromUtf8("printPreviewSelected_3"))
-        self.caliberateLabel_16 = QtGui.QLabel(self.step1Page)
-        self.caliberateLabel_16.setGeometry(QtCore.QRect(0, 0, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_16.setFont(font)
-        self.caliberateLabel_16.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_16.setText(_fromUtf8(""))
-        self.caliberateLabel_16.setObjectName(_fromUtf8("caliberateLabel_16"))
-        self.caliberateLabel_5 = QtGui.QLabel(self.step1Page)
-        self.caliberateLabel_5.setGeometry(QtCore.QRect(0, 0, 60, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_5.setFont(font)
-        self.caliberateLabel_5.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_5.setText(_fromUtf8(""))
-        self.caliberateLabel_5.setObjectName(_fromUtf8("caliberateLabel_5"))
-        self.caliberateLabel_16.raise_()
-        self.caliberateLabel_6.raise_()
-        self.step1NextButton.raise_()
-        self.step1CancelButton.raise_()
-        self.printPreviewSelected_3.raise_()
-        self.caliberateLabel_5.raise_()
-        self.stackedWidget.addWidget(self.step1Page)
-        self.step2Page = QtGui.QWidget()
-        self.step2Page.setObjectName(_fromUtf8("step2Page"))
-        self.caliberateLabel_7 = QtGui.QLabel(self.step2Page)
+        self.stackedWidget.addWidget(self.quickStep1Page)
+        self.quickStep2Page = QtGui.QWidget()
+        self.quickStep2Page.setObjectName(_fromUtf8("quickStep2Page"))
+        self.caliberateLabel_7 = QtGui.QLabel(self.quickStep2Page)
         self.caliberateLabel_7.setGeometry(QtCore.QRect(10, 20, 471, 131))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
@@ -2050,13 +2133,13 @@ class Ui_MainWindow(object):
         self.caliberateLabel_7.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.caliberateLabel_7.setWordWrap(True)
         self.caliberateLabel_7.setObjectName(_fromUtf8("caliberateLabel_7"))
-        self.step2NextButton = QtGui.QPushButton(self.step2Page)
-        self.step2NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.quickStep2NextButton = QtGui.QPushButton(self.quickStep2Page)
+        self.quickStep2NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step2NextButton.setFont(font)
-        self.step2NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep2NextButton.setFont(font)
+        self.quickStep2NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2079,15 +2162,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step2NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step2NextButton.setObjectName(_fromUtf8("step2NextButton"))
-        self.step2CancelButton = QtGui.QPushButton(self.step2Page)
-        self.step2CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.quickStep2NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep2NextButton.setObjectName(_fromUtf8("quickStep2NextButton"))
+        self.quickStep2CancelButton = QtGui.QPushButton(self.quickStep2Page)
+        self.quickStep2CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step2CancelButton.setFont(font)
-        self.step2CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep2CancelButton.setFont(font)
+        self.quickStep2CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2110,49 +2193,18 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step2CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step2CancelButton.setObjectName(_fromUtf8("step2CancelButton"))
-        self.caliberateLabel_21 = QtGui.QLabel(self.step2Page)
-        self.caliberateLabel_21.setGeometry(QtCore.QRect(0, 0, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_21.setFont(font)
-        self.caliberateLabel_21.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_21.setText(_fromUtf8(""))
-        self.caliberateLabel_21.setObjectName(_fromUtf8("caliberateLabel_21"))
-        self.caliberateLabel_8 = QtGui.QLabel(self.step2Page)
-        self.caliberateLabel_8.setGeometry(QtCore.QRect(0, 0, 120, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_8.setFont(font)
-        self.caliberateLabel_8.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_8.setText(_fromUtf8(""))
-        self.caliberateLabel_8.setObjectName(_fromUtf8("caliberateLabel_8"))
-        self.caliberateLabel_21.raise_()
-        self.caliberateLabel_7.raise_()
-        self.step2NextButton.raise_()
-        self.step2CancelButton.raise_()
-        self.caliberateLabel_8.raise_()
-        self.stackedWidget.addWidget(self.step2Page)
-        self.step3Page = QtGui.QWidget()
-        self.step3Page.setObjectName(_fromUtf8("step3Page"))
-        self.step3CancelButton = QtGui.QPushButton(self.step3Page)
-        self.step3CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.quickStep2CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep2CancelButton.setObjectName(_fromUtf8("quickStep2CancelButton"))
+        self.stackedWidget.addWidget(self.quickStep2Page)
+        self.quickStep3Page = QtGui.QWidget()
+        self.quickStep3Page.setObjectName(_fromUtf8("quickStep3Page"))
+        self.quickStep3CancelButton = QtGui.QPushButton(self.quickStep3Page)
+        self.quickStep3CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step3CancelButton.setFont(font)
-        self.step3CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep3CancelButton.setFont(font)
+        self.quickStep3CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2175,15 +2227,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step3CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step3CancelButton.setObjectName(_fromUtf8("step3CancelButton"))
-        self.step3NextButton = QtGui.QPushButton(self.step3Page)
-        self.step3NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.quickStep3CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep3CancelButton.setObjectName(_fromUtf8("quickStep3CancelButton"))
+        self.quickStep3NextButton = QtGui.QPushButton(self.quickStep3Page)
+        self.quickStep3NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step3NextButton.setFont(font)
-        self.step3NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep3NextButton.setFont(font)
+        self.quickStep3NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2206,9 +2258,9 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step3NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step3NextButton.setObjectName(_fromUtf8("step3NextButton"))
-        self.caliberateLabel_10 = QtGui.QLabel(self.step3Page)
+        self.quickStep3NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep3NextButton.setObjectName(_fromUtf8("quickStep3NextButton"))
+        self.caliberateLabel_10 = QtGui.QLabel(self.quickStep3Page)
         self.caliberateLabel_10.setGeometry(QtCore.QRect(10, 20, 471, 51))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
@@ -2219,47 +2271,16 @@ class Ui_MainWindow(object):
         self.caliberateLabel_10.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.caliberateLabel_10.setWordWrap(True)
         self.caliberateLabel_10.setObjectName(_fromUtf8("caliberateLabel_10"))
-        self.caliberateLabel_22 = QtGui.QLabel(self.step3Page)
-        self.caliberateLabel_22.setGeometry(QtCore.QRect(0, 0, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_22.setFont(font)
-        self.caliberateLabel_22.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_22.setText(_fromUtf8(""))
-        self.caliberateLabel_22.setObjectName(_fromUtf8("caliberateLabel_22"))
-        self.caliberateLabel_15 = QtGui.QLabel(self.step3Page)
-        self.caliberateLabel_15.setGeometry(QtCore.QRect(0, 0, 180, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_15.setFont(font)
-        self.caliberateLabel_15.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_15.setText(_fromUtf8(""))
-        self.caliberateLabel_15.setObjectName(_fromUtf8("caliberateLabel_15"))
-        self.caliberateLabel_22.raise_()
-        self.step3CancelButton.raise_()
-        self.step3NextButton.raise_()
-        self.caliberateLabel_10.raise_()
-        self.caliberateLabel_15.raise_()
-        self.stackedWidget.addWidget(self.step3Page)
-        self.step4Page = QtGui.QWidget()
-        self.step4Page.setObjectName(_fromUtf8("step4Page"))
-        self.step4CancelButton = QtGui.QPushButton(self.step4Page)
-        self.step4CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.stackedWidget.addWidget(self.quickStep3Page)
+        self.quickStep4Page = QtGui.QWidget()
+        self.quickStep4Page.setObjectName(_fromUtf8("quickStep4Page"))
+        self.quickStep4CancelButton = QtGui.QPushButton(self.quickStep4Page)
+        self.quickStep4CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step4CancelButton.setFont(font)
-        self.step4CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep4CancelButton.setFont(font)
+        self.quickStep4CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2282,15 +2303,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step4CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step4CancelButton.setObjectName(_fromUtf8("step4CancelButton"))
-        self.step4NextButton = QtGui.QPushButton(self.step4Page)
-        self.step4NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.quickStep4CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep4CancelButton.setObjectName(_fromUtf8("quickStep4CancelButton"))
+        self.quickStep4NextButton = QtGui.QPushButton(self.quickStep4Page)
+        self.quickStep4NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step4NextButton.setFont(font)
-        self.step4NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep4NextButton.setFont(font)
+        self.quickStep4NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2313,9 +2334,9 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step4NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step4NextButton.setObjectName(_fromUtf8("step4NextButton"))
-        self.caliberateLabel_12 = QtGui.QLabel(self.step4Page)
+        self.quickStep4NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep4NextButton.setObjectName(_fromUtf8("quickStep4NextButton"))
+        self.caliberateLabel_12 = QtGui.QLabel(self.quickStep4Page)
         self.caliberateLabel_12.setGeometry(QtCore.QRect(10, 20, 471, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
@@ -2326,41 +2347,10 @@ class Ui_MainWindow(object):
         self.caliberateLabel_12.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.caliberateLabel_12.setWordWrap(True)
         self.caliberateLabel_12.setObjectName(_fromUtf8("caliberateLabel_12"))
-        self.caliberateLabel_23 = QtGui.QLabel(self.step4Page)
-        self.caliberateLabel_23.setGeometry(QtCore.QRect(0, 0, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_23.setFont(font)
-        self.caliberateLabel_23.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_23.setText(_fromUtf8(""))
-        self.caliberateLabel_23.setObjectName(_fromUtf8("caliberateLabel_23"))
-        self.caliberateLabel_11 = QtGui.QLabel(self.step4Page)
-        self.caliberateLabel_11.setGeometry(QtCore.QRect(0, 0, 240, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_11.setFont(font)
-        self.caliberateLabel_11.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_11.setText(_fromUtf8(""))
-        self.caliberateLabel_11.setObjectName(_fromUtf8("caliberateLabel_11"))
-        self.caliberateLabel_23.raise_()
-        self.step4CancelButton.raise_()
-        self.step4NextButton.raise_()
-        self.caliberateLabel_12.raise_()
-        self.caliberateLabel_11.raise_()
-        self.stackedWidget.addWidget(self.step4Page)
-        self.step5Page = QtGui.QWidget()
-        self.step5Page.setObjectName(_fromUtf8("step5Page"))
-        self.caliberateLabel_25 = QtGui.QLabel(self.step5Page)
+        self.stackedWidget.addWidget(self.quickStep4Page)
+        self.quickStep5Page = QtGui.QWidget()
+        self.quickStep5Page.setObjectName(_fromUtf8("quickStep5Page"))
+        self.caliberateLabel_25 = QtGui.QLabel(self.quickStep5Page)
         self.caliberateLabel_25.setGeometry(QtCore.QRect(0, 20, 481, 31))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
@@ -2371,39 +2361,13 @@ class Ui_MainWindow(object):
         self.caliberateLabel_25.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.caliberateLabel_25.setWordWrap(True)
         self.caliberateLabel_25.setObjectName(_fromUtf8("caliberateLabel_25"))
-        self.caliberateLabel_92 = QtGui.QLabel(self.step5Page)
-        self.caliberateLabel_92.setGeometry(QtCore.QRect(0, 0, 300, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_92.setFont(font)
-        self.caliberateLabel_92.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_92.setText(_fromUtf8(""))
-        self.caliberateLabel_92.setObjectName(_fromUtf8("caliberateLabel_92"))
-        self.caliberateLabel_93 = QtGui.QLabel(self.step5Page)
-        self.caliberateLabel_93.setGeometry(QtCore.QRect(0, 0, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_93.setFont(font)
-        self.caliberateLabel_93.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_93.setText(_fromUtf8(""))
-        self.caliberateLabel_93.setObjectName(_fromUtf8("caliberateLabel_93"))
-        self.step5NextButton = QtGui.QPushButton(self.step5Page)
-        self.step5NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.quickStep5NextButton = QtGui.QPushButton(self.quickStep5Page)
+        self.quickStep5NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step5NextButton.setFont(font)
-        self.step5NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep5NextButton.setFont(font)
+        self.quickStep5NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2426,15 +2390,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step5NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step5NextButton.setObjectName(_fromUtf8("step5NextButton"))
-        self.step5CancelButton = QtGui.QPushButton(self.step5Page)
-        self.step5CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.quickStep5NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep5NextButton.setObjectName(_fromUtf8("quickStep5NextButton"))
+        self.quickStep5CancelButton = QtGui.QPushButton(self.quickStep5Page)
+        self.quickStep5CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step5CancelButton.setFont(font)
-        self.step5CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.quickStep5CancelButton.setFont(font)
+        self.quickStep5CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2457,35 +2421,18 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step5CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step5CancelButton.setObjectName(_fromUtf8("step5CancelButton"))
-        self.caliberateLabel_93.raise_()
-        self.caliberateLabel_25.raise_()
-        self.caliberateLabel_92.raise_()
-        self.step5NextButton.raise_()
-        self.step5CancelButton.raise_()
-        self.stackedWidget.addWidget(self.step5Page)
-        self.step6Page = QtGui.QWidget()
-        self.step6Page.setObjectName(_fromUtf8("step6Page"))
-        self.caliberateLabel_17 = QtGui.QLabel(self.step6Page)
-        self.caliberateLabel_17.setGeometry(QtCore.QRect(0, 0, 360, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_17.setFont(font)
-        self.caliberateLabel_17.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_17.setText(_fromUtf8(""))
-        self.caliberateLabel_17.setObjectName(_fromUtf8("caliberateLabel_17"))
-        self.step6NextButton = QtGui.QPushButton(self.step6Page)
-        self.step6NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.quickStep5CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep5CancelButton.setObjectName(_fromUtf8("quickStep5CancelButton"))
+        self.stackedWidget.addWidget(self.quickStep5Page)
+        self.fullStep1Page = QtGui.QWidget()
+        self.fullStep1Page.setObjectName(_fromUtf8("fullStep1Page"))
+        self.fullStep1NextButton = QtGui.QPushButton(self.fullStep1Page)
+        self.fullStep1NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step6NextButton.setFont(font)
-        self.step6NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.fullStep1NextButton.setFont(font)
+        self.fullStep1NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2508,26 +2455,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step6NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step6NextButton.setObjectName(_fromUtf8("step6NextButton"))
-        self.caliberateNozzleHeightLabel_2 = QtGui.QLabel(self.step6Page)
-        self.caliberateNozzleHeightLabel_2.setGeometry(QtCore.QRect(0, 20, 471, 81))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateNozzleHeightLabel_2.setFont(font)
-        self.caliberateNozzleHeightLabel_2.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
-        self.caliberateNozzleHeightLabel_2.setWordWrap(True)
-        self.caliberateNozzleHeightLabel_2.setObjectName(_fromUtf8("caliberateNozzleHeightLabel_2"))
-        self.step6CancelButton = QtGui.QPushButton(self.step6Page)
-        self.step6CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.fullStep1NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.fullStep1NextButton.setObjectName(_fromUtf8("fullStep1NextButton"))
+        self.fullStep1CancelButton = QtGui.QPushButton(self.fullStep1Page)
+        self.fullStep1CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step6CancelButton.setFont(font)
-        self.step6CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.fullStep1CancelButton.setFont(font)
+        self.fullStep1CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2550,37 +2486,29 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step6CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step6CancelButton.setObjectName(_fromUtf8("step6CancelButton"))
-        self.caliberateLabel_42 = QtGui.QLabel(self.step6Page)
-        self.caliberateLabel_42.setGeometry(QtCore.QRect(0, 0, 481, 16))
+        self.fullStep1CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.fullStep1CancelButton.setObjectName(_fromUtf8("fullStep1CancelButton"))
+        self.caliberateLabel_26 = QtGui.QLabel(self.fullStep1Page)
+        self.caliberateLabel_26.setGeometry(QtCore.QRect(0, 10, 481, 81))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(14)
         font.setBold(False)
         font.setWeight(50)
-        self.caliberateLabel_42.setFont(font)
-        self.caliberateLabel_42.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_42.setText(_fromUtf8(""))
-        self.caliberateLabel_42.setObjectName(_fromUtf8("caliberateLabel_42"))
-        self.caliberateLabel_42.raise_()
-        self.caliberateLabel_17.raise_()
-        self.step6NextButton.raise_()
-        self.caliberateNozzleHeightLabel_2.raise_()
-        self.step6CancelButton.raise_()
-        self.stackedWidget.addWidget(self.step6Page)
-        self.step7Page = QtGui.QWidget()
-        self.step7Page.setObjectName(_fromUtf8("step7Page"))
-        self.step7NextButton = QtGui.QPushButton(self.step7Page)
-        self.step7NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        self.caliberateLabel_26.setFont(font)
+        self.caliberateLabel_26.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
+        self.caliberateLabel_26.setWordWrap(True)
+        self.caliberateLabel_26.setObjectName(_fromUtf8("caliberateLabel_26"))
+        self.stackedWidget.addWidget(self.fullStep1Page)
+        self.fullStep2Page = QtGui.QWidget()
+        self.fullStep2Page.setObjectName(_fromUtf8("fullStep2Page"))
+        self.fullStep2NextButton = QtGui.QPushButton(self.fullStep2Page)
+        self.fullStep2NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step7NextButton.setFont(font)
-        self.step7NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.fullStep2NextButton.setFont(font)
+        self.fullStep2NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2603,52 +2531,15 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step7NextButton.setIconSize(QtCore.QSize(40, 40))
-        self.step7NextButton.setObjectName(_fromUtf8("step7NextButton"))
-        self.caliberateLabel_87 = QtGui.QLabel(self.step7Page)
-        self.caliberateLabel_87.setGeometry(QtCore.QRect(0, 0, 420, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_87.setFont(font)
-        self.caliberateLabel_87.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_87.setText(_fromUtf8(""))
-        self.caliberateLabel_87.setObjectName(_fromUtf8("caliberateLabel_87"))
-        self.caliberateLabel_88 = QtGui.QLabel(self.step7Page)
-        self.caliberateLabel_88.setGeometry(QtCore.QRect(0, 0, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_88.setFont(font)
-        self.caliberateLabel_88.setStyleSheet(_fromUtf8("    border: 1px solid rgb(87, 87, 87);\n"
-" /*  border-bottom-left-radius: 10px;\n"
-" border-bottom-right-radius: 10px;*/\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(150, 150, 150, 255), stop:1 rgba(180, 180, 180, 255));"))
-        self.caliberateLabel_88.setText(_fromUtf8(""))
-        self.caliberateLabel_88.setObjectName(_fromUtf8("caliberateLabel_88"))
-        self.caliberateLabel_89 = QtGui.QLabel(self.step7Page)
-        self.caliberateLabel_89.setGeometry(QtCore.QRect(0, 20, 471, 101))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_89.setFont(font)
-        self.caliberateLabel_89.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
-        self.caliberateLabel_89.setWordWrap(True)
-        self.caliberateLabel_89.setObjectName(_fromUtf8("caliberateLabel_89"))
-        self.step7CancelButton = QtGui.QPushButton(self.step7Page)
-        self.step7CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        self.fullStep2NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.fullStep2NextButton.setObjectName(_fromUtf8("fullStep2NextButton"))
+        self.fullStep2CancelButton = QtGui.QPushButton(self.fullStep2Page)
+        self.fullStep2CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
-        self.step7CancelButton.setFont(font)
-        self.step7CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.fullStep2CancelButton.setFont(font)
+        self.fullStep2CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -2671,154 +2562,20 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.step7CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step7CancelButton.setObjectName(_fromUtf8("step7CancelButton"))
-        self.caliberateLabel_88.raise_()
-        self.step7NextButton.raise_()
-        self.caliberateLabel_87.raise_()
-        self.caliberateLabel_89.raise_()
-        self.step7CancelButton.raise_()
-        self.stackedWidget.addWidget(self.step7Page)
-        self.step8Page = QtGui.QWidget()
-        self.step8Page.setObjectName(_fromUtf8("step8Page"))
-        self.step8CancelButton = QtGui.QPushButton(self.step8Page)
-        self.step8CancelButton.setGeometry(QtCore.QRect(240, 261, 241, 61))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(13)
-        self.step8CancelButton.setFont(font)
-        self.step8CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
-"     border: 1px solid rgb(87, 87, 87);\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"    border: none; /* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default {\n"
-"    border-color: navy; /* make the default button prominent */\n"
-"}\n"
-"\n"
-"QPushButton:focus {\n"
-"    outline: none;\n"
-"}"))
-        self.step8CancelButton.setIconSize(QtCore.QSize(40, 40))
-        self.step8CancelButton.setObjectName(_fromUtf8("step8CancelButton"))
-        self.step8DoneButton = QtGui.QPushButton(self.step8Page)
-        self.step8DoneButton.setGeometry(QtCore.QRect(0, 261, 241, 61))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(13)
-        self.step8DoneButton.setFont(font)
-        self.step8DoneButton.setStyleSheet(_fromUtf8("QPushButton {\n"
-"     border: 1px solid rgb(87, 87, 87);\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"    border: none; /* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default {\n"
-"    border-color: navy; /* make the default button prominent */\n"
-"}\n"
-"\n"
-"QPushButton:focus {\n"
-"    outline: none;\n"
-"}"))
-        self.step8DoneButton.setIconSize(QtCore.QSize(40, 40))
-        self.step8DoneButton.setObjectName(_fromUtf8("step8DoneButton"))
-        self.caliberateLabel_90 = QtGui.QLabel(self.step8Page)
-        self.caliberateLabel_90.setGeometry(QtCore.QRect(0, 21, 471, 41))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_90.setFont(font)
-        self.caliberateLabel_90.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
-        self.caliberateLabel_90.setWordWrap(True)
-        self.caliberateLabel_90.setObjectName(_fromUtf8("caliberateLabel_90"))
-        self.moveZPCaliberateButton = QtGui.QPushButton(self.step8Page)
-        self.moveZPCaliberateButton.setGeometry(QtCore.QRect(160, 161, 161, 91))
-        self.moveZPCaliberateButton.setMinimumSize(QtCore.QSize(0, 0))
+        self.fullStep2CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.fullStep2CancelButton.setObjectName(_fromUtf8("fullStep2CancelButton"))
+        self.moveZMFullCaliberateButton = QtGui.QPushButton(self.fullStep2Page)
+        self.moveZMFullCaliberateButton.setGeometry(QtCore.QRect(300, 150, 161, 91))
+        self.moveZMFullCaliberateButton.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(15)
-        self.moveZPCaliberateButton.setFont(font)
-        self.moveZPCaliberateButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+        self.moveZMFullCaliberateButton.setFont(font)
+        self.moveZMFullCaliberateButton.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"    border-bottom-left-radius: 15px;\n"
 "    border-bottom-right-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"    border: none; /* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default {\n"
-"    border-color: navy; /* make the default button prominent */\n"
-"}\n"
-"\n"
-"QPushButton:focus {\n"
-"    outline: none;\n"
-"}"))
-        self.moveZPCaliberateButton.setText(_fromUtf8(""))
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/arrows-5.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.moveZPCaliberateButton.setIcon(icon12)
-        self.moveZPCaliberateButton.setIconSize(QtCore.QSize(40, 40))
-        self.moveZPCaliberateButton.setCheckable(False)
-        self.moveZPCaliberateButton.setAutoDefault(False)
-        self.moveZPCaliberateButton.setDefault(False)
-        self.moveZPCaliberateButton.setFlat(False)
-        self.moveZPCaliberateButton.setObjectName(_fromUtf8("moveZPCaliberateButton"))
-        self.caliberateLabel_91 = QtGui.QLabel(self.step8Page)
-        self.caliberateLabel_91.setGeometry(QtCore.QRect(0, 1, 481, 16))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.caliberateLabel_91.setFont(font)
-        self.caliberateLabel_91.setStyleSheet(_fromUtf8("    background-color: qlineargradient(spread:pad, x1:0, y1:0.523, x2:0, y2:0.534, stop:0 rgba(130, 203, 117, 255), stop:1 rgba(66, 191, 85, 255));\n"
-"border: 1px solid green;"))
-        self.caliberateLabel_91.setText(_fromUtf8(""))
-        self.caliberateLabel_91.setObjectName(_fromUtf8("caliberateLabel_91"))
-        self.moveZMCaliberateButton = QtGui.QPushButton(self.step8Page)
-        self.moveZMCaliberateButton.setGeometry(QtCore.QRect(160, 70, 161, 91))
-        self.moveZMCaliberateButton.setMinimumSize(QtCore.QSize(0, 0))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(15)
-        self.moveZMCaliberateButton.setFont(font)
-        self.moveZMCaliberateButton.setStyleSheet(_fromUtf8("QPushButton {\n"
-"     border: 1px solid rgb(87, 87, 87);\n"
-"\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"    border-top-left-radius: 15px;\n"
 "    border-top-right-radius: 15px;\n"
 "}\n"
 "\n"
@@ -2838,17 +2595,80 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        self.moveZMCaliberateButton.setText(_fromUtf8(""))
+        self.moveZMFullCaliberateButton.setText(_fromUtf8(""))
         icon13 = QtGui.QIcon()
         icon13.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/arrows.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.moveZMCaliberateButton.setIcon(icon13)
-        self.moveZMCaliberateButton.setIconSize(QtCore.QSize(40, 40))
-        self.moveZMCaliberateButton.setCheckable(False)
-        self.moveZMCaliberateButton.setAutoDefault(False)
-        self.moveZMCaliberateButton.setDefault(False)
-        self.moveZMCaliberateButton.setFlat(False)
-        self.moveZMCaliberateButton.setObjectName(_fromUtf8("moveZMCaliberateButton"))
-        self.stackedWidget.addWidget(self.step8Page)
+        self.moveZMFullCaliberateButton.setIcon(icon13)
+        self.moveZMFullCaliberateButton.setIconSize(QtCore.QSize(40, 40))
+        self.moveZMFullCaliberateButton.setCheckable(False)
+        self.moveZMFullCaliberateButton.setAutoDefault(False)
+        self.moveZMFullCaliberateButton.setDefault(False)
+        self.moveZMFullCaliberateButton.setFlat(False)
+        self.moveZMFullCaliberateButton.setObjectName(_fromUtf8("moveZMFullCaliberateButton"))
+        self.caliberateLabel_8 = QtGui.QLabel(self.fullStep2Page)
+        self.caliberateLabel_8.setGeometry(QtCore.QRect(0, 0, 471, 131))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.caliberateLabel_8.setFont(font)
+        self.caliberateLabel_8.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
+        self.caliberateLabel_8.setWordWrap(True)
+        self.caliberateLabel_8.setObjectName(_fromUtf8("caliberateLabel_8"))
+        self.pointLabel = QtGui.QLabel(self.fullStep2Page)
+        self.pointLabel.setGeometry(QtCore.QRect(0, 160, 131, 61))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.pointLabel.setFont(font)
+        self.pointLabel.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
+        self.pointLabel.setWordWrap(True)
+        self.pointLabel.setObjectName(_fromUtf8("pointLabel"))
+        self.moveZPFullCaliberateButton = QtGui.QPushButton(self.fullStep2Page)
+        self.moveZPFullCaliberateButton.setGeometry(QtCore.QRect(140, 150, 161, 91))
+        self.moveZPFullCaliberateButton.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(15)
+        self.moveZPFullCaliberateButton.setFont(font)
+        self.moveZPFullCaliberateButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    border-bottom-left-radius: 15px;\n"
+"    border-top-left-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}\n"
+"\n"
+"QPushButton:focus {\n"
+"    outline: none;\n"
+"}"))
+        self.moveZPFullCaliberateButton.setText(_fromUtf8(""))
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/arrows-5.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.moveZPFullCaliberateButton.setIcon(icon14)
+        self.moveZPFullCaliberateButton.setIconSize(QtCore.QSize(40, 40))
+        self.moveZPFullCaliberateButton.setCheckable(False)
+        self.moveZPFullCaliberateButton.setAutoDefault(False)
+        self.moveZPFullCaliberateButton.setDefault(False)
+        self.moveZPFullCaliberateButton.setFlat(False)
+        self.moveZPFullCaliberateButton.setObjectName(_fromUtf8("moveZPFullCaliberateButton"))
+        self.stackedWidget.addWidget(self.fullStep2Page)
         self.nozzleOffsetPage = QtGui.QWidget()
         self.nozzleOffsetPage.setObjectName(_fromUtf8("nozzleOffsetPage"))
         self.nozzleOffsetDoubleSpinBox = QtGui.QDoubleSpinBox(self.nozzleOffsetPage)
@@ -2953,9 +2773,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.nozzleOffsetSetButton.setText(_fromUtf8(""))
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/verification-mark.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.nozzleOffsetSetButton.setIcon(icon14)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/verification-mark.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.nozzleOffsetSetButton.setIcon(icon15)
         self.nozzleOffsetSetButton.setIconSize(QtCore.QSize(50, 50))
         self.nozzleOffsetSetButton.setObjectName(_fromUtf8("nozzleOffsetSetButton"))
         self.feedRateLabelControlPage_3 = QtGui.QLabel(self.nozzleOffsetPage)
@@ -3048,9 +2868,9 @@ class Ui_MainWindow(object):
 "QPushButton:default {\n"
 "    border-color: navy; /* make the default button prominent */\n"
 "}"))
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/usb.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.fromUsbButton.setIcon(icon15)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/usb.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.fromUsbButton.setIcon(icon16)
         self.fromUsbButton.setIconSize(QtCore.QSize(40, 40))
         self.fromUsbButton.setObjectName(_fromUtf8("fromUsbButton"))
         self.printFromLabel = QtGui.QLabel(self.printLocationPage)
@@ -3123,9 +2943,9 @@ class Ui_MainWindow(object):
 "QPushButton:default {\n"
 "    border-color: navy; /* make the default button prominent */\n"
 "}"))
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/folder.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.fromLocalButton.setIcon(icon16)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/folder.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.fromLocalButton.setIcon(icon17)
         self.fromLocalButton.setIconSize(QtCore.QSize(40, 40))
         self.fromLocalButton.setObjectName(_fromUtf8("fromLocalButton"))
         self.stackedWidget.addWidget(self.printLocationPage)
@@ -3251,7 +3071,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.localStorageSelectButton.setText(_fromUtf8(""))
-        self.localStorageSelectButton.setIcon(icon14)
+        self.localStorageSelectButton.setIcon(icon15)
         self.localStorageSelectButton.setIconSize(QtCore.QSize(50, 50))
         self.localStorageSelectButton.setCheckable(False)
         self.localStorageSelectButton.setAutoDefault(False)
@@ -3289,7 +3109,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.localStorageScrollDown.setText(_fromUtf8(""))
-        self.localStorageScrollDown.setIcon(icon12)
+        self.localStorageScrollDown.setIcon(icon14)
         self.localStorageScrollDown.setIconSize(QtCore.QSize(40, 40))
         self.localStorageScrollDown.setCheckable(False)
         self.localStorageScrollDown.setAutoRepeat(True)
@@ -3368,9 +3188,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.localStorageDeleteButton.setText(_fromUtf8(""))
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/delete.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.localStorageDeleteButton.setIcon(icon17)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/delete.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.localStorageDeleteButton.setIcon(icon18)
         self.localStorageDeleteButton.setIconSize(QtCore.QSize(50, 50))
         self.localStorageDeleteButton.setCheckable(False)
         self.localStorageDeleteButton.setAutoDefault(False)
@@ -3410,9 +3230,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.USBStorageSaveButton.setText(_fromUtf8(""))
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/icon.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.USBStorageSaveButton.setIcon(icon18)
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/icon.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.USBStorageSaveButton.setIcon(icon19)
         self.USBStorageSaveButton.setIconSize(QtCore.QSize(50, 50))
         self.USBStorageSaveButton.setCheckable(False)
         self.USBStorageSaveButton.setAutoDefault(False)
@@ -3490,7 +3310,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.USBStorageSelectButton.setText(_fromUtf8(""))
-        self.USBStorageSelectButton.setIcon(icon14)
+        self.USBStorageSelectButton.setIcon(icon15)
         self.USBStorageSelectButton.setIconSize(QtCore.QSize(50, 50))
         self.USBStorageSelectButton.setCheckable(False)
         self.USBStorageSelectButton.setAutoDefault(False)
@@ -3566,7 +3386,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.USBStorageScrollDown.setText(_fromUtf8(""))
-        self.USBStorageScrollDown.setIcon(icon12)
+        self.USBStorageScrollDown.setIcon(icon14)
         self.USBStorageScrollDown.setIconSize(QtCore.QSize(40, 40))
         self.USBStorageScrollDown.setCheckable(False)
         self.USBStorageScrollDown.setAutoRepeat(True)
@@ -3874,7 +3694,7 @@ class Ui_MainWindow(object):
 "QToolButton:default {\n"
 "    border-color: navy; /* make the default button prominent */\n"
 "}"))
-        self.fileSelectedUSBTransferButton.setIcon(icon18)
+        self.fileSelectedUSBTransferButton.setIcon(icon19)
         self.fileSelectedUSBTransferButton.setIconSize(QtCore.QSize(40, 40))
         self.fileSelectedUSBTransferButton.setCheckable(False)
         self.fileSelectedUSBTransferButton.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
@@ -4030,89 +3850,58 @@ class Ui_MainWindow(object):
         self.controlTabWidget.setObjectName(_fromUtf8("controlTabWidget"))
         self.feedRateTab = QtGui.QWidget()
         self.feedRateTab.setObjectName(_fromUtf8("feedRateTab"))
-        self.flowRateLabelControlPage_2 = QtGui.QLabel(self.feedRateTab)
-        self.flowRateLabelControlPage_2.setGeometry(QtCore.QRect(65, 40, 181, 31))
+        self.feedRateLabelControlPage = QtGui.QLabel(self.feedRateTab)
+        self.feedRateLabelControlPage.setGeometry(QtCore.QRect(0, 10, 181, 31))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham Light"))
-        font.setPointSize(20)
+        font.setPointSize(15)
         font.setBold(False)
         font.setWeight(50)
-        self.flowRateLabelControlPage_2.setFont(font)
-        self.flowRateLabelControlPage_2.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);\n"
+        self.feedRateLabelControlPage.setFont(font)
+        self.feedRateLabelControlPage.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgba(255, 255, 255, 0);"))
-        self.flowRateLabelControlPage_2.setObjectName(_fromUtf8("flowRateLabelControlPage_2"))
-        self.feedRateSpinBox = QtGui.QSpinBox(self.feedRateTab)
-        self.feedRateSpinBox.setGeometry(QtCore.QRect(62, 28, 241, 136))
+        self.feedRateLabelControlPage.setObjectName(_fromUtf8("feedRateLabelControlPage"))
+        self.moveZMBabyStep = QtGui.QPushButton(self.feedRateTab)
+        self.moveZMBabyStep.setGeometry(QtCore.QRect(310, 170, 161, 91))
+        self.moveZMBabyStep.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(24)
-        self.feedRateSpinBox.setFont(font)
-        self.feedRateSpinBox.setStyleSheet(_fromUtf8("QSpinBox {\n"
-"    padding-right: 5px; /* make room for the arrows */\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgba(255, 255, 255, 0);\n"
-"   \n"
-"}\n"
-"QSpinBox ::text:selected {\n"
-"    background-color: rgb(255, 146, 57);\n"
-"   \n"
-"}\n"
-"QSpinBox::up-button {\n"
+        font.setPointSize(15)
+        self.moveZMBabyStep.setFont(font)
+        self.moveZMBabyStep.setStyleSheet(_fromUtf8("QPushButton {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "\n"
-"border-top-left-radius: 15px;\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"    width: 60px;\n"
-"     height: 61px;\n"
-"    padding: 2px;\n"
+"    border-bottom-right-radius: 15px;\n"
+"    border-top-right-radius: 15px;\n"
 "}\n"
 "\n"
-"QSpinBox::up-arrow { image: url(./templates/img/arrows.png);\n"
-"    width: 40px;\n"
-"     height: 40px;\n"
-"padding: 5px; }\n"
-"\n"
-"\n"
-"\n"
-"QSpinBox::up-button:pressed {\n"
+"QPushButton:pressed {\n"
 "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
 "}\n"
 "\n"
-"\n"
-"QSpinBox::down-button {\n"
-"     border: 1px solid rgb(87, 87, 87);\n"
-"border-bottom-left-radius: 15px;\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"    width: 60px;\n"
-"     height: 61px;\n"
-"    padding: 2px;\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
 "}\n"
 "\n"
-"QSpinBox::down-arrow {image: url(./templates/img/arrows-5.png);\n"
-"    width: 40px;\n"
-"     height: 40px;\n"
-"padding: 5px;\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
 "}\n"
 "\n"
-"QSpinBox::down-button:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-"\n"
-"}\n"
-"\n"
-""))
-        self.feedRateSpinBox.setFrame(False)
-        self.feedRateSpinBox.setReadOnly(False)
-        self.feedRateSpinBox.setButtonSymbols(QtGui.QAbstractSpinBox.UpDownArrows)
-        self.feedRateSpinBox.setAccelerated(True)
-        self.feedRateSpinBox.setMinimum(50)
-        self.feedRateSpinBox.setMaximum(200)
-        self.feedRateSpinBox.setSingleStep(1)
-        self.feedRateSpinBox.setProperty("value", 100)
-        self.feedRateSpinBox.setObjectName(_fromUtf8("feedRateSpinBox"))
+"QPushButton:focus {\n"
+"    outline: none;\n"
+"}"))
+        self.moveZMBabyStep.setText(_fromUtf8(""))
+        self.moveZMBabyStep.setIcon(icon13)
+        self.moveZMBabyStep.setIconSize(QtCore.QSize(40, 40))
+        self.moveZMBabyStep.setCheckable(False)
+        self.moveZMBabyStep.setAutoDefault(False)
+        self.moveZMBabyStep.setDefault(False)
+        self.moveZMBabyStep.setFlat(False)
+        self.moveZMBabyStep.setObjectName(_fromUtf8("moveZMBabyStep"))
         self.setFeedRateButton = QtGui.QPushButton(self.feedRateTab)
-        self.setFeedRateButton.setGeometry(QtCore.QRect(300, 30, 91, 132))
+        self.setFeedRateButton.setGeometry(QtCore.QRect(388, 11, 91, 119))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(13)
@@ -4142,16 +3931,134 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.setFeedRateButton.setText(_fromUtf8(""))
-        self.setFeedRateButton.setIcon(icon14)
+        self.setFeedRateButton.setIcon(icon15)
         self.setFeedRateButton.setIconSize(QtCore.QSize(50, 50))
         self.setFeedRateButton.setObjectName(_fromUtf8("setFeedRateButton"))
-        self.feedRateSpinBox.raise_()
-        self.flowRateLabelControlPage_2.raise_()
-        self.setFeedRateButton.raise_()
-        icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/FeedRate.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon19.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/FeedRate_Selected.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.controlTabWidget.addTab(self.feedRateTab, icon19, _fromUtf8(""))
+        self.flowRateLabelControlPage_5 = QtGui.QLabel(self.feedRateTab)
+        self.flowRateLabelControlPage_5.setGeometry(QtCore.QRect(0, 130, 421, 31))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham Light"))
+        font.setPointSize(15)
+        font.setBold(False)
+        font.setWeight(50)
+        self.flowRateLabelControlPage_5.setFont(font)
+        self.flowRateLabelControlPage_5.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);\n"
+"background-color: rgba(255, 255, 255, 0);"))
+        self.flowRateLabelControlPage_5.setObjectName(_fromUtf8("flowRateLabelControlPage_5"))
+        self.moveZPBabyStep = QtGui.QPushButton(self.feedRateTab)
+        self.moveZPBabyStep.setGeometry(QtCore.QRect(150, 170, 161, 91))
+        self.moveZPBabyStep.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(15)
+        self.moveZPBabyStep.setFont(font)
+        self.moveZPBabyStep.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    border-bottom-left-radius: 15px;\n"
+"    border-top-left-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}\n"
+"\n"
+"QPushButton:focus {\n"
+"    outline: none;\n"
+"}"))
+        self.moveZPBabyStep.setText(_fromUtf8(""))
+        self.moveZPBabyStep.setIcon(icon14)
+        self.moveZPBabyStep.setIconSize(QtCore.QSize(40, 40))
+        self.moveZPBabyStep.setCheckable(False)
+        self.moveZPBabyStep.setAutoDefault(False)
+        self.moveZPBabyStep.setDefault(False)
+        self.moveZPBabyStep.setFlat(False)
+        self.moveZPBabyStep.setObjectName(_fromUtf8("moveZPBabyStep"))
+        self.feedRateSpinBox = QtGui.QSpinBox(self.feedRateTab)
+        self.feedRateSpinBox.setGeometry(QtCore.QRect(150, 10, 241, 121))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(24)
+        self.feedRateSpinBox.setFont(font)
+        self.feedRateSpinBox.setStyleSheet(_fromUtf8("QSpinBox {\n"
+"    padding-right: 5px; /* make room for the arrows */\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"   \n"
+"}\n"
+"QSpinBox ::text:selected {\n"
+"    background-color: rgb(255, 146, 57);\n"
+"   \n"
+"}\n"
+"QSpinBox::up-button {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"\n"
+"\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    width: 60px;\n"
+"     height: 54px;\n"
+"    padding: 2px;\n"
+"border-top-left-radius: 15px;\n"
+"}\n"
+"\n"
+"QSpinBox::up-arrow { image: url(./templates/img/arrows.png);\n"
+"    width: 40px;\n"
+"     height: 40px;\n"
+"padding: 5px; }\n"
+"\n"
+"\n"
+"\n"
+"QSpinBox::up-button:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::down-button {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"border-bottom-left-radius: 15px;\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    width: 60px;\n"
+"     height: 54px;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QSpinBox::down-arrow {image: url(./templates/img/arrows-5.png);\n"
+"    width: 40px;\n"
+"     height: 40px;\n"
+"padding: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox::down-button:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"\n"
+"}\n"
+"\n"
+""))
+        self.feedRateSpinBox.setFrame(False)
+        self.feedRateSpinBox.setReadOnly(False)
+        self.feedRateSpinBox.setButtonSymbols(QtGui.QAbstractSpinBox.UpDownArrows)
+        self.feedRateSpinBox.setAccelerated(True)
+        self.feedRateSpinBox.setMinimum(50)
+        self.feedRateSpinBox.setMaximum(200)
+        self.feedRateSpinBox.setSingleStep(1)
+        self.feedRateSpinBox.setProperty("value", 100)
+        self.feedRateSpinBox.setObjectName(_fromUtf8("feedRateSpinBox"))
+        icon20 = QtGui.QIcon()
+        icon20.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/FeedRate.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/FeedRate_Selected.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.controlTabWidget.addTab(self.feedRateTab, icon20, _fromUtf8(""))
         self.temperatureTab = QtGui.QWidget()
         self.temperatureTab.setObjectName(_fromUtf8("temperatureTab"))
         self.toolLabel = QtGui.QLabel(self.temperatureTab)
@@ -4194,9 +4101,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.cooldownButton.setText(_fromUtf8(""))
-        icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/snowflake.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.cooldownButton.setIcon(icon20)
+        icon21 = QtGui.QIcon()
+        icon21.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/snowflake.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.cooldownButton.setIcon(icon21)
         self.cooldownButton.setIconSize(QtCore.QSize(40, 40))
         self.cooldownButton.setObjectName(_fromUtf8("cooldownButton"))
         self.fanOffButton = QtGui.QPushButton(self.temperatureTab)
@@ -4230,9 +4137,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.fanOffButton.setText(_fromUtf8(""))
-        icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/fan-black-silhouette-off.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.fanOffButton.setIcon(icon21)
+        icon22 = QtGui.QIcon()
+        icon22.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/fan-black-silhouette-off.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.fanOffButton.setIcon(icon22)
         self.fanOffButton.setIconSize(QtCore.QSize(40, 40))
         self.fanOffButton.setCheckable(False)
         self.fanOffButton.setAutoDefault(False)
@@ -4269,9 +4176,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.fanOnButton.setText(_fromUtf8(""))
-        icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/fan-black-silhouette.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.fanOnButton.setIcon(icon22)
+        icon23 = QtGui.QIcon()
+        icon23.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/fan-black-silhouette.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.fanOnButton.setIcon(icon23)
         self.fanOnButton.setIconSize(QtCore.QSize(40, 40))
         self.fanOnButton.setCheckable(False)
         self.fanOnButton.setAutoDefault(False)
@@ -4378,7 +4285,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.setToolTempButton.setText(_fromUtf8(""))
-        self.setToolTempButton.setIcon(icon14)
+        self.setToolTempButton.setIcon(icon15)
         self.setToolTempButton.setIconSize(QtCore.QSize(50, 50))
         self.setToolTempButton.setObjectName(_fromUtf8("setToolTempButton"))
         self.bedTempSpinBox = QtGui.QSpinBox(self.temperatureTab)
@@ -4490,7 +4397,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.setBedTempButton.setText(_fromUtf8(""))
-        self.setBedTempButton.setIcon(icon14)
+        self.setBedTempButton.setIcon(icon15)
         self.setBedTempButton.setIconSize(QtCore.QSize(50, 50))
         self.setBedTempButton.setObjectName(_fromUtf8("setBedTempButton"))
         self.toolLabel.raise_()
@@ -4502,10 +4409,10 @@ class Ui_MainWindow(object):
         self.bedTempSpinBox.raise_()
         self.bedLabel_2.raise_()
         self.setBedTempButton.raise_()
-        icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/thermometer.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/thermometer_Selected.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.controlTabWidget.addTab(self.temperatureTab, icon23, _fromUtf8(""))
+        icon24 = QtGui.QIcon()
+        icon24.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/thermometer.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/thermometer_Selected.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.controlTabWidget.addTab(self.temperatureTab, icon24, _fromUtf8(""))
         self.motionTab = QtGui.QWidget()
         self.motionTab.setObjectName(_fromUtf8("motionTab"))
         self.step1Button = QtGui.QPushButton(self.motionTab)
@@ -4693,7 +4600,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.moveYMButton.setText(_fromUtf8(""))
-        self.moveYMButton.setIcon(icon12)
+        self.moveYMButton.setIcon(icon14)
         self.moveYMButton.setIconSize(QtCore.QSize(40, 40))
         self.moveYMButton.setCheckable(False)
         self.moveYMButton.setAutoDefault(False)
@@ -4732,9 +4639,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.moveXPButton.setText(_fromUtf8(""))
-        icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/arrows-2.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.moveXPButton.setIcon(icon24)
+        icon25 = QtGui.QIcon()
+        icon25.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/arrows-2.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.moveXPButton.setIcon(icon25)
         self.moveXPButton.setIconSize(QtCore.QSize(40, 40))
         self.moveXPButton.setCheckable(False)
         self.moveXPButton.setAutoDefault(False)
@@ -4810,9 +4717,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.homeXYButton.setText(_fromUtf8(""))
-        icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/home-icon-silhouette.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.homeXYButton.setIcon(icon25)
+        icon26 = QtGui.QIcon()
+        icon26.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/home-icon-silhouette.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.homeXYButton.setIcon(icon26)
         self.homeXYButton.setIconSize(QtCore.QSize(40, 40))
         self.homeXYButton.setCheckable(False)
         self.homeXYButton.setAutoDefault(False)
@@ -4849,7 +4756,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.homeZButton.setText(_fromUtf8(""))
-        self.homeZButton.setIcon(icon25)
+        self.homeZButton.setIcon(icon26)
         self.homeZButton.setIconSize(QtCore.QSize(40, 40))
         self.homeZButton.setCheckable(False)
         self.homeZButton.setAutoDefault(False)
@@ -4886,9 +4793,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.motorOffButton.setText(_fromUtf8(""))
-        icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/motor.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.motorOffButton.setIcon(icon26)
+        icon27 = QtGui.QIcon()
+        icon27.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/motor.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.motorOffButton.setIcon(icon27)
         self.motorOffButton.setIconSize(QtCore.QSize(40, 40))
         self.motorOffButton.setCheckable(False)
         self.motorOffButton.setAutoDefault(False)
@@ -4966,7 +4873,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.moveZPButton.setText(_fromUtf8(""))
-        self.moveZPButton.setIcon(icon12)
+        self.moveZPButton.setIcon(icon14)
         self.moveZPButton.setIconSize(QtCore.QSize(40, 40))
         self.moveZPButton.setCheckable(False)
         self.moveZPButton.setAutoDefault(False)
@@ -5025,9 +4932,9 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.retractButton.setText(_fromUtf8(""))
-        icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/remove.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.retractButton.setIcon(icon27)
+        icon28 = QtGui.QIcon()
+        icon28.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/remove.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.retractButton.setIcon(icon28)
         self.retractButton.setIconSize(QtCore.QSize(40, 40))
         self.retractButton.setCheckable(False)
         self.retractButton.setAutoDefault(False)
@@ -5067,9 +4974,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.extruderButton.setText(_fromUtf8(""))
-        icon28 = QtGui.QIcon()
-        icon28.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/add.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.extruderButton.setIcon(icon28)
+        self.extruderButton.setIcon(icon12)
         self.extruderButton.setIconSize(QtCore.QSize(40, 40))
         self.extruderButton.setCheckable(False)
         self.extruderButton.setAutoDefault(False)
@@ -5187,7 +5092,7 @@ class Ui_MainWindow(object):
 "    outline: none;\n"
 "}"))
         self.setFlowRateButton.setText(_fromUtf8(""))
-        self.setFlowRateButton.setIcon(icon14)
+        self.setFlowRateButton.setIcon(icon15)
         self.setFlowRateButton.setIconSize(QtCore.QSize(50, 50))
         self.setFlowRateButton.setObjectName(_fromUtf8("setFlowRateButton"))
         self.flowRateSpinBox = QtGui.QSpinBox(self.filamentTab)
@@ -5816,8 +5721,8 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
-        self.controlTabWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
+        self.controlTabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -5873,30 +5778,31 @@ class Ui_MainWindow(object):
         self.caliberateLabel.setText(_translate("MainWindow", "Caliberate:", None))
         self.nozzleOffsetButton.setText(_translate("MainWindow", "Height", None))
         self.caliberationWizardButton.setText(_translate("MainWindow", "Wizard", None))
+        self.quickCaliberationButton.setText(_translate("MainWindow", "Quick Caliberation", None))
+        self.caliberationWizardLabel.setText(_translate("MainWindow", "Caliberation Wizard:", None))
+        self.fullCaliberationButton.setText(_translate("MainWindow", "Full Caliberation", None))
         self.caliberateLabel_6.setText(_translate("MainWindow", "We start by caliberating the print bed\'s level. A perfectly leveled bed is essential to get reliable printing performance. Wait for all moves to finish and click Next", None))
-        self.step1NextButton.setText(_translate("MainWindow", "Next", None))
-        self.step1CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.quickStep1NextButton.setText(_translate("MainWindow", "Next", None))
+        self.quickStep1CancelButton.setText(_translate("MainWindow", "Cancel", None))
         self.caliberateLabel_7.setText(_translate("MainWindow", "Release All Leveling Screws", None))
-        self.step2NextButton.setText(_translate("MainWindow", "Next", None))
-        self.step2CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step3CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step3NextButton.setText(_translate("MainWindow", "Next", None))
+        self.quickStep2NextButton.setText(_translate("MainWindow", "Next", None))
+        self.quickStep2CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.quickStep3CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.quickStep3NextButton.setText(_translate("MainWindow", "Next", None))
         self.caliberateLabel_10.setText(_translate("MainWindow", "After Nozzle is finished pressing down on bed, tighten right leveling screw", None))
-        self.step4CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step4NextButton.setText(_translate("MainWindow", "Next", None))
+        self.quickStep4CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.quickStep4NextButton.setText(_translate("MainWindow", "Next", None))
         self.caliberateLabel_12.setText(_translate("MainWindow", "Do the same for the left screw", None))
         self.caliberateLabel_25.setText(_translate("MainWindow", "Now tighten the center back  screw", None))
-        self.step5NextButton.setText(_translate("MainWindow", "Next", None))
-        self.step5CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step6NextButton.setText(_translate("MainWindow", "Next", None))
-        self.caliberateNozzleHeightLabel_2.setText(_translate("MainWindow", "We shall now set the height of the nozzle from the bed. Wait for the movements to finish, and then click Next.", None))
-        self.step6CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step7NextButton.setText(_translate("MainWindow", "Next", None))
-        self.caliberateLabel_89.setText(_translate("MainWindow", "Use a sheet of paper, and slide it under the nozzle while moving the bed upwards, untill the paper is just unable to slide. Click Next to start this process", None))
-        self.step7CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step8CancelButton.setText(_translate("MainWindow", "Cancel", None))
-        self.step8DoneButton.setText(_translate("MainWindow", "Done", None))
-        self.caliberateLabel_90.setText(_translate("MainWindow", "Move the bed towards the Nozzle untill the paper stops sliding", None))
+        self.quickStep5NextButton.setText(_translate("MainWindow", "Next", None))
+        self.quickStep5CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.fullStep1NextButton.setText(_translate("MainWindow", "Next", None))
+        self.fullStep1CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.caliberateLabel_26.setText(_translate("MainWindow", "We shall now fine tune the bed caliberation. Click next to continue. ", None))
+        self.fullStep2NextButton.setText(_translate("MainWindow", "Next", None))
+        self.fullStep2CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.caliberateLabel_8.setText(_translate("MainWindow", "Move the bed up or down using the buttons below while sliding paper underneath the Nozzle until you can just feel the Nozzle scraping against the paper.", None))
+        self.pointLabel.setText(_translate("MainWindow", "Point 1 of 9", None))
         self.nozzleOffsetDoubleSpinBox.setSuffix(_translate("MainWindow", "mm", None))
         self.feedRateLabelControlPage_3.setText(_translate("MainWindow", "Change the initial height for the first layer of the print. +ve value increases height, -ve value reduces it.", None))
         self.fromUsbButton.setText(_translate("MainWindow", "USB", None))
@@ -5917,7 +5823,8 @@ class Ui_MainWindow(object):
         self.fileSelectedUSBTransferButton.setText(_translate("MainWindow", "Save to Local", None))
         self.fileSelectedUSBName.setText(_translate("MainWindow", "File Name", None))
         self.fileSelectedUSBPrintButton.setText(_translate("MainWindow", "Print", None))
-        self.flowRateLabelControlPage_2.setText(_translate("MainWindow", "Feed Rate :", None))
+        self.feedRateLabelControlPage.setText(_translate("MainWindow", "Feed Rate :", None))
+        self.flowRateLabelControlPage_5.setText(_translate("MainWindow", "Tune Bed Height during Print :", None))
         self.feedRateSpinBox.setSuffix(_translate("MainWindow", "%", None))
         self.toolLabel.setText(_translate("MainWindow", "Nozzle:", None))
         self.toolTempSpinBox.setSuffix(_translate("MainWindow", "°C", None))
