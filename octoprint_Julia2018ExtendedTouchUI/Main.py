@@ -315,8 +315,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.fullStep2NextButton.clicked.connect(self.fullStep2)
         # self.moveZPCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=-0.05))
         # self.moveZPCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=0.05))
-        self.moveZMFullCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=-0.05))
-        self.moveZPFullCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=0.05))
+        self.moveZMFullCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=-0.025))
+        self.moveZPFullCaliberateButton.pressed.connect(lambda: octopiclient.jog(z=0.025))
         self.quickStep1CancelButton.pressed.connect(self.cancelStep)
         self.quickStep2CancelButton.pressed.connect(self.cancelStep)
         self.quickStep3CancelButton.pressed.connect(self.cancelStep)
@@ -383,8 +383,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.setFlowRateButton.pressed.connect(lambda: octopiclient.flowrate(self.flowRateSpinBox.value()))
         self.setFeedRateButton.pressed.connect(lambda: octopiclient.feedrate(self.feedRateSpinBox.value()))
 
-        self.moveZPBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z0.05'))
-        self.moveZMBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z-0.05'))
+        self.moveZPBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z0.025'))
+        self.moveZMBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z-0.025'))
 
         # ChangeFilament rutien
         self.changeFilamentButton.pressed.connect(self.changeFilament)
