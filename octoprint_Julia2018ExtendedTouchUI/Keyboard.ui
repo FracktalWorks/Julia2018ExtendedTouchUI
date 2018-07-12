@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>481</width>
+     <width>288</width>
      <height>81</height>
     </rect>
    </property>
@@ -61,10 +61,10 @@ p, li { white-space: pre-wrap; }
     </font>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
-   <widget class="QWidget" name="page">
-    <widget class="QPushButton" name="ButtonLowerCase">
+   <widget class="QWidget" name="pageAlphaU">
+    <widget class="QPushButton" name="ButtonLowercase">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1436,7 +1436,7 @@ QPushButton:focus {
       <string>.</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonBackSpace">
+    <widget class="QPushButton" name="ButtonBackspaceAlphaU">
      <property name="geometry">
       <rect>
        <x>432</x>
@@ -1458,7 +1458,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -1489,6 +1488,12 @@ QPushButton:focus {
       <iconset>
        <normaloff>templates/img/backspace-arrow.png</normaloff>templates/img/backspace-arrow.png</iconset>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
     </widget>
     <widget class="QPushButton" name="Button10">
      <property name="geometry">
@@ -1512,7 +1517,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 border-bottom: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -1563,7 +1567,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -1592,12 +1595,12 @@ QPushButton:focus {
       <string>,</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonSpace">
+    <widget class="QPushButton" name="ButtonSpecialAlphaU">
      <property name="geometry">
       <rect>
-       <x>144</x>
+       <x>96</x>
        <y>180</y>
-       <width>192</width>
+       <width>96</width>
        <height>60</height>
       </rect>
      </property>
@@ -1606,60 +1609,7 @@ QPushButton:focus {
        <family>Gotham Medium</family>
        <pointsize>14</pointsize>
        <weight>50</weight>
-       <italic>false</italic>
        <bold>false</bold>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-
-	border-top: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>Space</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="ButtonNumeric">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>180</y>
-       <width>144</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-       <underline>false</underline>
       </font>
      </property>
      <property name="styleSheet">
@@ -1691,15 +1641,15 @@ QPushButton:focus {
 }</string>
      </property>
      <property name="text">
-      <string>123!@#</string>
+      <string>@#!</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonEnter">
+    <widget class="QPushButton" name="ButtonSpaceAlphaU">
      <property name="geometry">
       <rect>
-       <x>336</x>
+       <x>192</x>
        <y>180</y>
-       <width>144</width>
+       <width>192</width>
        <height>60</height>
       </rect>
      </property>
@@ -1708,15 +1658,13 @@ QPushButton:focus {
        <family>Gotham Medium</family>
        <pointsize>14</pointsize>
        <weight>50</weight>
-       <italic>false</italic>
        <bold>false</bold>
-       <underline>false</underline>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-    border-left: none;
+	border-right: none;
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -1742,11 +1690,118 @@ QPushButton:focus {
 }</string>
      </property>
      <property name="text">
-      <string>ENTER</string>
+      <string>Space</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonNumericAlphaU">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>123</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSubmitAlphaU">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/verification-mark.png</normaloff>templates/img/verification-mark.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_2">
+   <widget class="QWidget" name="pageAlpha">
     <widget class="QPushButton" name="Button48">
      <property name="geometry">
       <rect>
@@ -2351,7 +2406,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 border-bottom: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -2380,7 +2434,7 @@ QPushButton:focus {
       <string>p</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonUpperCase">
+    <widget class="QPushButton" name="ButtonUppercase">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -3017,7 +3071,7 @@ QPushButton:focus {
       <string>c</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonBackSpace2">
+    <widget class="QPushButton" name="ButtonBackspaceAlpha">
      <property name="geometry">
       <rect>
        <x>432</x>
@@ -3037,7 +3091,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -3067,6 +3120,12 @@ QPushButton:focus {
      <property name="icon">
       <iconset>
        <normaloff>templates/img/backspace-arrow.png</normaloff>templates/img/backspace-arrow.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
      </property>
     </widget>
     <widget class="QPushButton" name="Button34">
@@ -3186,7 +3245,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -3215,10 +3273,10 @@ QPushButton:focus {
       <string>,</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonSpace2">
+    <widget class="QPushButton" name="ButtonSpaceAlpha">
      <property name="geometry">
       <rect>
-       <x>144</x>
+       <x>192</x>
        <y>180</y>
        <width>192</width>
        <height>60</height>
@@ -3235,7 +3293,7 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-
+	border-right: none;
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -3264,12 +3322,12 @@ QPushButton:focus {
       <string>Space</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonNumeric2">
+    <widget class="QPushButton" name="ButtonNumericAlpha">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>180</y>
-       <width>144</width>
+       <width>96</width>
        <height>60</height>
       </rect>
      </property>
@@ -3310,15 +3368,15 @@ QPushButton:focus {
 }</string>
      </property>
      <property name="text">
-      <string>123!@#</string>
+      <string>123</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonEnter2">
+    <widget class="QPushButton" name="ButtonSubmitAlpha">
      <property name="geometry">
       <rect>
-       <x>336</x>
+       <x>384</x>
        <y>180</y>
-       <width>144</width>
+       <width>96</width>
        <height>60</height>
       </rect>
      </property>
@@ -3333,7 +3391,7 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-    border-left: none;
+
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -3359,11 +3417,70 @@ QPushButton:focus {
 }</string>
      </property>
      <property name="text">
-      <string>ENTER</string>
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/verification-mark.png</normaloff>templates/img/verification-mark.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSpecialAlpha">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>@#!</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_11">
+   <widget class="QWidget" name="pageSpecial">
     <widget class="QPushButton" name="Button78">
      <property name="geometry">
       <rect>
@@ -3483,6 +3600,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -3513,8 +3631,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button84">
      <property name="geometry">
       <rect>
-       <x>336</x>
-       <y>120</y>
+       <x>192</x>
+       <y>60</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -3559,55 +3677,6 @@ QPushButton:focus {
       <string>{</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Button63">
-     <property name="geometry">
-      <rect>
-       <x>288</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>7</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Button73">
      <property name="geometry">
       <rect>
@@ -3629,6 +3698,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -3705,60 +3775,11 @@ QPushButton:focus {
       <string>?</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Button61">
-     <property name="geometry">
-      <rect>
-       <x>192</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>5</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Button71">
      <property name="geometry">
       <rect>
-       <x>192</x>
-       <y>60</y>
+       <x>336</x>
+       <y>120</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -3775,6 +3796,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -3823,6 +3845,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -3848,153 +3871,6 @@ QPushButton:focus {
      </property>
      <property name="text">
       <string>@</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button57">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button58">
-     <property name="geometry">
-      <rect>
-       <x>48</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>2</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button66">
-     <property name="geometry">
-      <rect>
-       <x>432</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>0</string>
      </property>
     </widget>
     <widget class="QPushButton" name="Button77">
@@ -4095,109 +3971,11 @@ QPushButton:focus {
       <string>+</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Button59">
-     <property name="geometry">
-      <rect>
-       <x>96</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button60">
-     <property name="geometry">
-      <rect>
-       <x>144</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>4</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Button72">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>60</y>
+       <x>384</x>
+       <y>120</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -4214,6 +3992,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -4241,55 +4020,6 @@ QPushButton:focus {
       <string>^</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Button65">
-     <property name="geometry">
-      <rect>
-       <x>384</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>9</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Button74">
      <property name="geometry">
       <rect>
@@ -4311,6 +4041,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -4341,8 +4072,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button85">
      <property name="geometry">
       <rect>
-       <x>384</x>
-       <y>120</y>
+       <x>240</x>
+       <y>60</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -4408,6 +4139,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -4484,55 +4216,6 @@ QPushButton:focus {
       <string>&lt;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Button64">
-     <property name="geometry">
-      <rect>
-       <x>336</x>
-       <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>8</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Button67">
      <property name="geometry">
       <rect>
@@ -4554,6 +4237,7 @@ QPushButton:focus {
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
 	border-right: none;
+	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
 
@@ -4633,153 +4317,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button76">
      <property name="geometry">
       <rect>
-       <x>432</x>
-       <y>60</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>)</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button62">
-     <property name="geometry">
-      <rect>
        <x>240</x>
        <y>0</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-border-bottom: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>6</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button75">
-     <property name="geometry">
-      <rect>
-       <x>384</x>
-       <y>60</y>
-       <width>48</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Gotham Medium</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-     border: 1px solid rgb(87, 87, 87);
-	border-right: none;
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-    
-
-}
-
-QPushButton:pressed {
-
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-     </property>
-     <property name="text">
-      <string>(</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button86">
-     <property name="geometry">
-      <rect>
-       <x>432</x>
-       <y>120</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -4821,14 +4360,111 @@ QPushButton:focus {
 }</string>
      </property>
      <property name="text">
+      <string>)</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button75">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>0</y>
+       <width>48</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>(</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button86">
+     <property name="geometry">
+      <rect>
+       <x>432</x>
+       <y>0</y>
+       <width>48</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
       <string>/</string>
      </property>
     </widget>
     <widget class="QPushButton" name="Button90">
      <property name="geometry">
       <rect>
-       <x>144</x>
-       <y>180</y>
+       <x>384</x>
+       <y>0</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -4974,8 +4610,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button93">
      <property name="geometry">
       <rect>
-       <x>288</x>
-       <y>180</y>
+       <x>0</x>
+       <y>0</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -5023,8 +4659,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button87">
      <property name="geometry">
       <rect>
-       <x>384</x>
-       <y>180</y>
+       <x>96</x>
+       <y>0</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -5072,8 +4708,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button88">
      <property name="geometry">
       <rect>
-       <x>432</x>
-       <y>180</y>
+       <x>144</x>
+       <y>0</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -5121,8 +4757,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button89">
      <property name="geometry">
       <rect>
-       <x>96</x>
-       <y>180</y>
+       <x>432</x>
+       <y>120</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -5138,7 +4774,6 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: none;
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -5170,8 +4805,8 @@ QPushButton:focus {
     <widget class="QPushButton" name="Button94">
      <property name="geometry">
       <rect>
-       <x>336</x>
-       <y>180</y>
+       <x>48</x>
+       <y>0</y>
        <width>48</width>
        <height>60</height>
       </rect>
@@ -5216,12 +4851,12 @@ QPushButton:focus {
       <string>'</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ButtonEnter3">
+    <widget class="QPushButton" name="ButtonBackSpecial">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>180</y>
-       <width>97</width>
+       <width>96</width>
        <height>60</height>
       </rect>
      </property>
@@ -5236,7 +4871,7 @@ QPushButton:focus {
      <property name="styleSheet">
       <string notr="true">QPushButton {
      border: 1px solid rgb(87, 87, 87);
-	border-right: 1px solid rgb(87, 87, 87);
+	border-right: none;
 	border-top: none;
 	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
     
@@ -5270,12 +4905,1483 @@ QPushButton:focus {
      </property>
      <property name="iconSize">
       <size>
-       <width>45</width>
-       <height>45</height>
+       <width>35</width>
+       <height>35</height>
       </size>
      </property>
     </widget>
+    <widget class="QPushButton" name="Button27_3">
+     <property name="geometry">
+      <rect>
+       <x>288</x>
+       <y>0</y>
+       <width>48</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	border-top:none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>.</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonBackspaceSpecial">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>60</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/backspace-arrow.png</normaloff>templates/img/backspace-arrow.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonNumericSpecial">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>123</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSpaceSpecial">
+     <property name="geometry">
+      <rect>
+       <x>288</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>Space</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button56_3">
+     <property name="geometry">
+      <rect>
+       <x>336</x>
+       <y>0</y>
+       <width>48</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>,</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSubmitSpecial">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/verification-mark.png</normaloff>templates/img/verification-mark.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
+     </property>
+    </widget>
+    <zorder>Button92</zorder>
+    <zorder>Button89</zorder>
+    <zorder>Button85</zorder>
+    <zorder>Button94</zorder>
+    <zorder>Button83</zorder>
+    <zorder>Button68</zorder>
+    <zorder>Button72</zorder>
+    <zorder>ButtonNumericSpecial</zorder>
+    <zorder>Button93</zorder>
+    <zorder>Button79</zorder>
+    <zorder>Button71</zorder>
+    <zorder>Button56_3</zorder>
+    <zorder>ButtonBackspaceSpecial</zorder>
+    <zorder>Button82</zorder>
+    <zorder>Button80</zorder>
+    <zorder>Button74</zorder>
+    <zorder>Button75</zorder>
+    <zorder>Button77</zorder>
+    <zorder>Button91</zorder>
+    <zorder>Button69</zorder>
+    <zorder>Button90</zorder>
+    <zorder>Button67</zorder>
+    <zorder>Button81</zorder>
+    <zorder>Button27_3</zorder>
+    <zorder>Button76</zorder>
+    <zorder>Button84</zorder>
+    <zorder>Button70</zorder>
+    <zorder>ButtonBackSpecial</zorder>
+    <zorder>ButtonSpaceSpecial</zorder>
+    <zorder>Button73</zorder>
+    <zorder>Button88</zorder>
+    <zorder>Button87</zorder>
+    <zorder>Button78</zorder>
+    <zorder>Button86</zorder>
+    <zorder>ButtonSubmitSpecial</zorder>
    </widget>
+   <widget class="QWidget" name="pageNumeric">
+    <widget class="QPushButton" name="Button58">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>0</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>2</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button57">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button65">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>120</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>9</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button62">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>60</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>6</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button63">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>120</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>7</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button61">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>60</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button59">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>0</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button64">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>120</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>8</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button66">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button60">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>4</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonBackNumeric">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/back-arrow.png</normaloff>templates/img/back-arrow.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button27_2">
+     <property name="geometry">
+      <rect>
+       <x>288</x>
+       <y>0</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>.</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSpecialNumeric">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>@#!</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button74_2">
+     <property name="geometry">
+      <rect>
+       <x>288</x>
+       <y>60</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>*</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button79_2">
+     <property name="geometry">
+      <rect>
+       <x>288</x>
+       <y>120</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button69_2">
+     <property name="geometry">
+      <rect>
+       <x>288</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>#</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSubmitNumeric">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>180</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/verification-mark.png</normaloff>templates/img/verification-mark.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonSpaceNumeric">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>60</y>
+       <width>96</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>Space</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonBackspaceNumeric">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>0</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>templates/img/backspace-arrow.png</normaloff>templates/img/backspace-arrow.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button56_2">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>120</y>
+       <width>96</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gotham Medium</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+     </property>
+     <property name="text">
+      <string>,</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="ButtonCursorLeft">
+   <property name="geometry">
+    <rect>
+     <x>288</x>
+     <y>0</y>
+     <width>96</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Gotham Medium</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>templates/img/arrows-4.png</normaloff>templates/img/arrows-4.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ButtonCursorRight">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>0</y>
+     <width>96</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Gotham Medium</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>templates/img/arrows-2.png</normaloff>templates/img/arrows-2.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
   </widget>
  </widget>
  <resources/>
