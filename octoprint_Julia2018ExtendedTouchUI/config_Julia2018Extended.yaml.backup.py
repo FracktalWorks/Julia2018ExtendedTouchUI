@@ -125,5 +125,5 @@ system:
     name: Stop video stream
 webcam:
   ffmpeg: /usr/bin/avconv
-  snapshot: ''
-  stream: ''
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: /webcam/?action=stream

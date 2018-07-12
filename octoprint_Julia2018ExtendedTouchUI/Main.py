@@ -225,10 +225,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.loadingGif.setMovie(self.movie)
         self.movie.start()
 
-
-
-
-
     def __init__(self):
         '''
         This method gets called when an object of type MainUIClass is defined
@@ -260,7 +256,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.setActions()
         self.movie.stop()
         self.stackedWidget.setCurrentWidget(MainWindow.homePage)
-
+        self.isFailureDetected()
 
     def setActions(self):
 
@@ -425,6 +421,65 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.softwareUpdateBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.settingsPage))
         self.performUpdateButton.pressed.connect(lambda: octopiclient.performSoftwareUpdate())
 
+    ''' +++++++++++++++++++++++++Print Restore+++++++++++++++++++++++++++++++++++ '''
+
+    def printRestoreMessageBox(self, file):
+        '''
+        Displays a message box alerting the user of a filament error
+        '''
+        choice = QtGui.QMessageBox()
+        choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        font = QtGui.QFont()
+        QtGui.QInputMethodEvent
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        choice.setFont(font)
+        choice.setText(file + " Did not finish, would you like to restore?")
+        choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
+        # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+        # choice.setFixedSize(QtCore.QSize(400, 300))
+        choice.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
+        choice.setStyleSheet(_fromUtf8("QPushButton{\n"
+                                       "     border: 1px solid rgb(87, 87, 87);\n"
+                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                       "height:70px;\n"
+                                       "width: 200px;\n"
+                                       "border-radius:5px;\n"
+                                       "    font: 14pt \"Gotham\";\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                       "}\n"
+                                       "QPushButton:focus {\n"
+                                       "outline: none;\n"
+                                       "}\n"
+
+                                       "\n"
+                                       ""))
+        retval = choice.exec_()
+        if retval == QtGui.QMessageBox.Yes:
+            response = octopiclient.restore(restore=True)
+            if response["status"]=="Successfully Restored":
+                self.miscMessageBox(response["status"])
+            else:
+                self.miscMessageBox("Error Restoring File")
+
+        else:
+            octoprintAPI.restore(restore=False)
+
+    def isFailureDetected(self):
+        try:
+            response = octopiclient.isFailureDetected()
+            if response["canRestore"] == True:
+                self.printRestoreMessageBox(response["file"])
+        except:
+            pass
 
     ''' +++++++++++++++++++++++++++++++++OTA Update+++++++++++++++++++++++++++++++++++ '''
 
@@ -1426,7 +1481,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
     def restoreFactoryDefaults(self):
 
         os.system('sudo rm -rf  /home/pi/.octoprint/users.yaml')
-        os.system('sudo cp -f config_Julia2018AdvancedTouchUI.yaml.backup.py /home/pi/.octoprint/config.yaml')
+        os.system('sudo cp -f config_Julia2018ExtendedTouchUI.yaml.backup.py /home/pi/.octoprint/config.yaml')
         self.rebootAfterRestore()
 
     def restorePrintDefaults(self):
@@ -1565,7 +1620,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         if retval == QtGui.QMessageBox.Yes:
             self.restorePrintDefaults()
 
-    ''' +++++++++++++++++++++++++++++++++++ Misc ++++++++++++++++++++++++++++++++ '''
 
     ''' +++++++++++++++++++++++++++++++++++ Misc ++++++++++++++++++++++++++++++++ '''
     def touchCaliberation(self):
@@ -1670,6 +1724,51 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.QRCodeLabel.setPixmap(
             qrcode.make(json.dumps(qrip), image_factory=Image).pixmap())
         self.stackedWidget.setCurrentWidget(self.QRCodePage)
+
+    def miscMessageBox(self, text):
+        '''
+        Displays a message box alerting the user of a filament error
+        '''
+        choice = QtGui.QMessageBox()
+        choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        font = QtGui.QFont()
+        QtGui.QInputMethodEvent
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        choice.setFont(font)
+        choice.setText(text)
+        choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
+        # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+        # choice.setFixedSize(QtCore.QSize(400, 300))
+        choice.setStandardButtons(QtGui.QMessageBox.Ok)
+        choice.setStyleSheet(_fromUtf8("QPushButton{\n"
+                                       "     border: 1px solid rgb(87, 87, 87);\n"
+                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                       "height:70px;\n"
+                                       "width: 200px;\n"
+                                       "border-radius:5px;\n"
+                                       "    font: 14pt \"Gotham\";\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                       "}\n"
+                                       "QPushButton:focus {\n"
+                                       "outline: none;\n"
+                                       "}\n"
+
+                                       "\n"
+                                       ""))
+        retval = choice.exec_()
+        if retval == QtGui.QMessageBox.Ok:
+            pass
+
+
 
 
 class QtWebsocket(QtCore.QThread):
