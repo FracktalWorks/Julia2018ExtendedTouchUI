@@ -173,7 +173,7 @@ QStatusBar::item {
 background-color: rgb(40, 40, 40);</string>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="loadingPage">
      <widget class="QLabel" name="LoadingLabel">
@@ -2775,35 +2775,11 @@ QCheckBox::indicator:unchecked {
         <string>IP Address</string>
        </property>
       </widget>
-      <widget class="QLabel" name="ethStaticNetmaskLabel">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>60</y>
-         <width>110</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>MS Shell Dlg 2</family>
-         <pointsize>11</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>Subnet Mask</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="ethStaticGatewayLabel">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
+         <y>60</y>
          <width>110</width>
          <height>30</height>
         </rect>
@@ -2823,63 +2799,11 @@ QCheckBox::indicator:unchecked {
         <string>Gateway</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="ethStaticNetmaskKeyboardButton">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>60</y>
-         <width>60</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>MS Shell Dlg 2</family>
-         <pointsize>18</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-     border: 1px solid rgb(0, 0, 0);
-	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
-
-
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}
-
-QPushButton:focus {
-	outline: none;
-}</string>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>40</width>
-         <height>40</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QPushButton" name="ethStaticGatewayKeyboardButton">
        <property name="geometry">
         <rect>
          <x>420</x>
-         <y>110</y>
+         <y>60</y>
          <width>60</width>
          <height>30</height>
         </rect>

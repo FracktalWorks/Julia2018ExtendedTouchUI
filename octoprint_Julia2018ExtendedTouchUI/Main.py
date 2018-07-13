@@ -230,14 +230,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.ethStaticIpLineEdit.setStyleSheet(ss)
         self.ethStaticIpLineEdit.setObjectName(_fromUtf8("ethStaticIpLineEdit"))
         
-        self.ethStaticNetmaskLineEdit = clickableLineEdit(self.ethStaticSettings)
-        self.ethStaticNetmaskLineEdit.setGeometry(QtCore.QRect(120, 60, 300, 30))
-        self.ethStaticNetmaskLineEdit.setFont(font)
-        self.ethStaticNetmaskLineEdit.setStyleSheet(ss)
-        self.ethStaticNetmaskLineEdit.setObjectName(_fromUtf8("ethStaticNetmaskLineEdit"))
-        
         self.ethStaticGatewayLineEdit = clickableLineEdit(self.ethStaticSettings)
-        self.ethStaticGatewayLineEdit.setGeometry(QtCore.QRect(120, 110, 300, 30))
+        self.ethStaticGatewayLineEdit.setGeometry(QtCore.QRect(120, 60, 300, 30))
         self.ethStaticGatewayLineEdit.setFont(font)
         self.ethStaticGatewayLineEdit.setStyleSheet(ss)
         self.ethStaticGatewayLineEdit.setObjectName(_fromUtf8("ethStaticGatewayLineEdit"))
@@ -303,7 +297,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         # Text Input events
         self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.startKeyboard(self.wifiPasswordLineEdit.setText))
         self.connect(self.ethStaticIpLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.ethShowKeyboard(self.ethStaticIpLineEdit))
-        self.connect(self.ethStaticNetmaskLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.ethShowKeyboard(self.ethStaticNetmaskLineEdit))
         self.connect(self.ethStaticGatewayLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.ethShowKeyboard(self.ethStaticGatewayLineEdit))
         
         # Button Events:
@@ -455,7 +448,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.ethStaticCheckBox.stateChanged.connect(self.ethStaticChanged)
         # self.ethStaticCheckBox.stateChanged.connect(lambda: self.ethStaticSettings.setVisible(self.ethStaticCheckBox.isChecked()))
         self.ethStaticIpKeyboardButton.pressed.connect(lambda: self.ethShowKeyboard(self.ethStaticIpLineEdit))
-        self.ethStaticNetmaskKeyboardButton.pressed.connect(lambda: self.ethShowKeyboard(self.ethStaticNetmaskLineEdit))
         self.ethStaticGatewayKeyboardButton.pressed.connect(lambda: self.ethShowKeyboard(self.ethStaticGatewayLineEdit))
         self.ethSettingsDoneButton.pressed.connect(self.ethSaveStaticNetworkInfo)
         self.ethSettingsCancelButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
@@ -767,9 +759,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             wlan0_config_file.write(u'psk="' + str(self.wifiPasswordLineEdit.text()) + '"\n')
         wlan0_config_file.write(u'}')
         wlan0_config_file.close()
-        self.restartNetworkingThreadObject = restartNetworkingThread()
-        self.restartNetworkingThreadObject.start()
-        self.connect(self.restartNetworkingThreadObject, QtCore.SIGNAL('IP_ADDRESS'), self.wifiReturnFunction)
+        self.restartWifiThreadObject = restartWifiThread()
+        self.restartWifiThreadObject.start()
+        self.connect(self.restartWifiThreadObject, QtCore.SIGNAL('WIFI_IP_ADDRESS'), self.wifiReturnFunction)
         self.restartNetworkingMessageBox()
 
     def wifiReturnFunction(self, x):
@@ -843,39 +835,33 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         #     self.ethStaticSettings.setVisible(False)
 
     def ethNetworkInfo(self):
-        txt = subprocess.Popen("cat /etc/network/interfaces", stdout=subprocess.PIPE, shell=True).communicate()[0]
+        txt = subprocess.Popen("cat /etc/dhcpcd.conf", stdout=subprocess.PIPE, shell=True).communicate()[0]
 
-        reEthGlobal = r"iface[\s]+eth0[\s]+inet[\s]+(\w+)[\s]?\n([a-zA-Z0-9\s.]+\n)?"
-        reEthAddress = r"address[\s]+([\d.]+)"
-        reEthNetmask = r"netmask[\s]+([\d.]+)"
-        reEthGateway = r"gateway[\s]+([\d.]+)"
+        reEthGlobal = r"interface\s+eth0\s?(static\s+[a-z0-9./_=\s]+\n)*"
+        reEthAddress = r"static\s+ip_address=([\d.]+)(/[\d]{1,2})?"
+        reEthGateway = r"static\s+routers=([\d.]+)(/[\d]{1,2})?"
 
         mtEthGlobal = re.search(reEthGlobal, txt)
 
         cbStaticEnabled = False
         txtEthAddress = ""
-        txtEthNetmask = ""
         txtEthGateway = ""
 
         if mtEthGlobal:
             sz = len(mtEthGlobal.groups())
-            cbStaticEnabled = (mtEthGlobal.group(1) == "static")
-            
-            if sz > 1:
-                mtEthAddress = re.search(reEthAddress, mtEthGlobal.group(0))
-                if mtEthAddress and len(mtEthAddress.groups()) == 1:
-                    txtEthAddress = mtEthAddress.group(1)
-                mtEthNetmask = re.search(reEthNetmask, mtEthGlobal.group(0))
-                if mtEthNetmask and len(mtEthNetmask.groups()) == 1:
-                    txtEthNetmask = mtEthNetmask.group(1)
-                mtEthGateway = re.search(reEthGateway, mtEthGlobal.group(0))
-                if mtEthGateway and len(mtEthGateway.groups()) == 1:
-                    txtEthGateway = mtEthGateway.group(1)
+            cbStaticEnabled = (sz == 1)
+        
+        if sz == 1:
+            mtEthAddress = re.search(reEthAddress, mtEthGlobal.group(0))
+            if mtEthAddress and len(mtEthAddress.groups()) == 2:
+                txtEthAddress = mtEthAddress.group(1)
+            mtEthGateway = re.search(reEthGateway, mtEthGlobal.group(0))
+            if mtEthGateway and len(mtEthGateway.groups()) == 2:
+                txtEthGateway = mtEthGateway.group(1)
             
         self.ethStaticCheckBox.setChecked(cbStaticEnabled)
         self.ethStaticSettings.setVisible(cbStaticEnabled)
         self.ethStaticIpLineEdit.setText(txtEthAddress)
-        self.ethStaticNetmaskLineEdit.setText(txtEthNetmask)
         self.ethStaticGatewayLineEdit.setText(txtEthGateway)
 
     def isIpErr(self, ip):
@@ -920,23 +906,20 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
     def ethSaveStaticNetworkInfo(self):
         cbStaticEnabled = self.ethStaticCheckBox.isChecked()
         txtEthAddress = str(self.ethStaticIpLineEdit.text())
-        txtEthNetmask = str(self.ethStaticNetmaskLineEdit.text())
         txtEthGateway = str(self.ethStaticGatewayLineEdit.text())
 
         if self.isIpErr(txtEthAddress):
             return self.showIpErr("IP Address")
-        if self.isIpErr(txtEthNetmask):
-            return self.showIpErr("Subnet Mask")
         if self.isIpErr(txtEthGateway):
             return self.showIpErr("Gateway")
         
-        txt = subprocess.Popen("cat /etc/network/interfaces", stdout=subprocess.PIPE, shell=True).communicate()[0]
-        op = "iface eth0 inet dhcp\n\n"
+        txt = subprocess.Popen("cat /etc/dhcpcd.conf", stdout=subprocess.PIPE, shell=True).communicate()[0]
+        op = ""
         if cbStaticEnabled:
-            op = "iface eth0 inet static\naddress {0}\nnetmask {1}\ngateway {2}\n\n".format(txtEthAddress, txtEthNetmask, txtEthGateway)
-        res = re.sub(r"iface[\s]+eth0[\s]+inet[\s]+(\w+)[\s]?\n([a-zA-Z0-9\s.]+\n)?", op, txt)
+            op = "interface eth0\nstatic ip_address={0}/24\nstatic routers={1}\nstatic domain_name_servers=8.8.8.8 8.8.4.4\n\n".format(txtEthAddress, txtEthGateway)
+        res = re.sub(r"interface\s+eth0\s?(static\s+[a-z0-9./_=\s]+\n)*", op, txt)
 
-        msgBox = QtGui.QMessageBox()
+        ethMessageBox = QtGui.QMessageBox()
         font = QtGui.QFont()
         QtGui.QInputMethodEvent
         font.setFamily(_fromUtf8("Gotham"))
@@ -945,10 +928,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         font.setUnderline(False)
         font.setWeight(50)
         font.setStrikeOut(False)
-        msgBox.setFont(font)
-        msgBox.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        msgBox.setStandardButtons(QtGui.QMessageBox.Ok)
-        msgBox.setStyleSheet(_fromUtf8("\n"
+        ethMessageBox.setFont(font)
+        ethMessageBox.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        ethMessageBox.setStandardButtons(QtGui.QMessageBox.Ok)
+        ethMessageBox.setStyleSheet(_fromUtf8("\n"
                         "QPushButton{\n"
                         "     border: 1px solid rgb(87, 87, 87);\n"
                         "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
@@ -970,20 +953,23 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         
 
         try:
-            file = open("/etc/network/interfaces","w") 
+            file = open("/etc/dhcpcd.conf","w") 
             file.write(res) 
             file.close()
 
-            msgBox.setText("Success")
-            msgBox.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/success.png")))
+            subprocess.call(["ifdown", "--force", "eth0"], shell=False)
+            subprocess.call(["ifup", "--force", "eth0"], shell=False)
 
-            if msgBox.exec_():
+            ethMessageBox.setText("Success")
+            ethMessageBox.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/success.png")))
+
+            if ethMessageBox.exec_():
                 self.stackedWidget.setCurrentWidget(self.settingsPage)
                 return
         except:
-            msgBox.setText("Failed to change Network Interface Info")
-            msgBox.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
-            msgBox.exec_()
+            ethMessageBox.setText("Failed to change Network Interface Info")
+            ethMessageBox.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
+            ethMessageBox.exec_()
 
     def ethShowKeyboard(self, textbox):
         self.startKeyboard(textbox.setText, onlyNumeric = True, noSpace = True, text = str(textbox.text()))
@@ -2148,22 +2134,22 @@ class fileUploadThread(QtCore.QThread):
             octopiclient.uploadGcode(file=self.file, select=False, prnt=False)
 
 
-class restartNetworkingThread(QtCore.QThread):
+class restartWifiThread(QtCore.QThread):
     def __init__(self):
-        super(restartNetworkingThread, self).__init__()
+        super(restartWifiThread, self).__init__()
 
     def run(self):
         self.restart_wlan0()
         attempt = 0
         while attempt < 3:
             if self.getIP():
-                self.emit(QtCore.SIGNAL('IP_ADDRESS'), self.getIP())
+                self.emit(QtCore.SIGNAL('WIFI_IP_ADDRESS'), self.getIP())
                 break
             else:
                 attempt += 1
                 time.sleep(1)
         if attempt >= 3:
-            self.emit(QtCore.SIGNAL('IP_ADDRESS'), None)
+            self.emit(QtCore.SIGNAL('WIFI_IP_ADDRESS'), None)
 
     def restart_wlan0(self):
         '''
@@ -2186,7 +2172,6 @@ class restartNetworkingThread(QtCore.QThread):
             return scan_result[1][scan_result[1].index('inet addr:') + 10: 23]
         except:
             return None
-
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

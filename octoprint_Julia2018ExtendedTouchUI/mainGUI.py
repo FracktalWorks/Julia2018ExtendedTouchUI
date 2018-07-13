@@ -1554,18 +1554,8 @@ class Ui_MainWindow(object):
         self.ethStaticIpLabel.setFont(font)
         self.ethStaticIpLabel.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.ethStaticIpLabel.setObjectName(_fromUtf8("ethStaticIpLabel"))
-        self.ethStaticNetmaskLabel = QtGui.QLabel(self.ethStaticSettings)
-        self.ethStaticNetmaskLabel.setGeometry(QtCore.QRect(10, 60, 110, 30))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.ethStaticNetmaskLabel.setFont(font)
-        self.ethStaticNetmaskLabel.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
-        self.ethStaticNetmaskLabel.setObjectName(_fromUtf8("ethStaticNetmaskLabel"))
         self.ethStaticGatewayLabel = QtGui.QLabel(self.ethStaticSettings)
-        self.ethStaticGatewayLabel.setGeometry(QtCore.QRect(10, 110, 110, 30))
+        self.ethStaticGatewayLabel.setGeometry(QtCore.QRect(10, 60, 110, 30))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("MS Shell Dlg 2"))
         font.setPointSize(11)
@@ -1574,41 +1564,8 @@ class Ui_MainWindow(object):
         self.ethStaticGatewayLabel.setFont(font)
         self.ethStaticGatewayLabel.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
         self.ethStaticGatewayLabel.setObjectName(_fromUtf8("ethStaticGatewayLabel"))
-        self.ethStaticNetmaskKeyboardButton = QtGui.QPushButton(self.ethStaticSettings)
-        self.ethStaticNetmaskKeyboardButton.setGeometry(QtCore.QRect(420, 60, 60, 30))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setWeight(75)
-        self.ethStaticNetmaskKeyboardButton.setFont(font)
-        self.ethStaticNetmaskKeyboardButton.setStyleSheet(_fromUtf8("QPushButton {\n"
-"     border: 1px solid rgb(0, 0, 0);\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"    border: none; /* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default {\n"
-"    border-color: navy; /* make the default button prominent */\n"
-"}\n"
-"\n"
-"QPushButton:focus {\n"
-"    outline: none;\n"
-"}"))
-        self.ethStaticNetmaskKeyboardButton.setIconSize(QtCore.QSize(40, 40))
-        self.ethStaticNetmaskKeyboardButton.setObjectName(_fromUtf8("ethStaticNetmaskKeyboardButton"))
         self.ethStaticGatewayKeyboardButton = QtGui.QPushButton(self.ethStaticSettings)
-        self.ethStaticGatewayKeyboardButton.setGeometry(QtCore.QRect(420, 110, 60, 30))
+        self.ethStaticGatewayKeyboardButton.setGeometry(QtCore.QRect(420, 60, 60, 30))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("MS Shell Dlg 2"))
         font.setPointSize(18)
@@ -6337,7 +6294,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(9)
+        self.stackedWidget.setCurrentIndex(6)
         self.controlTabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -6382,9 +6339,7 @@ class Ui_MainWindow(object):
         self.ethSettingsCancelButton.setText(_translate("MainWindow", "Cancel", None))
         self.ethStaticCheckBox.setText(_translate("MainWindow", "Static IP", None))
         self.ethStaticIpLabel.setText(_translate("MainWindow", "IP Address", None))
-        self.ethStaticNetmaskLabel.setText(_translate("MainWindow", "Subnet Mask", None))
         self.ethStaticGatewayLabel.setText(_translate("MainWindow", "Gateway", None))
-        self.ethStaticNetmaskKeyboardButton.setText(_translate("MainWindow", "...", None))
         self.ethStaticGatewayKeyboardButton.setText(_translate("MainWindow", "...", None))
         self.ethStaticIpKeyboardButton.setText(_translate("MainWindow", "...", None))
         self.networkInfoButton.setText(_translate("MainWindow", "Network info", None))

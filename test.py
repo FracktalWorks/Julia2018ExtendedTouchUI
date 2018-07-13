@@ -1,72 +1,86 @@
 import re
-import subprocess
 
-# txt = """
-# # interfaces(5) file used by ifup(8) and ifdown(8)
+txt = """
+interface eth0
+static ip_address=192.168.1.35/24
+static routers=192.168.1.1
+static domain_name_servers=8.8.8.8 8.8.4.4
 
-# # Please note that this file is written to be used with dhcpcd
-# # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+# A sample configuration for dhcpcd.
+# See dhcpcd.conf(5) for details.
 
-# # Include files from /etc/network/interfaces.d:
-# source-directory /etc/network/interfaces.d
+# Allow users of this group to interact with dhcpcd via the control socket.
+#controlgroup wheel
 
-# auto lo
-# iface lo inet loopback
+# Inform the DHCP server of our hostname for DDNS.
+hostname
 
-# iface eth0 inet manual
-# address 10.1.1.30
-# netmask 255.255.255.0
-# gateway 10.1.1.1
+# Use the hardware address of the interface for the Client ID.
+clientid
+# or
+# Use the same DUID + IAID as set in DHCPv6 for DHCPv4 ClientID as per RFC4361.
+#duid
 
-# allow-hotplug wlan0
-# iface wlan0 inet dhcp
-    # wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+# Persist interface configuration when dhcpcd exits.
+persistent
 
-# allow-hotplug wlan1
-# iface wlan1 inet manual
-    # wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-# """
+# Rapid commit support.
+# Safe to enable by default because it requires the equivalent option set
+# on the server to actually work.
+option rapid_commit
 
-regex = r"iface[\s]+eth0[\s]+inet[\s]+(\w+)[\s]?\n(address[\s]+([\d.]+)[\s]?\nnetmask[\s]+([\d.]+)[\s]?\ngateway[\s]+([\d.]+))?"
-reEthGlobal = r"iface[\s]+eth0[\s]+inet[\s]+(\w+)[\s]?\n([a-zA-Z0-9\s.]+\n)?"
-reEthAddress = r"address[\s]+([\d.]+)"
-reEthNetmask = r"netmask[\s]+([\d.]+)"
-reEthGateway = r"gateway[\s]+([\d.]+)"
+# A list of options to request from the DHCP server.
+option domain_name_servers, domain_name, domain_search, host_name
+option classless_static_routes
+# Most distributions have NTP support.
+option ntp_servers
+# Respect the network MTU.
+# Some interface drivers reset when changing the MTU so disabled by default.
+#option interface_mtu
 
-txt = subprocess.Popen("cat test.txt", stdout=subprocess.PIPE, shell=True).communicate()[0]
-# print(txt)
+# A ServerID is required by RFC2131.
+require dhcp_server_identifier
+
+# Generate Stable Private IPv6 Addresses instead of hardware based ones
+slaac private
+
+# A hook script is provided to lookup the hostname if not set by the DHCP
+# server, but it should not be run by default.
+nohook lookup-hostname
+"""
+
+reEthGlobal = r"interface\s+eth0\s?(static\s+[a-z0-9./_=\s]+\n)*"
+reEthAddress = r"static\s+ip_address=([\d.]+)(/[\d]{1,2})?"
+reEthGateway = r"static\s+routers=([\d.]+)(/[\d]{1,2})?"
 
 mtEthGlobal = re.search(reEthGlobal, txt)
 
-cbEnabled = False
+cbStaticEnabled = False
 txtEthAddress = "1"
-txtEthNetmask = "2"
 txtEthGateway = "3"
 
 if mtEthGlobal:
   sz = len(mtEthGlobal.groups())
-  cbStaticEnabled = mtEthGlobal.group(1) == "static"
+  cbStaticEnabled = (sz == 1)
   
-  if sz > 1:
+  if sz == 1:
     mtEthAddress = re.search(reEthAddress, mtEthGlobal.group(0))
-    if mtEthAddress and len(mtEthAddress.groups()) == 1:
+    if mtEthAddress and len(mtEthAddress.groups()) == 2:
       txtEthAddress = mtEthAddress.group(1)
-    mtEthNetmask = re.search(reEthNetmask, mtEthGlobal.group(0))
-    if mtEthNetmask and len(mtEthNetmask.groups()) == 1:
-      txtEthNetmask = mtEthNetmask.group(1)
     mtEthGateway = re.search(reEthGateway, mtEthGlobal.group(0))
-    if mtEthGateway and len(mtEthGateway.groups()) == 1:
+    if mtEthGateway and len(mtEthGateway.groups()) == 2:
       txtEthGateway = mtEthGateway.group(1)
   
   print(cbStaticEnabled)
   print(txtEthAddress)
-  print(txtEthNetmask)
   print(txtEthGateway)
   
-  op = "iface eth0 inet static\naddress {0}\nnetmask {1}\ngateway {2}\n\n".format(txtEthAddress, txtEthNetmask, txtEthGateway)
+  op = """
+  interface eth0
+  static ip_address={0}/24
+  static routers={1}
+  static domain_name_servers=8.8.8.8 8.8.4.4
+  """.format(txtEthAddress, txtEthGateway)
+
   res = re.sub(reEthGlobal, op, txt)
-  file = open("test.txt","w") 
-  file.write(res) 
-  file.close() 
-  
-  
+  # print(res)
