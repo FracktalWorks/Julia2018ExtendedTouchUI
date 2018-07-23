@@ -963,11 +963,12 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         txtEthAddress = str(self.ethStaticIpLineEdit.text())
         txtEthGateway = str(self.ethStaticGatewayLineEdit.text())
 
-        if self.isIpErr(txtEthAddress):
-            return self.showIpErr("IP Address")
-        if self.isIpErr(txtEthGateway):
-            return self.showIpErr("Gateway")
-        
+        if cbStaticEnabled:
+            if self.isIpErr(txtEthAddress):
+                return self.showIpErr("IP Address")
+            if self.isIpErr(txtEthGateway):
+                return self.showIpErr("Gateway")
+
         txt = subprocess.Popen("cat /etc/dhcpcd.conf", stdout=subprocess.PIPE, shell=True).communicate()[0]
         op = ""
         if cbStaticEnabled:
