@@ -11,7 +11,7 @@
  * Licence: AGPLv3
 *************************************************************************
 '''
-raspberryPi= False
+raspberryPi = False
 from PyQt4 import QtCore, QtGui
 import mainGUI
 import keyBoardFunc
@@ -101,10 +101,15 @@ filaments = {"ABS": 220,
              "CopperFill": 180
              }
 
-calibrationPosition = { 'X1': 203, 'Y1': 31,
-                         'X2': 58, 'Y2': 31,
-                         'X3': 130, 'Y3': 249
-                         }
+calibrationPosition = {'X1': 203, 'Y1': 31,
+                       'X2': 58, 'Y2': 31,
+                       'X3': 130, 'Y3': 249
+                       }
+# calibrationPosition = { 'X1': 181, 'Y1': 21,
+#                          'X2': 35.6, 'Y2': 21,
+#                          'X3': 110, 'Y3': 197
+#                          }
+
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -215,7 +220,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(15)
         ss = _fromUtf8("background-color: rgb(255, 255, 255);\n"
-                                                          "")
+                       "")
 
         self.wifiPasswordLineEdit = clickableLineEdit(self.wifiSettingsPage)
         self.wifiPasswordLineEdit.setGeometry(QtCore.QRect(0, 170, 480, 60))
@@ -229,7 +234,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.ethStaticIpLineEdit.setFont(font)
         self.ethStaticIpLineEdit.setStyleSheet(ss)
         self.ethStaticIpLineEdit.setObjectName(_fromUtf8("ethStaticIpLineEdit"))
-        
+
         self.ethStaticGatewayLineEdit = clickableLineEdit(self.ethStaticSettings)
         self.ethStaticGatewayLineEdit.setGeometry(QtCore.QRect(120, 60, 300, 30))
         self.ethStaticGatewayLineEdit.setFont(font)
@@ -273,7 +278,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.setActions()
         self.movie.stop()
         self.stackedWidget.setCurrentWidget(MainWindow.homePage)
-        self.isFailureDetected()
 
     def setActions(self):
 
@@ -289,12 +293,16 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_LOG'), self.softwareUpdateProgressLog)
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_LOG_RESULT'), self.softwareUpdateResult)
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_FAILED'), self.updateFailed)
+        self.connect(self.QtSocket, QtCore.SIGNAL('CONNECTED'), self.isFailureDetected)
 
         # Text Input events
-        self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.startKeyboard(self.wifiPasswordLineEdit.setText))
-        self.connect(self.ethStaticIpLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.ethShowKeyboard(self.ethStaticIpLineEdit))
-        self.connect(self.ethStaticGatewayLineEdit, QtCore.SIGNAL("clicked()"), lambda: self.ethShowKeyboard(self.ethStaticGatewayLineEdit))
-        
+        self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"),
+                     lambda: self.startKeyboard(self.wifiPasswordLineEdit.setText))
+        self.connect(self.ethStaticIpLineEdit, QtCore.SIGNAL("clicked()"),
+                     lambda: self.ethShowKeyboard(self.ethStaticIpLineEdit))
+        self.connect(self.ethStaticGatewayLineEdit, QtCore.SIGNAL("clicked()"),
+                     lambda: self.ethShowKeyboard(self.ethStaticGatewayLineEdit))
+
         # Button Events:
 
         # Home Screen:
@@ -319,8 +327,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             lambda: self.setZHomeOffset(self.nozzleOffsetDoubleSpinBox.value(), True))
         self.nozzleOffsetBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.calibratePage))
 
-        self.calibrationWizardButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.calibrationWizardPage))
-        self.calibrationWizardBackButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.calibratePage))
+        self.calibrationWizardButton.clicked.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.calibrationWizardPage))
+        self.calibrationWizardBackButton.clicked.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.calibratePage))
         self.quickCalibrationButton.clicked.connect(lambda: self.quickStep1(False))
         self.fullCalibrationButton.clicked.connect(lambda: self.quickStep1(True))
         self.quickStep1NextButton.clicked.connect(self.quickStep2)
@@ -415,13 +425,15 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.ExtrudeButton.pressed.connect(lambda: octopiclient.extrude(20))
 
         # Settings Page
-        self.networkSettingsButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
-        self.displaySettingsButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.displaySettingsPage))
+        self.networkSettingsButton.pressed.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
+        self.displaySettingsButton.pressed.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.displaySettingsPage))
         self.settingsBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.MenuPage))
         self.pairPhoneButton.pressed.connect(self.pairPhoneApp)
         self.OTAButton.pressed.connect(self.softwareUpdate)
         self.versionButton.pressed.connect(self.displayVersionInfo)
-        
+
         self.restartButton.pressed.connect(self.reboot)
         self.restoreFactoryDefaultsButton.pressed.connect(self.areYouSureFactoryDefaultsMessageBox)
         self.restorePrintSettingsButton.pressed.connect(self.areYouSurerestorePrintSettingsMessageBox)
@@ -431,22 +443,26 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.configureWifiButton.pressed.connect(self.wifiSettings)
         self.configureEthButton.pressed.connect(self.ethSettings)
         self.networkSettingsBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.settingsPage))
-        
+
         # Network Info Page
-        self.networkInfoBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
+        self.networkInfoBackButton.pressed.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
 
         # WifiSetings page
-        self.wifiSettingsSSIDKeyboardButton.pressed.connect(lambda: self.startKeyboard(self.wifiSettingsComboBox.addItems))
-        self.wifiSettingsCancelButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
+        self.wifiSettingsSSIDKeyboardButton.pressed.connect(
+            lambda: self.startKeyboard(self.wifiSettingsComboBox.addItems))
+        self.wifiSettingsCancelButton.pressed.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
         self.wifiSettingsDoneButton.pressed.connect(self.acceptWifiSettings)
 
-        # Eth setings page 
+        # Eth setings page
         self.ethStaticCheckBox.stateChanged.connect(self.ethStaticChanged)
         # self.ethStaticCheckBox.stateChanged.connect(lambda: self.ethStaticSettings.setVisible(self.ethStaticCheckBox.isChecked()))
         self.ethStaticIpKeyboardButton.pressed.connect(lambda: self.ethShowKeyboard(self.ethStaticIpLineEdit))
         self.ethStaticGatewayKeyboardButton.pressed.connect(lambda: self.ethShowKeyboard(self.ethStaticGatewayLineEdit))
         self.ethSettingsDoneButton.pressed.connect(self.ethSaveStaticNetworkInfo)
-        self.ethSettingsCancelButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
+        self.ethSettingsCancelButton.pressed.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
 
         # Display settings
         self.rotateDisplay.pressed.connect(self.showRotateDisplaySettingsPage)
@@ -455,8 +471,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
 
         # Rotate Display Settings
         self.rotateDisplaySettingsDoneButton.pressed.connect(self.saveRotateDisplaySettings)
-        self.rotateDisplaySettingsCancelButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.displaySettingsPage))
-        
+        self.rotateDisplaySettingsCancelButton.pressed.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.displaySettingsPage))
 
         # QR Code
         self.QRCodeBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.settingsPage))
@@ -509,10 +525,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         retval = choice.exec_()
         if retval == QtGui.QMessageBox.Yes:
             response = octopiclient.restore(restore=True)
-            if response["status"]=="Successfully Restored":
+            if response["status"] == "Successfully Restored":
                 self.miscMessageBox(response["status"])
             else:
-                self.miscMessageBox("Error Restoring File")
+                self.miscMessageBox(response["status"])
 
         else:
             octoprintAPI.restore(restore=False)
@@ -873,9 +889,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         scan_result = [s.strip('"') for s in scan_result]
         scan_result = filter(None, scan_result)
         return scan_result
-        
 
     ''' +++++++++++++++++++++++++++++++++Ethernet Settings+++++++++++++++++++++++++++++ '''
+
     def ethSettings(self):
         self.stackedWidget.setCurrentWidget(self.ethSettingsPage)
         # self.ethStaticCheckBox.setChecked(True)
@@ -905,7 +921,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         if mtEthGlobal:
             sz = len(mtEthGlobal.groups())
             cbStaticEnabled = (sz == 1)
-        
+
         if sz == 1:
             mtEthAddress = re.search(reEthAddress, mtEthGlobal.group(0))
             if mtEthAddress and len(mtEthAddress.groups()) == 2:
@@ -913,7 +929,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             mtEthGateway = re.search(reEthGateway, mtEthGlobal.group(0))
             if mtEthGateway and len(mtEthGateway.groups()) == 2:
                 txtEthGateway = mtEthGateway.group(1)
-            
+
         self.ethStaticCheckBox.setChecked(cbStaticEnabled)
         self.ethStaticSettings.setVisible(cbStaticEnabled)
         self.ethStaticIpLineEdit.setText(txtEthAddress)
@@ -938,25 +954,25 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         msgBox.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
         msgBox.setStandardButtons(QtGui.QMessageBox.Ok)
         msgBox.setStyleSheet(_fromUtf8("\n"
-                                "QPushButton{\n"
-                                "     border: 1px solid rgb(87, 87, 87);\n"
-                                "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-                                "height:70px;\n"
-                                "width: 150px;\n"
-                                "border-radius:5px;\n"
-                                "    font: 14pt \"Gotham\";\n"
-                                "}\n"
-                                "\n"
-                                "QPushButton:pressed {\n"
-                                "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-                                "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-                                "}\n"
-                                "QPushButton:focus {\n"
-                                "outline: none;\n"
-                                "}\n"
-                                "\n"
-                                ""))
-        return (msgBox.exec_() == QtGui.QMessageBox.Ok)   
+                                       "QPushButton{\n"
+                                       "     border: 1px solid rgb(87, 87, 87);\n"
+                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                       "height:70px;\n"
+                                       "width: 150px;\n"
+                                       "border-radius:5px;\n"
+                                       "    font: 14pt \"Gotham\";\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                       "}\n"
+                                       "QPushButton:focus {\n"
+                                       "outline: none;\n"
+                                       "}\n"
+                                       "\n"
+                                       ""))
+        return (msgBox.exec_() == QtGui.QMessageBox.Ok)
 
     def ethSaveStaticNetworkInfo(self):
         cbStaticEnabled = self.ethStaticCheckBox.isChecked()
@@ -972,7 +988,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         txt = subprocess.Popen("cat /etc/dhcpcd.conf", stdout=subprocess.PIPE, shell=True).communicate()[0]
         op = ""
         if cbStaticEnabled:
-            op = "interface eth0\nstatic ip_address={0}/24\nstatic routers={1}\nstatic domain_name_servers=8.8.8.8 8.8.4.4\n\n".format(txtEthAddress, txtEthGateway)
+            op = "interface eth0\nstatic ip_address={0}/24\nstatic routers={1}\nstatic domain_name_servers=8.8.8.8 8.8.4.4\n\n".format(
+                txtEthAddress, txtEthGateway)
         res = re.sub(r"interface\s+eth0\s?(static\s+[a-z0-9./_=\s]+\n)*", op, txt)
 
         ethMessageBox = QtGui.QMessageBox()
@@ -988,29 +1005,28 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         ethMessageBox.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         ethMessageBox.setStandardButtons(QtGui.QMessageBox.Ok)
         ethMessageBox.setStyleSheet(_fromUtf8("\n"
-                        "QPushButton{\n"
-                        "     border: 1px solid rgb(87, 87, 87);\n"
-                        "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-                        "height:70px;\n"
-                        "width: 150px;\n"
-                        "border-radius:5px;\n"
-                        "    font: 14pt \"Gotham\";\n"
-                        "}\n"
-                        "\n"
-                        "QPushButton:pressed {\n"
-                        "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-                        "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-                        "}\n"
-                        "QPushButton:focus {\n"
-                        "outline: none;\n"
-                        "}\n"
-                        "\n"
-                        ""))
-        
+                                              "QPushButton{\n"
+                                              "     border: 1px solid rgb(87, 87, 87);\n"
+                                              "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                              "height:70px;\n"
+                                              "width: 150px;\n"
+                                              "border-radius:5px;\n"
+                                              "    font: 14pt \"Gotham\";\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:pressed {\n"
+                                              "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                              "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                              "}\n"
+                                              "QPushButton:focus {\n"
+                                              "outline: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              ""))
 
         try:
-            file = open("/etc/dhcpcd.conf","w") 
-            file.write(res) 
+            file = open("/etc/dhcpcd.conf", "w")
+            file.write(res)
             file.close()
 
             subprocess.call(["ifdown", "--force", "eth0"], shell=False)
@@ -1028,10 +1044,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             ethMessageBox.exec_()
 
     def ethShowKeyboard(self, textbox):
-        self.startKeyboard(textbox.setText, onlyNumeric = True, noSpace = True, text = str(textbox.text()))
- 
+        self.startKeyboard(textbox.setText, onlyNumeric=True, noSpace=True, text=str(textbox.text()))
 
     ''' ++++++++++++++++++++++++++++++++Display Settings+++++++++++++++++++++++++++++++ '''
+
     def touchCalibration(self):
         os.system('sudo /home/pi/setenv.sh')
 
@@ -1072,28 +1088,28 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         msgBox.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         msgBox.setStandardButtons(QtGui.QMessageBox.Ok)
         msgBox.setStyleSheet(_fromUtf8("\n"
-                        "QPushButton{\n"
-                        "     border: 1px solid rgb(87, 87, 87);\n"
-                        "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-                        "height:70px;\n"
-                        "width: 150px;\n"
-                        "border-radius:5px;\n"
-                        "    font: 14pt \"Gotham\";\n"
-                        "}\n"
-                        "\n"
-                        "QPushButton:pressed {\n"
-                        "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-                        "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-                        "}\n"
-                        "QPushButton:focus {\n"
-                        "outline: none;\n"
-                        "}\n"
-                        "\n"
-                        ""))
+                                       "QPushButton{\n"
+                                       "     border: 1px solid rgb(87, 87, 87);\n"
+                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                       "height:70px;\n"
+                                       "width: 150px;\n"
+                                       "border-radius:5px;\n"
+                                       "    font: 14pt \"Gotham\";\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                       "}\n"
+                                       "QPushButton:focus {\n"
+                                       "outline: none;\n"
+                                       "}\n"
+                                       "\n"
+                                       ""))
 
         try:
-            file1 = open("/boot/config.txt","w") 
-            file1.write(res1) 
+            file1 = open("/boot/config.txt", "w")
+            file1.write(res1)
             file1.close()
         except:
             msgBox.setText("Failed to change rotation settings")
@@ -1101,8 +1117,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             msgBox.exec_()
             return
 
-
-        txt2 = subprocess.Popen("cat /etc/X11/xorg.conf.d/99-calibration.conf", stdout=subprocess.PIPE, shell=True).communicate()[0]
+        txt2 = subprocess.Popen("cat /etc/X11/xorg.conf.d/99-calibration.conf", stdout=subprocess.PIPE,
+                                shell=True).communicate()[0]
 
         reTouch = r"Option\s+\"TransformationMatrix\"\s+\"([\d\s-]+)\""
         if self.rotateDisplaySettingsComboBox.currentIndex() == 1:
@@ -1112,8 +1128,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         res2 = re.sub(reTouch, op2, txt2, flags=re.I)
 
         try:
-            file2 = open("/etc/X11/xorg.conf.d/99-calibration.conf","w") 
-            file2.write(res2) 
+            file2 = open("/etc/X11/xorg.conf.d/99-calibration.conf", "w")
+            file2.write(res2)
             file2.close()
         except:
             msgBox.setText("Failed to change touch settings")
@@ -1126,7 +1142,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         if msgBox.exec_() == QtGui.QMessageBox.Yes:
             os.system('sudo reboot now')
         self.stackedWidget.setCurrentWidget(self.displaySettingsPage)
-        
 
     ''' +++++++++++++++++++++++++++++++++Change Filament+++++++++++++++++++++++++++++++ '''
 
@@ -1226,7 +1241,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         sets the stacked widget page to the file list page
         '''
         self.stackedWidget.setCurrentWidget(self.fileListLocalPage)
-        files=[]
+        files = []
         for file in octopiclient.retrieveFileInformation()['files']:
             if file["type"] == "machinecode":
                 files.append(file)
@@ -1383,7 +1398,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         :param temperature: dict containing key:value pairs with keys being the tools, bed and their values being their corresponding temperratures
         '''
 
-
         if temperature['tool0Target'] == 0:
             self.tool0TempBar.setMaximum(300)
             self.tool0TempBar.setStyleSheet(_fromUtf8("QProgressBar::chunk {\n"
@@ -1461,10 +1475,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
                     self.stackedWidget.setCurrentWidget(self.changeFilamentExtrudePage)
                 else:
                     self.stackedWidget.setCurrentWidget(self.changeFilamentRetractPage)
-                    octopiclient.extrude(10) # extrudes some amount of filament to prevent plugging
+                    octopiclient.extrude(10)  # extrudes some amount of filament to prevent plugging
 
             self.changeFilamentProgress.setValue(temperature['tool0Actual'])
-
 
     def updatePrintStatus(self, file):
         '''
@@ -1527,8 +1540,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         :param status: String of the status text
         '''
 
-
-
         self.printerStatusText = status
         self.printerStatus.setText(status)
 
@@ -1586,7 +1597,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.toolTempSpinBox.setProperty("value", float(self.tool0TargetTemperature.text()))
         self.bedTempSpinBox.setProperty("value", float(self.bedTargetTemperature.text()))
 
-
     def setStep(self, stepRate):
         '''
         Sets the class variable "Step" which would be needed for movement and joging
@@ -1621,9 +1631,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.toolTempSpinBox.setProperty("value", 0)
         self.bedTempSpinBox.setProperty("value", 0)
 
-
     ''' +++++++++++++++++++++++++++++++++++Calibration++++++++++++++++++++++++++++++++ '''
-
 
     def getZHomeOffset(self, offset):
         '''
@@ -1633,7 +1641,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         :return:
         '''
         self.nozzleOffsetDoubleSpinBox.setValue(-float(offset))
-        self.nozzleHomeOffset = offset #update global value of
+        self.nozzleHomeOffset = offset  # update global value of
 
     def setZHomeOffset(self, offset, setOffset=False):
         '''
@@ -1646,12 +1654,12 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         #TODO can make this simpler, asset the offset value to string float to begin with instead of doing confitionals
         '''
 
-        if self.setHomeOffsetBool: # when this is true, M114 Z value will set stored as Z offset
+        if self.setHomeOffsetBool:  # when this is true, M114 Z value will set stored as Z offset
             octopiclient.gcode(command='M206 Z{}'.format(-float(offset)))  # Convert the string to float
             self.setHomeOffsetBool = False
             octopiclient.gcode(command='M500')
             # save in EEPROM
-        if setOffset: #When the offset needs to be set from spinbox value
+        if setOffset:  # When the offset needs to be set from spinbox value
             octopiclient.gcode(command='M206 Z{}'.format(-offset))
             octopiclient.gcode(command='M500')
 
@@ -1672,7 +1680,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         :return:
         '''
 
-        octopiclient.gcode(command='M503')  #gets the value of Z offset, that would be restored later, see getZHomeOffset()
+        octopiclient.gcode(
+            command='M503')  # gets the value of Z offset, that would be restored later, see getZHomeOffset()
         octopiclient.gcode(command='M420 S0')  # Dissable mesh bed leveling for good measure
         self.fullCalibration = fullCalibration
         octopiclient.gcode(command='M206 Z0')  # Sets Z home offset to 0
@@ -1735,7 +1744,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         '''
         # sent twice for some reason
         self.stackedWidget.setCurrentWidget(self.fullStep1Page)
-        #octopiclient.home(['x', 'y', 'z'])
+        # octopiclient.home(['x', 'y', 'z'])
         self.fullLevelingCount = 0
 
     def fullStep2(self):
@@ -1766,17 +1775,19 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.calibratePage)
 
     ''' +++++++++++++++++++++++++++++++++++Keyboard++++++++++++++++++++++++++++++++ '''
-    def startKeyboard(self, returnFn, onlyNumeric = False, noSpace = False, text = ""):
+
+    def startKeyboard(self, returnFn, onlyNumeric=False, noSpace=False, text=""):
         '''
         starts the keyboard screen for entering Password
         '''
-        keyBoardobj = keyBoardFunc.Keyboard(onlyNumeric = onlyNumeric, noSpace = noSpace, text = text)
+        keyBoardobj = keyBoardFunc.Keyboard(onlyNumeric=onlyNumeric, noSpace=noSpace, text=text)
         self.connect(keyBoardobj, QtCore.SIGNAL('KEYBOARD'), returnFn)
         keyBoardobj.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         keyBoardobj.show()
         # print('kb')
 
     ''' ++++++++++++++++++++++++++++++Restore Defaults++++++++++++++++++++++++++++ '''
+
     def restoreFactoryDefaults(self):
 
         os.system('sudo rm -rf  /home/pi/.octoprint/users.yaml')
@@ -1832,48 +1843,48 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             os.system('sudo reboot now')
 
     def areYouSureFactoryDefaultsMessageBox(self):
-            '''
-            Displays a message box asking if the user is sure if he wants to turn off the print
-            '''
-            choice = QtGui.QMessageBox()
-            choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-            font = QtGui.QFont()
-            QtGui.QInputMethodEvent
-            font.setFamily(_fromUtf8("Gotham"))
-            font.setPointSize(14)
-            font.setBold(False)
-            font.setUnderline(False)
-            font.setWeight(50)
-            font.setStrikeOut(False)
-            choice.setFont(font)
-            choice.setText("Are you sure you want to restore to factory defaults?")
-            # choice.setText(text)
-            choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
-            # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-            # choice.setFixedSize(QtCore.QSize(400, 300))
-            choice.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-            choice.setStyleSheet(_fromUtf8("\n"
-                                           "QPushButton{\n"
-                                           "     border: 1px solid rgb(87, 87, 87);\n"
-                                           "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-                                           "height:70px;\n"
-                                           "width: 150px;\n"
-                                           "border-radius:5px;\n"
-                                           "    font: 14pt \"Gotham\";\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:pressed {\n"
-                                           "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-                                           "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-                                           "}\n"
-                                           "QPushButton:focus {\n"
-                                           "outline: none;\n"
-                                           "}\n"
-                                           "\n"
-                                           ""))
-            retval = choice.exec_()
-            if retval == QtGui.QMessageBox.Yes:
-                self.restoreFactoryDefaults()
+        '''
+        Displays a message box asking if the user is sure if he wants to turn off the print
+        '''
+        choice = QtGui.QMessageBox()
+        choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        font = QtGui.QFont()
+        QtGui.QInputMethodEvent
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        choice.setFont(font)
+        choice.setText("Are you sure you want to restore to factory defaults?")
+        # choice.setText(text)
+        choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
+        # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+        # choice.setFixedSize(QtCore.QSize(400, 300))
+        choice.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
+        choice.setStyleSheet(_fromUtf8("\n"
+                                       "QPushButton{\n"
+                                       "     border: 1px solid rgb(87, 87, 87);\n"
+                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                       "height:70px;\n"
+                                       "width: 150px;\n"
+                                       "border-radius:5px;\n"
+                                       "    font: 14pt \"Gotham\";\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                       "}\n"
+                                       "QPushButton:focus {\n"
+                                       "outline: none;\n"
+                                       "}\n"
+                                       "\n"
+                                       ""))
+        retval = choice.exec_()
+        if retval == QtGui.QMessageBox.Yes:
+            self.restoreFactoryDefaults()
 
     def areYouSurerestorePrintSettingsMessageBox(self):
         '''
@@ -1918,7 +1929,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         retval = choice.exec_()
         if retval == QtGui.QMessageBox.Yes:
             self.restorePrintDefaults()
-
 
     ''' +++++++++++++++++++++++++++++++++++ Misc ++++++++++++++++++++++++++++++++ '''
 
@@ -2066,8 +2076,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             pass
 
 
-
-
 class QtWebsocket(QtCore.QThread):
     '''
     https://pypi.python.org/pypi/websocket-client
@@ -2187,7 +2195,7 @@ class sanityCheckThread(QtCore.QThread):
         while (True):
             # Start an object instance of octopiAPI
             try:
-                if ( uptime > 30):
+                if (uptime > 30):
                     shutdown_flag = True
                     self.emit(QtCore.SIGNAL('STARTUP_ERROR'))
                     break
@@ -2272,6 +2280,7 @@ class restartWifiThread(QtCore.QThread):
             return scan_result[1][scan_result[1].index('inet addr:') + 10: 23]
         except:
             return None
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
