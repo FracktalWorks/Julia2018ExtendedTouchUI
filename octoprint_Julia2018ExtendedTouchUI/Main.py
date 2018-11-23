@@ -294,6 +294,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_LOG_RESULT'), self.softwareUpdateResult)
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_FAILED'), self.updateFailed)
         self.connect(self.QtSocket, QtCore.SIGNAL('CONNECTED'), self.isFailureDetected)
+        self.connect(self.QtSocket, QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), self.filamentSensorTriggeredMessageBox)
 
         # Text Input events
         self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"),
@@ -539,6 +540,59 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             if response["canRestore"] == True:
                 self.printRestoreMessageBox(response["file"])
         except:
+            pass
+
+    ''' +++++++++++++++++++++++++Filament Sensor++++++++++++++++++++++++++++++++++++++ '''
+
+    def filamentSensorTriggeredMessageBox(self, data):
+        '''
+        Displays a message box alerting the user of a filament error
+        '''
+        # print(data)
+        filament = data["filament"] == "0"
+        
+        if not filament:
+            return
+        # print("1")
+        
+        # print("2")
+        choice = QtGui.QMessageBox()
+        choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        font = QtGui.QFont()
+        QtGui.QInputMethodEvent
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        choice.setFont(font)
+        choice.setText("Filament runout detected")
+        choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
+        # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+        # choice.setFixedSize(QtCore.QSize(400, 300))
+        choice.setStandardButtons(QtGui.QMessageBox.Ok)
+        choice.setStyleSheet(_fromUtf8("QPushButton{\n"
+                                       "     border: 1px solid rgb(87, 87, 87);\n"
+                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+                                       "height:70px;\n"
+                                       "width: 200px;\n"
+                                       "border-radius:5px;\n"
+                                       "    font: 14pt \"Gotham\";\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+                                       "}\n"
+                                       "QPushButton:focus {\n"
+                                       "outline: none;\n"
+                                       "}\n"
+
+                                       "\n"
+                                       ""))
+        retval = choice.exec_()
+        if retval == QtGui.QMessageBox.Ok:
             pass
 
     ''' +++++++++++++++++++++++++++++++++OTA Update+++++++++++++++++++++++++++++++++++ '''
@@ -1427,8 +1481,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         else:
             self.tool0TempBar.setMaximum(temperature['tool0Actual'])
         self.tool0TempBar.setValue(temperature['tool0Actual'])
-        self.tool0ActualTemperature.setText(str(temperature['tool0Actual']))  # + unichr(176)
-        self.tool0TargetTemperature.setText(str(temperature['tool0Target']))
+        self.tool0ActualTemperature.setText(str(int(temperature['tool0Actual'])))  # + unichr(176)
+        self.tool0TargetTemperature.setText(str(int(temperature['tool0Target'])))
 
         if temperature['bedTarget'] == 0:
             self.bedTempBar.setMaximum(150)
@@ -1459,8 +1513,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         else:
             self.bedTempBar.setMaximum(temperature['bedActual'])
         self.bedTempBar.setValue(temperature['bedActual'])
-        self.bedActualTemperatute.setText(str(temperature['bedActual']))  # + unichr(176))
-        self.bedTargetTemperature.setText(str(temperature['bedTarget']))  # + unichr(176))
+        self.bedActualTemperatute.setText(str(int(temperature['bedActual'])))  # + unichr(176))
+        self.bedTargetTemperature.setText(str(int(temperature['bedTarget'])))  # + unichr(176))
 
         # updates the progress bar on the change filament screen
         if self.changeFilamentHeatingFlag:
@@ -2129,7 +2183,10 @@ class QtWebsocket(QtCore.QThread):
             if data["event"]["type"] == "Connected":
                 self.emit(QtCore.SIGNAL('CONNECTED'))
         if "plugin" in data:
-            if data["plugin"]["plugin"] == 'softwareupdate':
+            if data["plugin"]["plugin"] == 'Julia2018FilamentSensor':
+                self.emit(QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), data["plugin"]["data"])
+
+            elif data["plugin"]["plugin"] == 'softwareupdate':
                 if data["plugin"]["data"]["type"] == "updating":
                     self.emit(QtCore.SIGNAL('UPDATE_STARTED'), data["plugin"]["data"]["data"])
                 elif data["plugin"]["data"]["type"] == "loglines":
