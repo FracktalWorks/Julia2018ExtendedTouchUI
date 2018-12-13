@@ -31,10 +31,13 @@ import uuid
 import os
 import serial
 import io
+import requests
 
 import re
 
 import RPi.GPIO as GPIO
+
+import dialog
 
 # import pkg_resources
 
@@ -297,7 +300,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_FAILED'), self.updateFailed)
         self.connect(self.QtSocket, QtCore.SIGNAL('CONNECTED'), self.isFailureDetected)
         self.connect(self.QtSocket, QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), self.filamentSensorTriggeredMessageBox)
-        # self.connect(self.QtSocket, QtCore.SIGNAL('FIRMWARE_UPDATER'), self.firmwareUpdateHandler)
+        self.connect(self.QtSocket, QtCore.SIGNAL('FIRMWARE_UPDATER'), self.firmwareUpdateHandler)
 
         # Text Input events
         self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"),
@@ -481,9 +484,12 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         # QR Code
         self.QRCodeBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.settingsPage))
 
-        # SoftwareUpdatePaage
+        # SoftwareUpdatePage
         self.softwareUpdateBackButton.pressed.connect(lambda: self.stackedWidget.setCurrentWidget(self.settingsPage))
         self.performUpdateButton.pressed.connect(lambda: octopiclient.performSoftwareUpdate())
+
+        # Firmware update page
+        self.firmwareUpdateBackButton.pressed.connect(self.firmwareUpdateBack)
 
     ''' +++++++++++++++++++++++++Print Restore+++++++++++++++++++++++++++++++++++ '''
 
@@ -540,8 +546,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
     def isFailureDetected(self):
         try:
             response = octopiclient.isFailureDetected()
-            if response["canRestore"] == True:
+            if response["canRestore"] is True:
                 self.printRestoreMessageBox(response["file"])
+            else:
+                self.firmwareUpdateCheck()
         except:
             pass
 
@@ -609,6 +617,33 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             pass
 
     ''' +++++++++++++++++++++++++++ Firmware Update+++++++++++++++++++++++++++++++++++ '''
+    isFirmwareUpdateInProgress = False
+
+    def firmwareUpdateCheck(self):
+        headers = {'X-Api-Key': apiKey}
+        requests.get('http://{}/plugin/JuliaFirmwareUpdater/update/check'.format(ip), headers=headers)
+
+    def firmwareUpdateStart(self):
+        headers = {'X-Api-Key': apiKey}
+        requests.get('http://{}/plugin/JuliaFirmwareUpdater/update/start'.format(ip), headers=headers)
+
+    def firmwareUpdateStartProgress(self):
+        self.stackedWidget.setCurrentWidget(self.firmwareUpdateProgressPage)
+        # self.firmwareUpdateLog.setTextColor(QtCore.Qt.yellow)
+        self.firmwareUpdateLog.setText("<span style='color: cyan'>Julia Firmware Updater<span>")
+        self.firmwareUpdateLog.append("<span style='color: cyan'>---------------------------------------------------------------</span>")
+        self.firmwareUpdateBackButton.setEnabled(False)
+
+    def firmwareUpdateProgress(self, text, backEnabled=False):
+        self.stackedWidget.setCurrentWidget(self.firmwareUpdateProgressPage)
+        # self.firmwareUpdateLog.setTextColor(QtCore.Qt.yellow)
+        self.firmwareUpdateLog.append(str(text))
+        self.firmwareUpdateBackButton.setEnabled(backEnabled)
+
+    def firmwareUpdateBack(self):
+        self.isFirmwareUpdateInProgress = False
+        self.firmwareUpdateBackButton.setEnabled(False)
+        self.stackedWidget.setCurrentWidget(self.homePage)
 
     def firmwareUpdateHandler(self, data):
         if "type" not in data or data["type"] != "status":
@@ -618,22 +653,39 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             return
 
         status = data["status"]
-        subtype = data["subtype"]
+        subtype = data["subtype"] if "subtype" in data else None
 
-        if status == "update_check":
-            if subtype == "error":
-                pass    # notify error in ok diag
+        if status == "update_check":    # update check
+            if subtype == "error":  # notify error in ok diag
+                self.isFirmwareUpdateInProgress = False
+                if "message" in data:
+                    dialog.WarningOk(self, "Firmware Updater Error: " + str(data["message"]))
             elif subtype == "success":
-                pass    # show ok dialog to start update
-        elif status == "update_start":
-            if subtype == "success":
-                pass    # open software update dialog
-            else:
-                pass    # show error
-        elif status == "flasherror" or status == "progress":
-            pass    # show software update dialog and update textview
-        elif status == "success":
-            pass    # show ok diag to show done
+                if dialog.YesNo(self, "Firmware update found.\nPress yes to update now!"):
+                    self.isFirmwareUpdateInProgress = True
+                    self.firmwareUpdateStart()
+        elif status == "update_start":  # update started
+            if subtype == "success":    # update progress
+                self.isFirmwareUpdateInProgress = True
+                self.firmwareUpdateStartProgress()
+                if "message" in data:
+                    message = "<span style='color: yellow'>{}</span>".format(data["message"])
+                    self.firmwareUpdateProgress(message)
+            else:   # show error
+                self.isFirmwareUpdateInProgress = False
+                # self.firmwareUpdateProgress(data["message"] if "message" in data else "Unknown error!", backEnabled=True)
+                if "message" in data:
+                    dialog.WarningOk(self, "Firmware Updater Error: " + str(data["message"]))
+        elif status == "flasherror" or status == "progress":    # show software update dialog and update textview
+            if "message" in data:
+                message = "<span style='color: {}'>{}</span>".format("olive" if status == "progress" else "red", data["message"])
+                self.firmwareUpdateProgress(message, backEnabled=(status == "flasherror"))
+        elif status == "success":    # show ok diag to show done
+            self.isFirmwareUpdateInProgress = False
+            message = data["message"] if "message" in data else "Flash successful!"
+            message = "<span style='color: green'>{}</span>".format(message)
+            message = message + "<br/><br/><span style='color: white'>Press back to continue...</span>"
+            self.firmwareUpdateProgress(message, backEnabled=True)
 
     ''' +++++++++++++++++++++++++++++++++OTA Update+++++++++++++++++++++++++++++++++++ '''
 
@@ -2259,18 +2311,21 @@ class QtWebsocket(QtCore.QThread):
             else:
                 self.emit(QtCore.SIGNAL('PRINT_STATUS'), None)
 
-            if data["current"]["temps"]:
+            if data["current"]["temps"] and len(data["current"]["temps"]) > 0:
                 try:
-                    temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
-                                    'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
-                                    'bedActual': data["current"]["temps"][0]["bed"]["actual"],
-                                    'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
+                    if "tool0" in data["current"]["temps"][0]:
+                        temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
+                                        'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
+                                        'bedActual': data["current"]["temps"][0]["bed"]["actual"],
+                                        'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
+                    self.emit(QtCore.SIGNAL('TEMPERATURES'), temperatures)
                 except KeyError:
-                    temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
-                                    'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
-                                    'bedActual': data["current"]["temps"][0]["bed"]["actual"],
-                                    'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
-                self.emit(QtCore.SIGNAL('TEMPERATURES'), temperatures)
+                    # temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
+                    #                 'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
+                    #                 'bedActual': data["current"]["temps"][0]["bed"]["actual"],
+                    #                 'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
+                    pass
+                # self.emit(QtCore.SIGNAL('TEMPERATURES'), temperatures)
 
     def on_open(self, ws):
         pass
@@ -2395,5 +2450,4 @@ if __name__ == '__main__':
     # charm = FlickCharm()
     # charm.activateOn(MainWindow.FileListWidget)
 sys.exit(app.exec_())
-
 

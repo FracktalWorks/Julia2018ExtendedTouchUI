@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'f:\FracktalWorks\Julia2018ExtendedTouchUI\octoprint_Julia2018ExtendedTouchUI\mainGUI.ui'
+# Form implementation generated from reading ui file 'g:\FracktalWorks\Julia2018ExtendedTouchUI\octoprint_Julia2018ExtendedTouchUI\mainGUI.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -2377,6 +2377,104 @@ class Ui_MainWindow(object):
         self.logTextEdit.setReadOnly(True)
         self.logTextEdit.setObjectName(_fromUtf8("logTextEdit"))
         self.stackedWidget.addWidget(self.softwareUpdateProgressPage)
+        self.firmwareUpdateProgressPage = QtGui.QWidget()
+        self.firmwareUpdateProgressPage.setObjectName(_fromUtf8("firmwareUpdateProgressPage"))
+        self.firmwareUpdateLog = QtGui.QTextEdit(self.firmwareUpdateProgressPage)
+        self.firmwareUpdateLog.setGeometry(QtCore.QRect(0, 0, 481, 250))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(12)
+        self.firmwareUpdateLog.setFont(font)
+        self.firmwareUpdateLog.setStyleSheet(_fromUtf8("QTextEdit{\n"
+"background-color:  rgb(40, 40, 40);\n"
+"font-color: white;\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar:vertical {\n"
+" border: 1px solid black; \n"
+"border-radius: 5px;\n"
+"background: rgb(40,40,40);\n"
+"width: 30px;\n"
+"}\n"
+"\n"
+"/* Sets up the color and height of handle */\n"
+"QScrollBar::handle:vertical {\n"
+"border-radius: 5px;\n"
+"background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"min-height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"/* This remvoes the bottom button by setting the height to 0px */\n"
+"QScrollBar::add-line:vertical {\n"
+"height: 0px;\n"
+"subcontrol-position: bottom;\n"
+"subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"/* This remvoes the top button by setting the height to 0px */\n"
+"QScrollBar::sub-line:vertical {\n"
+"height: 0px;\n"
+"subcontrol-position: top;\n"
+"subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"/*\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"border: 2px solid grey;\n"
+"width: 5px;\n"
+"height: 5px;\n"
+"background: white;\n"
+"}\n"
+"\n"
+"\n"
+"/* need this to get rid of crosshatching on scrollbar background */\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"background: none;\n"
+"}\n"
+""))
+        self.firmwareUpdateLog.setReadOnly(True)
+        self.firmwareUpdateLog.setObjectName(_fromUtf8("firmwareUpdateLog"))
+        self.firmwareUpdateBackButton = QtGui.QPushButton(self.firmwareUpdateProgressPage)
+        self.firmwareUpdateBackButton.setEnabled(False)
+        self.firmwareUpdateBackButton.setGeometry(QtCore.QRect(0, 250, 481, 71))
+        self.firmwareUpdateBackButton.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham Light"))
+        font.setPointSize(9)
+        self.firmwareUpdateBackButton.setFont(font)
+        self.firmwareUpdateBackButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}"))
+        self.firmwareUpdateBackButton.setText(_fromUtf8(""))
+        self.firmwareUpdateBackButton.setIcon(icon4)
+        self.firmwareUpdateBackButton.setIconSize(QtCore.QSize(50, 50))
+        self.firmwareUpdateBackButton.setCheckable(False)
+        self.firmwareUpdateBackButton.setAutoDefault(False)
+        self.firmwareUpdateBackButton.setDefault(False)
+        self.firmwareUpdateBackButton.setFlat(False)
+        self.firmwareUpdateBackButton.setObjectName(_fromUtf8("firmwareUpdateBackButton"))
+        self.stackedWidget.addWidget(self.firmwareUpdateProgressPage)
         self.calibratePage = QtGui.QWidget()
         self.calibratePage.setObjectName(_fromUtf8("calibratePage"))
         self.calibrateLabel = QtGui.QLabel(self.calibratePage)
@@ -6294,7 +6392,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(13)
         self.controlTabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -6364,6 +6462,11 @@ class Ui_MainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Gotham\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Software Update Starting, Please Wait....</p></body></html>", None))
+        self.firmwareUpdateLog.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Gotham\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Firmware Update Starting, Please Wait....</span></p></body></html>", None))
         self.calibrateLabel.setText(_translate("MainWindow", "Calibrate:", None))
         self.nozzleOffsetButton.setText(_translate("MainWindow", "Height", None))
         self.calibrationWizardButton.setText(_translate("MainWindow", "Wizard", None))
