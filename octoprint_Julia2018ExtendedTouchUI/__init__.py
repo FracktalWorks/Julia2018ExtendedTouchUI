@@ -74,7 +74,7 @@ class Julia2018ExtendedTouchUI(octoprint.plugin.StartupPlugin):
 
 
 __plugin_name__ = "Julia2018ExtendedTouchUI"
-__plugin_version__ = "1.0.22"
+__plugin_version__ = "1.1.0"
 
 
 def __plugin_load__():
