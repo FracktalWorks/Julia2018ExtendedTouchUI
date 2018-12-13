@@ -44,7 +44,7 @@ pluginmanager:
   repository: http://plugins.octoprint.org/plugins.json
 plugins:
   _disabled:
-  - cura
+    - cura
   announcements:
     _blog: null
     _important: null

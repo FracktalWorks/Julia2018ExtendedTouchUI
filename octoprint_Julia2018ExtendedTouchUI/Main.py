@@ -36,6 +36,8 @@ import re
 
 import RPi.GPIO as GPIO
 
+# import pkg_resources
+
 GPIO.setmode(GPIO.BCM)  # Use the board numbering scheme
 GPIO.setwarnings(False)  # Disable GPIO warnings
 
@@ -101,9 +103,9 @@ filaments = {"ABS": 220,
              "CopperFill": 180
              }
 
-calibrationPosition = {'X1': 203, 'Y1': 31,
-                       'X2': 58, 'Y2': 31,
-                       'X3': 130, 'Y3': 249
+calibrationPosition = {'X1': 193, 'Y1': 31,
+                       'X2': 48, 'Y2': 31,
+                       'X3': 120, 'Y3': 249
                        }
 # calibrationPosition = { 'X1': 181, 'Y1': 21,
 #                          'X2': 35.6, 'Y2': 21,
@@ -295,6 +297,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_FAILED'), self.updateFailed)
         self.connect(self.QtSocket, QtCore.SIGNAL('CONNECTED'), self.isFailureDetected)
         self.connect(self.QtSocket, QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), self.filamentSensorTriggeredMessageBox)
+        # self.connect(self.QtSocket, QtCore.SIGNAL('FIRMWARE_UPDATER'), self.firmwareUpdateHandler)
 
         # Text Input events
         self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"),
@@ -451,7 +454,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
 
         # WifiSetings page
         self.wifiSettingsSSIDKeyboardButton.pressed.connect(
-            lambda: self.startKeyboard(self.wifiSettingsComboBox.addItems))
+            lambda: self.startKeyboard(self.wifiSettingsComboBox.addItem))
         self.wifiSettingsCancelButton.pressed.connect(
             lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
         self.wifiSettingsDoneButton.pressed.connect(self.acceptWifiSettings)
@@ -548,14 +551,24 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         '''
         Displays a message box alerting the user of a filament error
         '''
-        # print(data)
-        filament = data["filament"] == "0"
-        
-        if not filament:
+        extruder0 = False
+        if 'filament' in data:
+            extruder0 = data["filament"] == "0"
+        elif 'extruder0' in data:
+            extruder0 = data["extruder0"] == "0"
+
+        door = False
+        if 'door' in data:
+            extruder0 = data["door"] == "0"
+
+        if not (extruder0 or door):
             return
-        # print("1")
-        
-        # print("2")
+
+        if door:
+            msg = "Door opened!"
+        else:
+            msg = "Out of filament!"
+
         choice = QtGui.QMessageBox()
         choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         font = QtGui.QFont()
@@ -567,7 +580,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         font.setWeight(50)
         font.setStrikeOut(False)
         choice.setFont(font)
-        choice.setText("Filament runout detected")
+        choice.setText(msg)
         choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
         # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
         # choice.setFixedSize(QtCore.QSize(400, 300))
@@ -594,6 +607,33 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         retval = choice.exec_()
         if retval == QtGui.QMessageBox.Ok:
             pass
+
+    ''' +++++++++++++++++++++++++++ Firmware Update+++++++++++++++++++++++++++++++++++ '''
+
+    def firmwareUpdateHandler(self, data):
+        if "type" not in data or data["type"] != "status":
+            return
+
+        if "status" not in data:
+            return
+
+        status = data["status"]
+        subtype = data["subtype"]
+
+        if status == "update_check":
+            if subtype == "error":
+                pass    # notify error in ok diag
+            elif subtype == "success":
+                pass    # show ok dialog to start update
+        elif status == "update_start":
+            if subtype == "success":
+                pass    # open software update dialog
+            else:
+                pass    # show error
+        elif status == "flasherror" or status == "progress":
+            pass    # show software update dialog and update textview
+        elif status == "success":
+            pass    # show ok diag to show done
 
     ''' +++++++++++++++++++++++++++++++++OTA Update+++++++++++++++++++++++++++++++++++ '''
 
@@ -976,13 +1016,13 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             sz = len(mtEthGlobal.groups())
             cbStaticEnabled = (sz == 1)
 
-        if sz == 1:
-            mtEthAddress = re.search(reEthAddress, mtEthGlobal.group(0))
-            if mtEthAddress and len(mtEthAddress.groups()) == 2:
-                txtEthAddress = mtEthAddress.group(1)
-            mtEthGateway = re.search(reEthGateway, mtEthGlobal.group(0))
-            if mtEthGateway and len(mtEthGateway.groups()) == 2:
-                txtEthGateway = mtEthGateway.group(1)
+            if sz == 1:
+                mtEthAddress = re.search(reEthAddress, mtEthGlobal.group(0))
+                if mtEthAddress and len(mtEthAddress.groups()) == 2:
+                    txtEthAddress = mtEthAddress.group(1)
+                mtEthGateway = re.search(reEthGateway, mtEthGlobal.group(0))
+                if mtEthGateway and len(mtEthGateway.groups()) == 2:
+                    txtEthGateway = mtEthGateway.group(1)
 
         self.ethStaticCheckBox.setChecked(cbStaticEnabled)
         self.ethStaticSettings.setVisible(cbStaticEnabled)
@@ -1843,9 +1883,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
     ''' ++++++++++++++++++++++++++++++Restore Defaults++++++++++++++++++++++++++++ '''
 
     def restoreFactoryDefaults(self):
-
-        os.system('sudo rm -rf  /home/pi/.octoprint/users.yaml')
-        os.system('sudo cp -f config_Julia2018ExtendedTouchUI.yaml.backup.py /home/pi/.octoprint/config.yaml')
+        os.system('sudo rm -rf /home/pi/.octoprint/users.yaml')
+        os.system('sudo cp -f config/dhcpcd.conf /etc/dhcpcd.conf')
+        os.system('sudo cp -f config/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf')
+        os.system('sudo cp -f config/config_Julia2018Extended.yaml /home/pi/.octoprint/config.yaml')
         self.rebootAfterRestore()
 
     def restorePrintDefaults(self):
@@ -1911,7 +1952,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         font.setWeight(50)
         font.setStrikeOut(False)
         choice.setFont(font)
-        choice.setText("Are you sure you want to restore to factory defaults?")
+        choice.setText("Are you sure you want to restore machine state to factory defaults?\nDoing so will also reset WiFi and Ethernet configuration.")
         # choice.setText(text)
         choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
         # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
@@ -2185,6 +2226,9 @@ class QtWebsocket(QtCore.QThread):
         if "plugin" in data:
             if data["plugin"]["plugin"] == 'Julia2018FilamentSensor':
                 self.emit(QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), data["plugin"]["data"])
+
+            if data["plugin"]["plugin"] == 'JuliaFirmwareUpdater':
+                self.emit(QtCore.SIGNAL('FIRMWARE_UPDATER'), data["plugin"]["data"])
 
             elif data["plugin"]["plugin"] == 'softwareupdate':
                 if data["plugin"]["data"]["type"] == "updating":
