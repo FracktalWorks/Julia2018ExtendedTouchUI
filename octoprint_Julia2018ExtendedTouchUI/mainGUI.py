@@ -839,7 +839,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 398, 630))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 478, 630))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.verticalLayout = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setContentsMargins(0, 0, 3, 0)
@@ -2324,7 +2324,7 @@ class Ui_MainWindow(object):
         self.logTextEdit.setFont(font)
         self.logTextEdit.setStyleSheet(_fromUtf8("QTextEdit{\n"
 "background-color:  rgb(40, 40, 40);\n"
-"font-color: white;\n"
+"/*font-color: white;*/\n"
 "color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -2387,7 +2387,7 @@ class Ui_MainWindow(object):
         self.firmwareUpdateLog.setFont(font)
         self.firmwareUpdateLog.setStyleSheet(_fromUtf8("QTextEdit{\n"
 "background-color:  rgb(40, 40, 40);\n"
-"font-color: white;\n"
+"/*font-color: white;*/\n"
 "color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -5697,7 +5697,7 @@ class Ui_MainWindow(object):
         self.filamentTab = QtGui.QWidget()
         self.filamentTab.setObjectName(_fromUtf8("filamentTab"))
         self.changeFilamentButton = QtGui.QToolButton(self.filamentTab)
-        self.changeFilamentButton.setGeometry(QtCore.QRect(110, 180, 241, 91))
+        self.changeFilamentButton.setGeometry(QtCore.QRect(0, 180, 240, 91))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Gotham"))
         font.setPointSize(12)
@@ -5705,7 +5705,6 @@ class Ui_MainWindow(object):
         self.changeFilamentButton.setStyleSheet(_fromUtf8("QToolButton  {\n"
 "     border: 1px solid rgb(87, 87, 87);\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"border-radius: 15px;\n"
 "\n"
 "\n"
 "}\n"
@@ -5847,17 +5846,58 @@ class Ui_MainWindow(object):
         self.flowRateLabelControlPage.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgba(255, 255, 255, 0);"))
         self.flowRateLabelControlPage.setObjectName(_fromUtf8("flowRateLabelControlPage"))
+        self.toggleFilamentSensorButton = QtGui.QToolButton(self.filamentTab)
+        self.toggleFilamentSensorButton.setEnabled(True)
+        self.toggleFilamentSensorButton.setGeometry(QtCore.QRect(240, 180, 240, 91))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(12)
+        self.toggleFilamentSensorButton.setFont(font)
+        self.toggleFilamentSensorButton.setStyleSheet(_fromUtf8("QToolButton  {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QToolButton :pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"    /* #dadbde #f6f7fa */\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton :flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QToolButton :default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}\n"
+"\n"
+"QToolButton :focus {\n"
+"    outline: none;\n"
+"}"))
+        icon31 = QtGui.QIcon()
+        icon31.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/filamentSensorOn.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.toggleFilamentSensorButton.setIcon(icon31)
+        self.toggleFilamentSensorButton.setIconSize(QtCore.QSize(60, 60))
+        self.toggleFilamentSensorButton.setCheckable(False)
+        self.toggleFilamentSensorButton.setChecked(False)
+        self.toggleFilamentSensorButton.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
+        self.toggleFilamentSensorButton.setObjectName(_fromUtf8("toggleFilamentSensorButton"))
         self.flowRateSpinBox.raise_()
         self.setFlowRateButton.raise_()
         self.flowRateLabelControlPage.raise_()
         self.changeFilamentButton.raise_()
-        icon31 = QtGui.QIcon()
-        icon31.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/Spool.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon31.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/Spool_Selected.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon31.addPixmap(QtGui.QPixmap(_fromUtf8("png/Spool.png")), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon31.addPixmap(QtGui.QPixmap(_fromUtf8("png/Spool_Selected.png")), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon31.addPixmap(QtGui.QPixmap(_fromUtf8("png/Spool_Selected.png")), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.controlTabWidget.addTab(self.filamentTab, icon31, _fromUtf8(""))
+        self.toggleFilamentSensorButton.raise_()
+        icon32 = QtGui.QIcon()
+        icon32.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/Spool.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/Spool_Selected.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap(_fromUtf8("png/Spool.png")), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap(_fromUtf8("png/Spool_Selected.png")), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap(_fromUtf8("png/Spool_Selected.png")), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.controlTabWidget.addTab(self.filamentTab, icon32, _fromUtf8(""))
         self.controlBackButton = QtGui.QPushButton(self.controlPage)
         self.controlBackButton.setGeometry(QtCore.QRect(380, 0, 100, 50))
         self.controlBackButton.setMinimumSize(QtCore.QSize(0, 0))
@@ -6044,9 +6084,9 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        icon32 = QtGui.QIcon()
-        icon32.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/load.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.changeFilamentLoadButton.setIcon(icon32)
+        icon33 = QtGui.QIcon()
+        icon33.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/load.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.changeFilamentLoadButton.setIcon(icon33)
         self.changeFilamentLoadButton.setIconSize(QtCore.QSize(60, 60))
         self.changeFilamentLoadButton.setObjectName(_fromUtf8("changeFilamentLoadButton"))
         self.changeFilamentUnloadButton = QtGui.QPushButton(self.changeFilamentPage)
@@ -6078,9 +6118,9 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}"))
-        icon33 = QtGui.QIcon()
-        icon33.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/unload.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.changeFilamentUnloadButton.setIcon(icon33)
+        icon34 = QtGui.QIcon()
+        icon34.addPixmap(QtGui.QPixmap(_fromUtf8("templates/img/unload.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.changeFilamentUnloadButton.setIcon(icon34)
         self.changeFilamentUnloadButton.setIconSize(QtCore.QSize(60, 60))
         self.changeFilamentUnloadButton.setObjectName(_fromUtf8("changeFilamentUnloadButton"))
         self.changeFilamentBackButton = QtGui.QPushButton(self.changeFilamentPage)
@@ -6392,7 +6432,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(13)
+        self.stackedWidget.setCurrentIndex(29)
         self.controlTabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -6532,6 +6572,7 @@ class Ui_MainWindow(object):
         self.changeFilamentButton.setText(_translate("MainWindow", "Change Filament", None))
         self.flowRateSpinBox.setSuffix(_translate("MainWindow", "%", None))
         self.flowRateLabelControlPage.setText(_translate("MainWindow", "Flow Rate :", None))
+        self.toggleFilamentSensorButton.setText(_translate("MainWindow", "Filament/Door Sensor", None))
         self.selectFilamentlabel.setText(_translate("MainWindow", "Select Filament :", None))
         self.changeFilamentLoadButton.setText(_translate("MainWindow", "Load", None))
         self.changeFilamentUnloadButton.setText(_translate("MainWindow", "Unload", None))

@@ -77,12 +77,13 @@ class Overlay(QtGui.QWidget):
         painter.begin(self)
         painter.setOpacity(0.8)
         painter.setRenderHint(QtGui.QPainter.Antialiasing)
-        painter.fillRect(event.rect(), QtGui.QBrush(QtGui.QColor(127, 127, 127, 127)))
+        painter.fillRect(event.rect(), QtGui.QBrush(QtGui.QColor(0, 0, 0, 127)))
         painter.end()
 
 
 class SelfCenteringMessageBox(QtGui.QMessageBox):
-    def __init__(self, timeout=3, parent=None):
+    def __init__(self, timeout=3, parent=None, overlay=False):
+        self._showOverlay = overlay
         self.overlay = Overlay(None)
 
         super(SelfCenteringMessageBox, self).__init__(None)
@@ -102,7 +103,8 @@ class SelfCenteringMessageBox(QtGui.QMessageBox):
             objLabel.setMinimumSize(250, 80)
 
     def show(self):
-        self.overlay.show()
+        if self._showOverlay:
+            self.overlay.show()
         super(SelfCenteringMessageBox, self).show()
 
         frameGm = self.frameGeometry()
@@ -115,17 +117,22 @@ class SelfCenteringMessageBox(QtGui.QMessageBox):
         super(SelfCenteringMessageBox, self).hide()
         self.overlay.hide()
 
+    def showOverlay(self, overlay):
+        self._showOverlay = overlay
+
 
 def dialog(parent, text, **kwargs):
     fontSize = kwargs.get('fontSize', 14)
     icon = kwargs.get('icon', None)
     buttons = kwargs.get('buttons', QtGui.QMessageBox.Ok)
     geometry = kwargs.get('geometry', None)
+    overlay = kwargs.get('overlay', False)
 
     choice = SelfCenteringMessageBox(parent)  # QtGui.QMessageBox()
     choice.setFont(font(fontSize))
     choice.setText(text)
     choice.setStandardButtons(buttons)
+    choice.showOverlay(overlay)
 
     if icon:
         choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/" + icon)).scaled(40, 40))
@@ -176,6 +183,5 @@ def SuccessOk(parent, text, **kwargs):
     return Ok(parent, text, icon="success.png", **kwargs)
 
 
-if __name__ == '__main__':
-    from sys import exit
-    exit(1)
+def SuccessYesNo(parent, text, **kwargs):
+    return YesNo(parent, text, icon="success.png", **kwargs)

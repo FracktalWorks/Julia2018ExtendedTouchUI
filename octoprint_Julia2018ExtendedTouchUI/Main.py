@@ -14,7 +14,7 @@
 raspberryPi = False
 from PyQt4 import QtCore, QtGui
 import mainGUI
-import keyBoardFunc
+import keyboard
 import time
 import sys
 import subprocess
@@ -283,6 +283,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.setActions()
         self.movie.stop()
         self.stackedWidget.setCurrentWidget(MainWindow.homePage)
+        self.isFilamentSensorInstalled()
 
     def setActions(self):
 
@@ -298,8 +299,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_LOG'), self.softwareUpdateProgressLog)
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_LOG_RESULT'), self.softwareUpdateResult)
         self.connect(self.QtSocket, QtCore.SIGNAL('UPDATE_FAILED'), self.updateFailed)
-        self.connect(self.QtSocket, QtCore.SIGNAL('CONNECTED'), self.isFailureDetected)
-        self.connect(self.QtSocket, QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), self.filamentSensorTriggeredMessageBox)
+        self.connect(self.QtSocket, QtCore.SIGNAL('CONNECTED'), self.onServerConnected)
+        self.connect(self.QtSocket, QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), self.filamentSensorHandler)
         self.connect(self.QtSocket, QtCore.SIGNAL('FIRMWARE_UPDATER'), self.firmwareUpdateHandler)
 
         # Text Input events
@@ -462,7 +463,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             lambda: self.stackedWidget.setCurrentWidget(self.networkSettingsPage))
         self.wifiSettingsDoneButton.pressed.connect(self.acceptWifiSettings)
 
-        # Eth setings page
+        # Ethernet setings page
         self.ethStaticCheckBox.stateChanged.connect(self.ethStaticChanged)
         # self.ethStaticCheckBox.stateChanged.connect(lambda: self.ethStaticSettings.setVisible(self.ethStaticCheckBox.isChecked()))
         self.ethStaticIpKeyboardButton.pressed.connect(lambda: self.ethShowKeyboard(self.ethStaticIpLineEdit))
@@ -491,59 +492,26 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         # Firmware update page
         self.firmwareUpdateBackButton.pressed.connect(self.firmwareUpdateBack)
 
+        # Filament sensor toggle
+        self.toggleFilamentSensorButton.clicked.connect(self.toggleFilamentSensor)
+
     ''' +++++++++++++++++++++++++Print Restore+++++++++++++++++++++++++++++++++++ '''
 
     def printRestoreMessageBox(self, file):
         '''
         Displays a message box alerting the user of a filament error
         '''
-        choice = QtGui.QMessageBox()
-        choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        font = QtGui.QFont()
-        QtGui.QInputMethodEvent
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setUnderline(False)
-        font.setWeight(50)
-        font.setStrikeOut(False)
-        choice.setFont(font)
-        choice.setText(file + " Did not finish, would you like to restore?")
-        choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
-        # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-        # choice.setFixedSize(QtCore.QSize(400, 300))
-        choice.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-        choice.setStyleSheet(_fromUtf8("QPushButton{\n"
-                                       "     border: 1px solid rgb(87, 87, 87);\n"
-                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-                                       "height:70px;\n"
-                                       "width: 200px;\n"
-                                       "border-radius:5px;\n"
-                                       "    font: 14pt \"Gotham\";\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:pressed {\n"
-                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-                                       "}\n"
-                                       "QPushButton:focus {\n"
-                                       "outline: none;\n"
-                                       "}\n"
-
-                                       "\n"
-                                       ""))
-        retval = choice.exec_()
-        if retval == QtGui.QMessageBox.Yes:
+        if dialog.WarningYesNo(self, file + " Did not finish, would you like to restore?"):
             response = octopiclient.restore(restore=True)
             if response["status"] == "Successfully Restored":
-                self.miscMessageBox(response["status"])
+                dialog.WarningOk(response["status"])
             else:
-                self.miscMessageBox(response["status"])
-
+                dialog.WarningOk(response["status"])
         else:
             octoprintAPI.restore(restore=False)
 
-    def isFailureDetected(self):
+    def onServerConnected(self):
+        self.isFilamentSensorInstalled()
         try:
             response = octopiclient.isFailureDetected()
             if response["canRestore"] is True:
@@ -555,66 +523,66 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
 
     ''' +++++++++++++++++++++++++Filament Sensor++++++++++++++++++++++++++++++++++++++ '''
 
-    def filamentSensorTriggeredMessageBox(self, data):
-        '''
-        Displays a message box alerting the user of a filament error
-        '''
-        extruder0 = False
-        if 'filament' in data:
-            extruder0 = data["filament"] == "0"
-        elif 'extruder0' in data:
-            extruder0 = data["extruder0"] == "0"
+    def isFilamentSensorInstalled(self):
+        success = False
+        try:
+            headers = {'X-Api-Key': apiKey}
+            req = requests.get('http://{}/plugin/Julia2018FilamentSensor/status'.format(ip), headers=headers)
+            success = req.status_code == requests.codes.ok
+        except:
+            pass
+        self.toggleFilamentSensorButton.setEnabled(success)
+        return success
 
-        door = False
-        if 'door' in data:
-            extruder0 = data["door"] == "0"
+    def toggleFilamentSensor(self):
+        headers = {'X-Api-Key': apiKey}
+        # payload = {'sensor_enabled': self.toggleFilamentSensorButton.isChecked()}
+        requests.get('http://{}/plugin/Julia2018FilamentSensor/toggle'.format(ip), headers=headers)   # , data=payload)
 
-        if not (extruder0 or door):
+    def filamentSensorHandler(self, data):
+        sensor_enabled = False
+        # print(data)
+
+        if 'sensor_enabled' in data:
+            sensor_enabled = data["sensor_enabled"] == 1
+
+        icon = 'filamentSensorOn' if sensor_enabled else 'filamentSensorOff'
+        self.toggleFilamentSensorButton.setIcon(QtGui.QIcon(_fromUtf8("templates/img/" + icon)))
+
+        if not sensor_enabled:
             return
 
-        if door:
-            msg = "Door opened!"
-        else:
-            msg = "Out of filament!"
+        triggered_extruder0 = False
+        triggered_door = False
+        pause_print = False
 
-        choice = QtGui.QMessageBox()
-        choice.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        font = QtGui.QFont()
-        QtGui.QInputMethodEvent
-        font.setFamily(_fromUtf8("Gotham"))
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setUnderline(False)
-        font.setWeight(50)
-        font.setStrikeOut(False)
-        choice.setFont(font)
-        choice.setText(msg)
-        choice.setIconPixmap(QtGui.QPixmap(_fromUtf8("templates/img/exclamation-mark.png")))
-        # choice.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-        # choice.setFixedSize(QtCore.QSize(400, 300))
-        choice.setStandardButtons(QtGui.QMessageBox.Ok)
-        choice.setStyleSheet(_fromUtf8("QPushButton{\n"
-                                       "     border: 1px solid rgb(87, 87, 87);\n"
-                                       "    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
-                                       "height:70px;\n"
-                                       "width: 200px;\n"
-                                       "border-radius:5px;\n"
-                                       "    font: 14pt \"Gotham\";\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:pressed {\n"
-                                       "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-                                       "                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-                                       "}\n"
-                                       "QPushButton:focus {\n"
-                                       "outline: none;\n"
-                                       "}\n"
+        if 'filament' in data:
+            triggered_extruder0 = data["filament"] == 0
+        elif 'extruder0' in data:
+            triggered_extruder0 = data["extruder0"] == 0
 
-                                       "\n"
-                                       ""))
-        retval = choice.exec_()
-        if retval == QtGui.QMessageBox.Ok:
-            pass
+        if 'door' in data:
+            triggered_door = data["door"] == 0
+        if 'pause_print' in data:
+            pause_print = data["pause_print"]
+
+        if triggered_extruder0:
+            if dialog.WarningOk(self, "Filament outage in Extruder 0"):
+                pass
+
+        if triggered_door:
+            if self.printerStatusText == "Printing":
+                no_pause_pages = [self.controlPage, self.changeFilamentPage, self.changeFilamentProgressPage,
+                                  self.changeFilamentExtrudePage, self.changeFilamentRetractPage]
+                if not pause_print or self.stackedWidget.currentWidget() in no_pause_pages:
+                    if dialog.WarningOk(self, "Door opened"):
+                        return
+                octopiclient.pausePrint()
+                if dialog.WarningOk(self, "Door opened. Print paused.", overlay=True):
+                    return
+            else:
+                if dialog.WarningOk(self, "Door opened"):
+                    return
 
     ''' +++++++++++++++++++++++++++ Firmware Update+++++++++++++++++++++++++++++++++++ '''
     isFirmwareUpdateInProgress = False
@@ -659,9 +627,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
             if subtype == "error":  # notify error in ok diag
                 self.isFirmwareUpdateInProgress = False
                 if "message" in data:
-                    dialog.WarningOk(self, "Firmware Updater Error: " + str(data["message"]))
+                    dialog.WarningOk(self, "Firmware Updater Error: " + str(data["message"]), overlay=True)
             elif subtype == "success":
-                if dialog.YesNo(self, "Firmware update found.\nPress yes to update now!"):
+                if dialog.SuccessYesNo(self, "Firmware update found.\nPress yes to update now!", overlay=True):
                     self.isFirmwareUpdateInProgress = True
                     self.firmwareUpdateStart()
         elif status == "update_start":  # update started
@@ -675,10 +643,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
                 self.isFirmwareUpdateInProgress = False
                 # self.firmwareUpdateProgress(data["message"] if "message" in data else "Unknown error!", backEnabled=True)
                 if "message" in data:
-                    dialog.WarningOk(self, "Firmware Updater Error: " + str(data["message"]))
+                    dialog.WarningOk(self, "Firmware Updater Error: " + str(data["message"]), overlay=True)
         elif status == "flasherror" or status == "progress":    # show software update dialog and update textview
             if "message" in data:
-                message = "<span style='color: {}'>{}</span>".format("olive" if status == "progress" else "red", data["message"])
+                message = "<span style='color: {}'>{}</span>".format("teal" if status == "progress" else "red", data["message"])
                 self.firmwareUpdateProgress(message, backEnabled=(status == "flasherror"))
         elif status == "success":    # show ok diag to show done
             self.isFirmwareUpdateInProgress = False
@@ -1926,7 +1894,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         '''
         starts the keyboard screen for entering Password
         '''
-        keyBoardobj = keyBoardFunc.Keyboard(onlyNumeric=onlyNumeric, noSpace=noSpace, text=text)
+        keyBoardobj = keyboard.Keyboard(onlyNumeric=onlyNumeric, noSpace=noSpace, text=text)
         self.connect(keyBoardobj, QtCore.SIGNAL('KEYBOARD'), returnFn)
         keyBoardobj.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         keyBoardobj.show()
@@ -1938,7 +1906,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI.Ui_MainWindow):
         os.system('sudo rm -rf /home/pi/.octoprint/users.yaml')
         os.system('sudo cp -f config/dhcpcd.conf /etc/dhcpcd.conf')
         os.system('sudo cp -f config/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf')
-        os.system('sudo cp -f config/config_Julia2018Extended.yaml /home/pi/.octoprint/config.yaml')
+        os.system('sudo cp -f config/config_Julia2018ExtendedTouchUI.yaml /home/pi/.octoprint/config.yaml')
         self.rebootAfterRestore()
 
     def restorePrintDefaults(self):
@@ -2318,7 +2286,7 @@ class QtWebsocket(QtCore.QThread):
                                         'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
                                         'bedActual': data["current"]["temps"][0]["bed"]["actual"],
                                         'bedTarget': data["current"]["temps"][0]["bed"]["target"]}
-                    self.emit(QtCore.SIGNAL('TEMPERATURES'), temperatures)
+                        self.emit(QtCore.SIGNAL('TEMPERATURES'), temperatures)
                 except KeyError:
                     # temperatures = {'tool0Actual': data["current"]["temps"][0]["tool0"]["actual"],
                     #                 'tool0Target': data["current"]["temps"][0]["tool0"]["target"],
