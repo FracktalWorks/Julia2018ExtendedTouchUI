@@ -39,7 +39,6 @@ class Julia2018ExtendedTouchUI(octoprint.plugin.StartupPlugin):
         # self._worker = RepeatedTimer(self.resetInetrval, self.worker)
         # self._worker.start()
 
-
     # def worker(self):
     # 	self._logger.info("Restarting Touch driver ...")
     # 	subprocess.call(["sudo", "modprobe", "-r", "ads7846"], shell=False)
@@ -73,7 +72,7 @@ class Julia2018ExtendedTouchUI(octoprint.plugin.StartupPlugin):
         )
 
 
-__plugin_name__ = "Julia2018ExtendedTouchUI"
+__plugin_name__ = "Julia Extended Touch UI"
 __plugin_version__ = "1.1.0"
 
 

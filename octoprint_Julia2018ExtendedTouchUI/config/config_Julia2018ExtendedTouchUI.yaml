@@ -2,7 +2,7 @@ api:
   enabled: true
   key: B508534ED20348F090B4D0AD637D3660
 appearance:
-  name: Fracktal Works Julia 2018 Extended
+  name: Julia Extended
 devel:
   cache:
     enabled: true
@@ -23,7 +23,7 @@ devel:
       x: 6000
       y: 6000
       z: 200
-    numExtruders: 2
+    numExtruders: 1
     okAfterResend: false
     okWithLinenumber: false
     repetierStyleResends: false
@@ -60,12 +60,8 @@ plugins:
     avrdude_programmer: wiring
     check_after_connect: false
     flash_method: avrdude
-  softwareupdate:
-    _config_version: 6
-    check_providers:
-      Julia2018ExtendedTouchUI: Julia2018ExtendedTouchUI
-      firmwareupdater: firmwareupdater
 printerProfiles:
+  default: _default
   defaultProfile:
     axes:
       e:
@@ -84,17 +80,21 @@ printerProfiles:
     extruder:
       count: 1
       nozzleDiameter: 0.4
+      offsets:
+      - - 0.0
+        - 0.0
+      sharedNozzle: false
     heatedBed: true
     id: _default
-    model: Generic RepRap Printer
-    name: Julia 2018 Extended
+    model: Fracktal Works Julia Series
+    name: Julia Extended
     volume:
       custom_box: false
       depth: 250.0
       formFactor: rectangular
-      height: 250.0
+      height: 305.0
       origin: lowerleft
-      width: 300.0
+      width: 250.0
 serial:
   autoconnect: true
   baudrate: 115200
