@@ -1539,6 +1539,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         '''
         # sent twice for some reason
         self.stackedWidget.setCurrentWidget(self.fullStep1Page)
+        octopiclient.jog(z=10, absolute=True, speed=9000)
         # octopiclient.home(['x', 'y', 'z'])
         self.fullLevelingCount = 0
 
