@@ -173,7 +173,7 @@ QStatusBar::item {
 background-color: rgb(40, 40, 40);</string>
     </property>
     <property name="currentIndex">
-     <number>10</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="loadingPage">
      <widget class="QLabel" name="LoadingLabel">
@@ -209,6 +209,752 @@ background-color: rgb(40, 40, 40);</string>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pgLock">
+     <widget class="QPushButton" name="pgLock_bt6">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>200</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt0">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>260</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt4">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>140</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="passwordlabel_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>65</y>
+        <width>191</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>User Number:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_btBackspace">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>260</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+    border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>templates/img/backspace-arrow.png</normaloff>templates/img/backspace-arrow.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>35</width>
+        <height>35</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_btSubmit">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>260</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-top: none;
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>templates/img/verification-mark.png</normaloff>templates/img/verification-mark.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>35</width>
+        <height>35</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt9">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>260</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	border-top: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>9</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt8">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>200</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>140</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="passwordlabel_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>171</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Machine ID:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="pgLock_pin">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>55</y>
+        <width>241</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;
+background-color: rgb(40, 40, 40);
+selection-color: rgb(40, 40, 40);
+padding-top: 5;
+border: 2px solid white;</string>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="text">
+       <string>*******</string>
+      </property>
+      <property name="maxLength">
+       <number>8</number>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt3">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>140</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt7">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>200</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="passwordlabel_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>110</y>
+        <width>441</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Call 080 3934 5910 for support</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pgLock_HID">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>241</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>XXXX</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>200</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pgLock_bt2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>140</y>
+        <width>120</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Medium</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+     border: 1px solid rgb(87, 87, 87);
+	border-right: none;
+border-bottom: none;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));
+    
+
+}
+
+QPushButton:pressed {
+
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+
+QPushButton:focus {
+	outline: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>2</string>
       </property>
      </widget>
     </widget>
@@ -1610,7 +2356,7 @@ QScrollBar::down-arrow:vertical {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>478</width>
+         <width>398</width>
          <height>630</height>
         </rect>
        </property>
