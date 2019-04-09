@@ -321,7 +321,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
             self.setHomeOffsetBool = False
             self.currentImage = None
             self.currentFile = None
-            self.sanityCheck = ThreadSanityCheck()
+            self.sanityCheck = ThreadSanityCheck(self._logger, virtual=not self.__timelapse_enabled)
             self.sanityCheck.start()
             self.connect(self.sanityCheck, QtCore.SIGNAL('LOADED'), self.proceed)
             self.connect(self.sanityCheck, QtCore.SIGNAL('STARTUP_ERROR'), self.handleStartupError)
