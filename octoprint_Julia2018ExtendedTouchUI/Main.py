@@ -581,11 +581,11 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.pgLock_HID.setText(str(self.__packager.hc()))
         self.pgLock_pin.setText("")
         if not self.__timelapse_enabled:
-            dialog.WarningOk(self, "Machine locked!")
+            # dialog.WarningOk(self, "Machine locked!", overlay=True)
             self.stackedWidget.setCurrentWidget(self.pgLock)
         else:
-            if self.__timelapse_started:
-                dialog.WarningOk(self, "Demo mode!", overlay=True)
+            # if self.__timelapse_started:
+            #     dialog.WarningOk(self, "Demo mode!", overlay=True)
             self.stackedWidget.setCurrentWidget(self.homePage)
 
     def Lock_kbAdd(self, txt):
@@ -604,8 +604,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
             k = int(t)
             if self.__packager.match(k):
                 self.__packager.save(k)
-                self.__timelapse_enabled = True
-                dialog.SuccessOk(self, "Machine unlocked!", overlay=True)
+                # self.__timelapse_enabled = True
+                if dialog.SuccessOk(self, "Machine unlocked!", overlay=True):
+                    self.tellAndReboot()
                 self.stackedWidget.setCurrentWidget(self.homePage)
             else:
                 dialog.WarningOk(self, "Incorrect unlock code")
