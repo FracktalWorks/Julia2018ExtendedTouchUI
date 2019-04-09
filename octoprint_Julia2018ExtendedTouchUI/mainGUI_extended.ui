@@ -173,7 +173,7 @@ QStatusBar::item {
 background-color: rgb(40, 40, 40);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="loadingPage">
      <widget class="QLabel" name="LoadingLabel">
@@ -830,7 +830,7 @@ QPushButton:focus {
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>Call 080 3934 5910 for support</string>
+       <string>Call 080 4709 1810 for support</string>
       </property>
      </widget>
      <widget class="QLabel" name="pgLock_HID">

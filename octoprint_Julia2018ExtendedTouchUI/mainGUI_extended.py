@@ -6982,7 +6982,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(4)
         self.controlTabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -6999,7 +6999,7 @@ class Ui_MainWindow(object):
         self.pgLock_pin.setText(_translate("MainWindow", "*******", None))
         self.pgLock_bt3.setText(_translate("MainWindow", "3", None))
         self.pgLock_bt7.setText(_translate("MainWindow", "7", None))
-        self.passwordlabel_5.setText(_translate("MainWindow", "Call 080 3934 5910 for support", None))
+        self.passwordlabel_5.setText(_translate("MainWindow", "Call 080 4709 1810 for support", None))
         self.pgLock_HID.setText(_translate("MainWindow", "XXXX", None))
         self.pgLock_bt5.setText(_translate("MainWindow", "5", None))
         self.pgLock_bt2.setText(_translate("MainWindow", "2", None))
