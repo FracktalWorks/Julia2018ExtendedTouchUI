@@ -134,12 +134,10 @@ def getIP(interface):
         scan_result = \
             subprocess.Popen("ifconfig | grep " + interface + " -A 1", stdout=subprocess.PIPE, shell=True).communicate()[0]
         # Processing STDOUT into a dictionary that later will be converted to a json file later
-        scan_result = scan_result.split(
-            '\n')  # each ssid and pass from an item in a list ([ssid pass,ssid paas])
-        scan_result = [s.strip() for s in scan_result]
-        # scan_result = [s.strip('"') for s in scan_result]
-        scan_result = filter(None, scan_result)
-        return scan_result[1][scan_result[1].index('inet addr:') + 10: 23]
+        rInetAddr = r"inet addr:\s*([\d.]+)"
+        mtIp = re.search(rInetAddr, scan_result)
+        if mtIp and len(mtIp.groups()) == 1:
+            return str(mtIp.group(1))
     except:
         return None
 
