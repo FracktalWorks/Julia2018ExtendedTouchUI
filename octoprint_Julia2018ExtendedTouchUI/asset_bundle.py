@@ -91,7 +91,8 @@ class AssetBundle:
 
     def time_delta(self):
         delta = datetime.now() - self.read_time()
-        return delta.seconds > 30
+        # return delta.seconds > 30
+        return (delta.total_seconds() / 3600) >= 12
 
 
 if __name__ == "__main__":
