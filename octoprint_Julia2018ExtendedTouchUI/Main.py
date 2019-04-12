@@ -1881,7 +1881,7 @@ class ThreadSanityCheck(QtCore.QThread):
                 uptime = uptime + 1
                 # print "Not Connected!"
                 print(e.message)
-                self._logger.error("ThreadSanityCheck: " + e.message)
+                self._logger.error("ThreadSanityCheck: " + str(e.message))
         if not shutdown_flag:
             self.emit(QtCore.SIGNAL('LOADED'))
 
