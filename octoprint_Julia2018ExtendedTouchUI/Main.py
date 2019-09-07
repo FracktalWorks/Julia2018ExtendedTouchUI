@@ -40,6 +40,9 @@ import logging
 
 import RPi.GPIO as GPIO
 
+    #Update
+from collections import OrderedDict
+
 
 GPIO.setmode(GPIO.BCM)  # Use the board numbering scheme
 GPIO.setwarnings(False)  # Disable GPIO warnings
@@ -89,17 +92,24 @@ apiKey = 'B508534ED20348F090B4D0AD637D3660'
 
 file_name = ''
 Development = True
-filaments = {"ABS": 220,
-             "PLA": 200,
-             "NinjaFlex": 220,
-             "PolyCarbonate": 280,
-             "XT-Copolymer": 240,
-             "FilaFlex": 210,
-             "Nylon": 240,
-             "Scaffold": 210,
-             "WoodFill": 200,
-             "CopperFill": 180
-             }
+    #Update
+
+
+filaments = [
+                ("PLA", 200),
+                ("ABS", 220),
+                ("PETG", 230),
+                ("PVA", 220),
+                ("TPU", 230),
+                ("Nylon", 250),
+                ("PolyCarbonate", 275),
+                ("HIPS", 220),
+                ("WoodFill", 200),
+                ("CopperFill", 180),
+                ("Breakaway", 230)
+]
+
+filaments = OrderedDict(filaments)
 
 calibrationPosition = {'X1': 193, 'Y1': 31,
                        'X2': 48, 'Y2': 31,
@@ -483,8 +493,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.setFlowRateButton.pressed.connect(lambda: octopiclient.flowrate(self.flowRateSpinBox.value()))
         self.setFeedRateButton.pressed.connect(lambda: octopiclient.feedrate(self.feedRateSpinBox.value()))
 
-        self.moveZPBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z0.025'))
-        self.moveZMBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z-0.025'))
 
         # ChangeFilament rutien
         self.changeFilamentButton.pressed.connect(self.changeFilament)
@@ -689,10 +697,11 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         if 'pause_print' in data:
             pause_print = data["pause_print"]
 
-        if triggered_extruder0:
+        if triggered_extruder0 and self.stackedWidget.currentWidget() not in [self.changeFilamentPage, self.changeFilamentProgressPage,
+                                  self.changeFilamentExtrudePage, self.changeFilamentRetractPage]:
             if dialog.WarningOk(self, "Filament outage in Extruder 0"):
                 pass
-
+        #Update
         if triggered_door:
             if self.printerStatusText == "Printing":
                 no_pause_pages = [self.controlPage, self.changeFilamentPage, self.changeFilamentProgressPage,
@@ -1118,8 +1127,11 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
     ''' +++++++++++++++++++++++++++++++++Change Filament+++++++++++++++++++++++++++++++ '''
 
     def unloadFilament(self):
-        octopiclient.setToolTemperature(
-            filaments[str(self.changeFilamentComboBox.currentText())])
+
+        #Update
+        if self.changeFilamentComboBox.findText("Loaded Filament") == -1:
+            octopiclient.setToolTemperature(
+                filaments[str(self.changeFilamentComboBox.currentText())])
         self.stackedWidget.setCurrentWidget(self.changeFilamentProgressPage)
         self.changeFilamentStatus.setText("Heating , Please Wait...")
         self.changeFilamentNameOperation.setText("Unloading {}".format(str(self.changeFilamentComboBox.currentText())))
@@ -1128,8 +1140,10 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.loadFlag = False
 
     def loadFilament(self):
-        octopiclient.setToolTemperature(
-            filaments[str(self.changeFilamentComboBox.currentText())])
+        #Update
+        if self.changeFilamentComboBox.findText("Loaded Filament") == -1:
+            octopiclient.setToolTemperature(
+                filaments[str(self.changeFilamentComboBox.currentText())])
         self.stackedWidget.setCurrentWidget(self.changeFilamentProgressPage)
         self.changeFilamentStatus.setText("Heating , Please Wait...")
         self.changeFilamentNameOperation.setText("Loading {}".format(str(self.changeFilamentComboBox.currentText())))
@@ -1141,6 +1155,14 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.changeFilamentPage)
         self.changeFilamentComboBox.clear()
         self.changeFilamentComboBox.addItems(filaments.keys())
+        #Update
+        if self.tool0TargetTemperature > 0 and self.printerStatusText in ["Printing","Paused"]:
+            self.changeFilamentComboBox.addItem("Loaded Filament")
+            index = self.changeFilamentComboBox.findText("Loaded Filament")
+            if index >= 0 :
+                self.changeFilamentComboBox.setCurrentIndex(index)
+
+
 
     def changeFilamentCancel(self):
         self.changeFilamentHeatingFlag = False
@@ -1528,7 +1550,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         Sets the home offset after the calibration wizard is done, which is a callback to
         the response of M114 that is sent at the end of the Wizard in doneStep()
         :param offset: the value off the offset to set. is a str is coming from M114, and is float if coming from the nozzleOffsetPage
-        :param setOffset: Boolean, is true if the function call is from the nozzleOFfsetPage
+        :param setOffset: Boolean, is true if the function call is from the nozzleOffsetPage, else the current Z value sets the offset
         :return:
 
         #TODO can make this simpler, asset the offset value to string float to begin with instead of doing confitionals
@@ -1699,7 +1721,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
             return True
         return False
 
-    def handleStartupError(self):
+cd     def handleStartupError(self):
         print('Shutting Down. Unable to connect')
         if dialog.WarningOk(self, "Error. Contact Support. Shutting down...", overlay=True):
             os.system('sudo shutdown now')
@@ -1769,6 +1791,9 @@ class QtWebsocket(QtCore.QThread):
         if "event" in data:
             if data["event"]["type"] == "Connected":
                 self.emit(QtCore.SIGNAL('CONNECTED'))
+
+
+
         if "plugin" in data:
             if data["plugin"]["plugin"] == 'Julia2018FilamentSensor':
                 self.emit(QtCore.SIGNAL('FILAMENT_SENSOR_TRIGGERED'), data["plugin"]["data"])
@@ -1790,11 +1815,11 @@ class QtWebsocket(QtCore.QThread):
 
             if data["current"]["messages"]:
                 for item in data["current"]["messages"]:
-                    if 'M206' in item:
+                    if 'M206' in item: #response to M503, send current Z offset value
                         self.emit(QtCore.SIGNAL('Z_HOME_OFFSET'), item[item.index('Z') + 1:].split(' ', 1)[0])
-                    if 'Count' in item:  # can get thris throught the positionUpdate event
-                        self.emit(QtCore.SIGNAL('SET_Z_HOME_OFFSET'), item[item.index('Z') + 2:].split(' ', 1)[0],
-                                  False)
+                    # if 'Count' in item:  # gets the current Z value, uses it to set Z offset
+                    #     self.emit(QtCore.SIGNAL('SET_Z_HOME_OFFSET'), item[item.index('Z') + 2:].split(' ', 1)[0],
+                    #               False)
 
             if data["current"]["state"]["text"]:
                 self.emit(QtCore.SIGNAL('STATUS'), data["current"]["state"]["text"])
