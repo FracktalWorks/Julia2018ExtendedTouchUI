@@ -697,7 +697,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         if 'pause_print' in data:
             pause_print = data["pause_print"]
 
-        # Update
+        #Update
         if triggered_extruder0 and self.stackedWidget.currentWidget() not in [self.changeFilamentPage, self.changeFilamentProgressPage,
                                   self.changeFilamentExtrudePage, self.changeFilamentRetractPage]:
             if dialog.WarningOk(self, "Filament outage in Extruder 0"):
@@ -1128,7 +1128,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
     ''' +++++++++++++++++++++++++++++++++Change Filament+++++++++++++++++++++++++++++++ '''
 
     def unloadFilament(self):
-
         #Update
         if self.changeFilamentComboBox.findText("Loaded Filament") == -1:
             octopiclient.setToolTemperature(
