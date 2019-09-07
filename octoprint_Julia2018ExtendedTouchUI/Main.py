@@ -697,11 +697,12 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         if 'pause_print' in data:
             pause_print = data["pause_print"]
 
+        # Update
         if triggered_extruder0 and self.stackedWidget.currentWidget() not in [self.changeFilamentPage, self.changeFilamentProgressPage,
                                   self.changeFilamentExtrudePage, self.changeFilamentRetractPage]:
             if dialog.WarningOk(self, "Filament outage in Extruder 0"):
                 pass
-        #Update
+
         if triggered_door:
             if self.printerStatusText == "Printing":
                 no_pause_pages = [self.controlPage, self.changeFilamentPage, self.changeFilamentProgressPage,
@@ -1721,7 +1722,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
             return True
         return False
 
-cd     def handleStartupError(self):
+    def handleStartupError(self):
         print('Shutting Down. Unable to connect')
         if dialog.WarningOk(self, "Error. Contact Support. Shutting down...", overlay=True):
             os.system('sudo shutdown now')
