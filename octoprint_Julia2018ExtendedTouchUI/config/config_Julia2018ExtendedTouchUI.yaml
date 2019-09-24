@@ -1,3 +1,5 @@
+accessControl:
+  enabled: false
 api:
   enabled: true
   key: B508534ED20348F090B4D0AD637D3660
@@ -60,6 +62,18 @@ plugins:
     avrdude_programmer: wiring
     check_after_connect: false
     flash_method: avrdude
+  Julia2018FilamentSensor:
+    _config_version: 2
+    contact_door: '0'
+    contact_extruder0: '0'
+    contact_extruder1: '0'
+    enabled_door: '0'
+    enabled_extruder0: '1'
+    enabled_extruder1: '0'
+    pause_print: '1'
+  Julia2018PrintRestore:
+    _config_version: 2
+    enableBabystep: true
 printerProfiles:
   default: _default
   defaultProfile:
@@ -104,8 +118,10 @@ server:
     serverRestartCommand: sudo service octoprint restart
     systemRestartCommand: sudo reboot now
     systemShutdownCommand: sudo shutdown now
-  firstRun: true
+  firstRun: false
   host: 127.0.0.1
+  onlineCheck:
+    enabled: false
   pluginBlacklist:
     enabled: false
   secretKey: 1QM9QG2FnNY6AvLbTZWZ8k6N5L1qKzqk
