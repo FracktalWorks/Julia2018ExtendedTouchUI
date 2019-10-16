@@ -494,6 +494,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.setFlowRateButton.pressed.connect(lambda: octopiclient.flowrate(self.flowRateSpinBox.value()))
         self.setFeedRateButton.pressed.connect(lambda: octopiclient.feedrate(self.feedRateSpinBox.value()))
 
+        self.moveZPBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z0.025'))
+        self.moveZMBabyStep.pressed.connect(lambda: octopiclient.gcode(command='M290 Z-0.025'))
+
 
         # ChangeFilament rutien
         self.changeFilamentButton.pressed.connect(self.changeFilament)
