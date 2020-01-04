@@ -12,8 +12,8 @@ Touch UI for Julia 2018
 3. Websocket client ( pip install websocket-client )
 4. other dependencies that "Main.py" needs (see it's headers)
 
-The MainGUI.py file is generated from the Test2.ui file using
- ```pyuic4 .\Test2.ui -o .\mainGUI.py```
+The MainGUI.py file is generated from the mainGUI_extended.ui file using
+ ```pyuic4 .\mainGUI_extended.ui -o .\mainGUI_extended.py```
 
 
 

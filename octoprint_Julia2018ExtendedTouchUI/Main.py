@@ -360,6 +360,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.pgLock)
         self.Lock_showLock()
         self.isFilamentSensorInstalled()
+        self.setIPStatus()
 
     def setActions(self):
 
@@ -929,6 +930,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
             self.wifiMessageBox.setLocalIcon('success.png')
             self.wifiMessageBox.setText('Connected, IP: ' + x)
             self.wifiMessageBox.setStandardButtons(QtGui.QMessageBox.Ok)
+            self.ipStatus.setText(x) #sets the IP addr. in the status bar
+
         else:
             self.wifiMessageBox.setText("Not able to connect to WiFi")
 
@@ -939,6 +942,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         self.hostname.setText(getHostname())
         self.wifiAp.setText(getWifiAp())
         self.wifiIp.setText("Not connected" if not ipWifi else ipWifi)
+        self.ipStatus.setText("Not connected" if not ipWifi else ipWifi)
         self.lanIp.setText("Not connected" if not ipEth else ipEth)
         self.wifiMac.setText(getMac(ThreadRestartNetworking.WLAN))
         self.lanMac.setText(getMac(ThreadRestartNetworking.ETH))
@@ -964,6 +968,25 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
         scan_result = [s.strip('"') for s in scan_result]
         scan_result = filter(None, scan_result)
         return scan_result
+
+    @run_async
+    def setIPStatus(self):
+        '''
+        Function to update IP address of printer on the status bar. Refreshes at a particular interval.
+        '''
+        while(True):
+            try:
+                if getIP("eth0"):
+                    self.ipStatus.setText(getIP("eth0"))
+                elif getIP("wlan0"):
+                    self.ipStatus.setText(getIP("wlan0"))
+                else:
+                    self.ipStatus.setText("Not connected")
+
+            except:
+                self.ipStatus.setText("Not connected")
+            time.sleep(60)
+
 
     ''' +++++++++++++++++++++++++++++++++Ethernet Settings+++++++++++++++++++++++++++++ '''
 
@@ -1704,6 +1727,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_extended.Ui_MainWindow):
             os.system('sudo rm -rf /home/pi/.octoprint/printerProfiles/*')
             os.system('sudo rm -rf /home/pi/.octoprint/scripts/gcode')
             os.system('sudo cp -f config/config_Julia2018ExtendedTouchUI.yaml /home/pi/.octoprint/config.yaml')
+            os.system('sudo rm -rf /home/pi/.fw_logo.dat')
             self.tellAndReboot("Settings restored. Rebooting...")
 
     def restorePrintDefaults(self):

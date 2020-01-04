@@ -173,7 +173,7 @@ QStatusBar::item {
 background-color: rgb(40, 40, 40);</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="loadingPage">
      <widget class="QLabel" name="LoadingLabel">
@@ -1535,9 +1535,9 @@ background-color: rgba(255, 255, 255, 0);</string>
      <widget class="QLabel" name="printerStatus">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>0</y>
-        <width>441</width>
+        <x>39</x>
+        <y>-2</y>
+        <width>382</width>
         <height>51</height>
        </rect>
       </property>
@@ -1882,6 +1882,42 @@ background-color: rgba(255, 255, 255, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QLabel" name="ipStatus">
+      <property name="geometry">
+       <rect>
+        <x>357</x>
+        <y>0</y>
+        <width>122</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham</family>
+        <pointsize>9</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+background-color: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string>Not Connected</string>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>line</zorder>
      <zorder>printPreviewMain</zorder>
      <zorder>statusBar</zorder>
@@ -1908,6 +1944,7 @@ background-color: rgba(255, 255, 255, 0);</string>
      <zorder>bedActualTemperatute</zorder>
      <zorder>bedTargetTemperature</zorder>
      <zorder>bedLabel</zorder>
+     <zorder>ipStatus</zorder>
     </widget>
     <widget class="QWidget" name="MenuPage">
      <widget class="QPushButton" name="menuBackButton">
@@ -4380,7 +4417,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <property name="font">
        <font>
         <family>Gotham Light</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -4430,7 +4467,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <property name="font">
        <font>
         <family>Gotham Light</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -4480,7 +4517,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <property name="font">
        <font>
         <family>Gotham Light</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -4623,7 +4660,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <property name="font">
        <font>
         <family>Gotham Light</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -4648,7 +4685,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <property name="font">
        <font>
         <family>Gotham Light</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -4698,7 +4735,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <property name="font">
        <font>
         <family>Gotham Light</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
