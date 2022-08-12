@@ -97,17 +97,17 @@ Development = True
 
 
 filaments = [
-                ("PLA", 200),
-                ("ABS", 220),
-                ("PETG", 230),
-                ("PVA", 220),
-                ("TPU", 230),
+                ("PLA", 220),
+                ("ABS", 240),
+                ("PETG", 240),
+                ("PVA", 230),
+                ("TPU", 240),
                 ("Nylon", 250),
-                ("PolyCarbonate", 275),
-                ("HIPS", 220),
-                ("WoodFill", 200),
-                ("CopperFill", 180),
-                ("Breakaway", 230)
+                ("PolyCarbonate", 265),
+                ("HIPS", 240),
+                ("WoodFill", 220),
+                ("CopperFill", 200),
+                ("Breakaway", 240)
 ]
 
 filaments = OrderedDict(filaments)
