@@ -1922,7 +1922,7 @@ class ThreadSanityCheck(QtCore.QThread):
                     result = result.split('\n')  # each ssid and pass from an item in a list ([ssid pass,ssid paas])
                     result = [s.strip() for s in result]
                     for line in result:
-                         if 'ch34-uart' in line:
+                         if 'ch341-uart' in line:
                             self.MKSPort = line[line.index('ttyUSB'):line.index('ttyUSB') + 7]
                             print self.MKSPort
                          elif 'FTDI' in line:
